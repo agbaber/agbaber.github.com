@@ -5,7 +5,7 @@ task :compile do
   `nanoc compile`
 end
 
-desc "Publish to http://developer.github.com"
+desc "Publish to http://agbaber.github.com"
 task :publish => [:clean] do
   FileUtils.rm_r('output') if File.exist?('output')
 
