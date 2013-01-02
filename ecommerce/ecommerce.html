@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>LevelUp API Documentation</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Le styles -->
+    <link href="../css/bootstrap.css" rel="stylesheet">
+    <style type="text/css">
+      body {
+        padding-top: 20px;
+        padding-bottom: 40px;
+      }
+      .sidebar-nav {
+        padding: 9px 0;
+      }
+    </style>
+    <link href="./css/bootstrap-responsive.css" rel="stylesheet">
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Fav and touch icons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://twitter.github.com/bootstrap/assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://twitter.github.com/bootstrap/assets/ico/apple-touch-icon-114-precomposed.png">
+      <link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://twitter.github.com/bootstrap/assets/ico/apple-touch-icon-72-precomposed.png">
+                    <link rel="apple-touch-icon-precomposed" href="http://twitter.github.com/bootstrap/assets/ico/apple-touch-icon-57-precomposed.png">
+                                   <link rel="shortcut icon" href="http://twitter.github.com/bootstrap/assets/ico/favicon.png">
+  </head>
+
+  <body>
+
+    <div class="container-fluid">
+      <div class="row-fluid">
+        <div class="span3">
+          <div class="well sidebar-nav">
+            <ul class="nav nav-list">
+              <li class="nav-header">LevelUp API</li>
+              <li><a href="../index.html">Home & FAQ</a></li>
+              <li><a href="../uexperience/uexperience.html">User Experience</a></li>
+              <li><a href="../mexperience/mexperience.html">Merchant Experience</a></li>
+              <li><a href="../n00b/n00b.html">Don't Be A N00b</a></li>
+              <li class="nav-header">Authentication</li>
+              <li><a href="../oauth/oauth.html">OAuth</a></li>
+              <li><a href="../midlid/midlid.html">Merchant ID and Location ID</a></li>
+              <li class="nav-header">Payments</li>
+              <li><a href="../scanning/scanning.html">Scanning QR Codes</a></li>
+              <li><a href="../scanner/scanner.html">LevelUp Scanner</a></li>
+              <li><a href="../orders/orders.html">Placing Orders</a></li>
+              <li><a href="../refunds/refunds.html">Issuing Refunds</a></li>
+              <li class="nav-header">E-Commerce</li>
+              <li class="active"><a href="../ecommerce/ecommerce.html">Overview</a></li>
+                          </ul>
+          </div><!--/.well -->
+        </div><!--/span-->
+        <div class="span9">
+          <div class="hero-unit">
+		<h2 id="overview-of-integrating-levelup-into-e-commerce-sites">Overview of Integrating LevelUp Into E-Commerce Sites</h2>
+
+		<p>LevelUp is the most popular mobile payment network in the States, but it doesn’t have to be limited to just letting your customers pay with their phones at a physical location. It works just as well online.</p>
+
+		<p>LevelUp is proud to offer the first ever “zero click” payment method for e-commerce. Simply click pay with LevelUp, scan your LevelUp code and voila, payment complete. Zero typing. No PCI-scoped data passing through your servers. Fast, convenient and secure.</p>
+
+		<p>Try out a demo at <a href="http://www.justonechinchilla.com">http://www.justonechinchilla.com</a> and read about how to add it to your e-commerce solution below.</p>
+
+		<p><em>(Note: We’re working on a fall-back option for consumers without webcams where they can just log in with LevelUp to pay, but that’s way less cool.)</em></p>
+
+		<h3 id="integration-workflow">Integration Workflow</h3>
+		<ul>
+		<li>Update your page to include the necessary Javascript code.</li>
+		  <li>Add an action to your backend to process a payment request (a POST)</li>
+		  <li>Step through the Merchant Workflow, as documented in the Transaction API Documentation:</li>
+		  <li>Request an authentication token (POST)</li>
+		  <li>Create a new order (POST) given the scanned QR code</li>
+		</ul><p><strong>1. Include the Web Payments JavaScript on your web page.</strong></p>
+
+		<p>Insert the following two lines in your &lt;head&gt; tag, or wherever else you keep your JavaScripts.
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script><script type="text/javascript" src="https://levelup-web-payments.herokuapp.com/assets/api.js"></script>
+		You can use another recent version of jQuery if you prefer—we should be compatible with most. We plan to remove the requirement for jQuery in a future release.
+		Also note that this client-side API is still in beta, and as such, it isn’t yet fully isolated from the surrounding page. </p>
+
+		<p><strong>2. Include a LevelUp scanner button in your payment form.</strong></p>
+
+		<p>Insert the following line of code somewhere in a &lt;form&gt; tag: </p>
+
+		<pre><code>&lt;div id="levelup-web-payments-container" data-input-name="levelup_code"&gt;&lt;noscript&gt;Your web browser must support JavaScript to use LevelUp Web Payments!&lt;/noscript&gt;&lt;/div&gt;
+		</code></pre>
+
+		<p>This will automatically be replaced with a scanner button.</p>
+
+		<p><strong>3. (Optional) Hook up a notification for when the code is scanned.</strong></p>
+
+		<p>If you need to show or hide other form elements after the LevelUp code is scanned, you can install a callback as follows using jQuery:</p>
+
+		<pre><code>$(function () {
+		levelupWebPayments.qrCodeRecognized(function (containerElem) {
+		    // Run your code here.
+		}); });
+		</code></pre>
+
+		<p><strong>4. When the form is submitted, use the LevelUp API to submit a transaction.</strong></p>
+
+		<p>To do this, you will need to get OAuth2 password token authentication working, as documented in the Transaction API documentation. You will also need to ask your OAuth2 library for a copy of your session token, and convert to a string. (Ruby sample code is available below. Unfortunately, the details of this step are highly specific to your environment and OAuth2 library.)</p>
+
+		<p>Once that is done, POST a new transaction as follows:</p>
+
+		<p><strong>URL:</strong> <code>https://api.thelevelup.com/v13/merchants/MERCHANT_ID/orders.json</code>
+		<strong>Authentication:</strong> This call must be made through your OAuth2 library once you’re authenticated.</p>
+
+		<h3 id="parameters">Parameters</h3>
+
+		<dl>
+		<dt>order[qr_code_data]</dt>
+		  <dd>
+		<em>Required</em> - The QR code data from the hidden “levelup_code” <code>&lt;input&gt;</code> element in your form.</dd>
+		  <dt>order[spend]</dt>
+		  <dd>
+		<em>Required</em> - A string of the form “15.99”, representing the purchase price in dollars.</dd>
+		  <dt>access_token</dt>
+		  <dd>
+		<em>Required</em> - A copy of OAuth2 access token from your OAuth2 library, passed as string.</dd>
+		</dl><p><strong>Sample Code (in Ruby, using the popular oauth2 gem):</strong></p>
+
+		<pre><code>API_URL = 'https://api.thelevelup.com/v13'
+
+		def create
+		# Authorize with the server using OAuth2.
+		client = OAuth2::Client.new(LEVELUP_CLIENT_ID, '',
+		                            token_url: '/oauth/access_token', site: API_URL)
+		token = client.password.get_token(LEVELUP_MERCHANT_USER,
+		                                  LEVELUP_MERCHANT_PASSWORD)
+
+		# Place the order.
+		spend = '0.05'
+		qr_code = params[:levelup_code]
+		levelup_params = {
+		  'order[qr_code_data]' =&gt; qr_code,
+		  'order[spend]' =&gt; spend,
+		  # We need to pass the access token again here.
+		  'access_token' =&gt; token.token.to_s
+		}
+		response = token.post("/merchants/#{LEVELUP_MERCHANT_ID}/orders.json",
+		                      params: levelup_params)
+
+		# Record the order in the database.
+		order = response.parsed['order']
+		Order.create!(spend: spend, levelup_order_id: order['id'])
+
+		# Show the thank you page.
+		redirect_to action: 'thanks'
+
+		rescue OAuth2::Error =&gt; e
+		# Display an error to the user.
+		flash[:oauth_error] = "Error: #{e.code}"
+		redirect_to action: 'oops'
+		end
+		</code></pre>
+
+		<p>And that should be it! Now your customers can pay with their phones and enjoy all the benefits of LevelUp… on the web!</p>
+
+      </div>
+            </div><!--/span-->
+          </div><!--/row-->
+        </div><!--/span-->
+      </div><!--/row-->
+
+      <hr>
+
+      <footer>
+        <p>© LevelUp 2012</p>
+      </footer>
+
+    </div><!--/.fluid-container-->
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src=".js2/jquery.js"></script>
+    <script src=".js2/bootstrap-transition.js"></script>
+    <script src=".js2/bootstrap-alert.js"></script>
+    <script src=".js2/bootstrap-modal.js"></script>
+    <script src=".js2/bootstrap-dropdown.js"></script>
+    <script src=".js2/bootstrap-scrollspy.js"></script>
+    <script src=".js2/bootstrap-tab.js"></script>
+    <script src=".js2/bootstrap-tooltip.js"></script>
+    <script src=".js2/bootstrap-popover.js"></script>
+    <script src=".js2/bootstrap-button.js"></script>
+    <script src=".js2/bootstrap-collapse.js"></script>
+    <script src=".js2/bootstrap-carousel.js"></script>
+    <script src=".js2/bootstrap-typeahead.js"></script>
+
+  
+
+</body></html>

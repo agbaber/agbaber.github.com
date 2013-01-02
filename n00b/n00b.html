@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>LevelUp API Documentation</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Le styles -->
+    <link href="../css/bootstrap.css" rel="stylesheet">
+    <style type="text/css">
+      body {
+        padding-top: 20px;
+        padding-bottom: 40px;
+      }
+      .sidebar-nav {
+        padding: 9px 0;
+      }
+    </style>
+    <link href="./css/bootstrap-responsive.css" rel="stylesheet">
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Fav and touch icons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://twitter.github.com/bootstrap/assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://twitter.github.com/bootstrap/assets/ico/apple-touch-icon-114-precomposed.png">
+      <link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://twitter.github.com/bootstrap/assets/ico/apple-touch-icon-72-precomposed.png">
+                    <link rel="apple-touch-icon-precomposed" href="http://twitter.github.com/bootstrap/assets/ico/apple-touch-icon-57-precomposed.png">
+                                   <link rel="shortcut icon" href="http://twitter.github.com/bootstrap/assets/ico/favicon.png">
+  </head>
+
+  <body>
+
+    <div class="container-fluid">
+      <div class="row-fluid">
+        <div class="span3">
+          <div class="well sidebar-nav">
+            <ul class="nav nav-list">
+              <li class="nav-header">LevelUp API</li>
+              <li><a href="../index.html">Home & FAQ</a></li>
+              <li><a href="../uexperience/uexperience.html">User Experience</a></li>
+              <li><a href="../mexperience/mexperience.html">Merchant Experience</a></li>
+              <li class="active"><a href="../n00b/n00b.html">Don't Be A N00b</a></li>
+              <li class="nav-header">Authentication</li>
+              <li><a href="../oauth/oauth.html">OAuth</a></li>
+              <li><a href="../midlid/midlid.html">Merchant ID and Location ID</a></li>
+              <li class="nav-header">Payments</li>
+              <li><a href="../scanning/scanning.html">Scanning QR Codes</a></li>
+              <li><a href="../scanner/scanner.html">LevelUp Scanner</a></li>
+              <li><a href="../orders/orders.html">Placing Orders</a></li>
+              <li><a href="../refunds/refunds.html">Issuing Refunds</a></li>
+              <li class="nav-header">E-Commerce</li>
+              <li><a href="../ecommerce/ecommerce.html">Overview</a></li>
+
+                          </ul>
+          </div><!--/.well -->
+        </div><!--/span-->
+        <div class="span9">
+          <div class="hero-unit">
+			    <h1 id="dont-be-a-n00b">Don’t Be A N00b</h1><br>
+
+			<p>While the LevelUp integration process is a fairly simple one, there are a few key mistakes that you want to make sure you DON’T make.</p>
+
+			<p><strong>DO NOT:</strong></p>
+
+			<ul>
+			<li>Permanently store the merchant's LevelUp login credentials</li>
+			  <li>Allow the <code>location_id</code> or <code>merchant_id</code> to be entered manually</li>
+			  <li>Print paper receipts</li>
+			</ul><p><strong>DO:</strong></p>
+
+			<ul>
+			<li>Store a <code>access_token</code>, <code>location_id</code> and <code>merchant_id</code> for use with all orders</li>
+			  <li>Get <code>merchant_id</code> and <code>location_id</code>(s) via the <code>users/:id.json</code> endpoint</li>
+			  <li>Send SKU data with orders</li>
+			<li>Cache the QR code so the customer can scan at any time</li>
+			</ul>
+			      </div>
+            </div><!--/span-->
+          </div><!--/row-->
+        </div><!--/span-->
+      </div><!--/row-->
+
+      <hr>
+
+      <footer>
+        <p>© LevelUp 2012</p>
+      </footer>
+
+    </div><!--/.fluid-container-->
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src=".js2/jquery.js"></script>
+    <script src=".js2/bootstrap-transition.js"></script>
+    <script src=".js2/bootstrap-alert.js"></script>
+    <script src=".js2/bootstrap-modal.js"></script>
+    <script src=".js2/bootstrap-dropdown.js"></script>
+    <script src=".js2/bootstrap-scrollspy.js"></script>
+    <script src=".js2/bootstrap-tab.js"></script>
+    <script src=".js2/bootstrap-tooltip.js"></script>
+    <script src=".js2/bootstrap-popover.js"></script>
+    <script src=".js2/bootstrap-button.js"></script>
+    <script src=".js2/bootstrap-collapse.js"></script>
+    <script src=".js2/bootstrap-carousel.js"></script>
+    <script src=".js2/bootstrap-typeahead.js"></script>
+
+  
+
+</body></html>
