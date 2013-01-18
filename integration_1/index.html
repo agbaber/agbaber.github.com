@@ -1,0 +1,408 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+        <title>LevelUp API Documentation - OAuth | LevelUp API</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap.css" media="screen">
+	<link rel="icon" 
+	      type="image/png" 
+	      href="../favicon.ico">
+    <!-- you don't need to keep this, but it's cool for stats! -->
+    <!-- Le styles -->
+    <link href="/css/bootstrap.css" rel="stylesheet">
+    <style type="text/css">
+      body {
+        padding-top: 20px;
+        padding-bottom: 40px;
+      }
+      .sidebar-nav {
+        padding: 9px 0;
+      }
+    </style>
+    <link href="/css/bootstrap-responsive.css" rel="stylesheet">
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Fav and touch icons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://twitter.github.com/bootstrap/assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://twitter.github.com/bootstrap/assets/ico/apple-touch-icon-114-precomposed.png">
+      <link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://twitter.github.com/bootstrap/assets/ico/apple-touch-icon-72-precomposed.png">
+                    <link rel="apple-touch-icon-precomposed" href="http://twitter.github.com/bootstrap/assets/ico/apple-touch-icon-57-precomposed.png">
+                                   <link rel="shortcut icon" href="../img/favicon.ico">  </head>
+  <body>
+    <div class="container-fluid">
+      <div class="row-fluid">
+        <div class="span3">
+          <div class="well sidebar-nav">
+            <ul class="nav nav-list">
+              <li class="nav-header">LevelUp API Overview</li>
+              <li><a href="../index.html">Overview of LevelUp</a></li>
+              <li><a href="/use_cases/index.html">Use Cases</a></li>
+              <li class="nav-header">Full API Documentation</li>
+              <li><a href="/endpoints/index.html">Endpoints</a></li>
+              <li class="nav-header">POS Integration</li>
+              <li><a href="/integration_overview/index.html">Overview</a></li>
+              <li><a href="/integration_1/index.html">Step 1 - Authentication</a></li>
+              <li><a href="/integration_2/index.html">Step 2 - Orders & Refunds</a></li>
+              <li><a href="/integration_3/index.html">Step 3 - Analytics and Testing</a></li>
+              <li><a href="/dodont/index.html">Do's and Dont's</a></li>
+              <li><a href="/scanner/index.html">LevelUp Scanner</a></li>
+              <li><a href="/orders/index.html">Order Process</a></li>
+              <li><a href="/integration_apis/index.html">Selected POS Integration APIs</a></li>
+              <li class="nav-header">White Label Apps on Levelup</li>
+              <li><a href="/whitelabel_overview/index.html">Overview (Coming Soon)</a></li>
+              <li class="nav-header">Web Ordering</li>
+              <li><a href="/web_overview/index.html">Overview</a></li>
+              <li><a href="/web_1/index.html">Step 1 - Web Payments JavaScript</a></li>
+              <li><a href="/web_2/index.html">Step 2 - LevelUp Scanner Button</a></li>
+              <li><a href="/web_3/index.html">Step 3 - (Optional) Notification</a></li>
+              <li><a href="/web_4/index.html">Step 4 - Complete Transaction</a></li>
+              <li><a href="/web_apis/index.html">Selected Web Ordering APIs</a></li>
+              <li class="nav-header">Browsing Places</li>
+              <li><a href="/browsing_overview/index.html">Overview</a></li>
+              <li><a href="/browsing_1/index.html">Step 1 - Listing Merchants</a></li>
+              <li><a href="/browsing_2/index.html">Step 2 - Listing Location</a></li>
+              <li><a href="/browsing_3/index.html">Step 3 - Specific Information</a></li>
+              <li><a href="/browsing_4/index.html">Selected Browsing APIs</a></li>
+
+
+
+                          </ul>
+          </div><!--/.well -->
+        </div><!--/span-->
+        <div class="span9">
+          <div class="hero-unit">
+    <h1 id="integration-configuration">Integration Configuration</h1>
+
+<p>The setup process for a LevelUp merchant should be a simple and straightforward process.  The merchant should be prompted for their LevelUp email/username and password in order to set up account.  This information should not be stored on the system and should only be used to obtain their access token, merchant ID and location IDs.</p>
+
+<p>Here is an example step-by-step scenario:</p>
+
+<ul>
+  <li>LevelUp integration is installed/activated on the POS</li>
+  <li>Merchant enters their credentials in the Admin or Back of House settings panel and a call is made to the <code>users/:id.json</code> endpoint to retrieve merchant ID and associated location IDs</li>
+  <li>Merchant selects their current Location from the list</li>
+  <li>The access token, merchant ID and location ID is stored on the system and sent with every future request</li>
+</ul>
+
+<p>(Note: the access token will not change if the merchant changes their password.  The only way an access token will become invalid is if the merchant manually de-authenticates it in the LevelUp Admin Panel.  Never store a merchant&rsquo;s username or password but be prepared to prompt them for it if you get an &ldquo;invalid token&rdquo; error.)</p>
+
+<h1 id="authentication-oauth">Authentication (OAuth)</h1>
+
+<p>Nearly all LevelUp API requests require an <code>access_token</code>.  This token should be stored in place of user credentials and can be used indefinitely (unless manually de-authenticated by the merchant or by LevelUp).</p>
+
+<p>This endpoint is used to obtain an OAuth 2.0 access token using the <a href="http://tools.ietf.org/html/draft-ietf-oauth-v2-11#section-2.3">Native Application client profile</a>, and this token is subsequently use to authenticate the test of the LevelUp API calls.  (Note that LevelUp uses the <a href="http://tools.ietf.org/html/draft-ietf-oauth-v2-11#section-5.1.2">OAuth 2.0 draft specification v11</a>.)</p>
+
+<p>For endpoints that require authorization, the token obtained from <code>/oauth/access_tokens.json</code> should be presented as per the OAuth 2.0 bearer protocol.  The client includes either an <code>access_token</code> GET query string parameter or an <code>access_token</code> POST form parameter.  The server does not currently support the authorized request header.</p>
+
+<p>Once an <code>access_token</code> has been acquired, it should be sent as a parameter on all requests.</p>
+
+<p>Authentication Required: NO</p>
+
+<p>Method: POST</p>
+
+<h2 id="obtain-access-token">Obtain Access Token</h2>
+
+<p>This is a description of process for obtaining an OAuth authentication token:</p>
+
+<h3 id="merchant-login">1. Merchant login</h3>
+
+<pre><code>curl -d "client_id=ac28ba9aakd0913jci9192ad928c83ka7k882ke917la001pl172w3g29oao2lla&amp;grant_type=password&amp;username=user@thelevelup.com&amp;password=password&amp;/oauth/access_token" https://api.thelevelup.com/v13/oauth/access_token
+</code></pre>
+
+<p>The following parameters are in the POST body and must be in application/x-www-form-urlencoded format.</p>
+
+<h3 id="parameters">Parameters</h3>
+
+<dl>
+  <dt>client_id</dt>
+  <dd><em>Required</em> <strong>string</strong> - The client ID you received from LevelUp when
+you <a href="https://docs.google.com/a/scvngr.com/spreadsheet/viewform?formkey=dEJOVkZTcU81cTYtVC1rWFNubFRQMXc6MQ#gid=0">registered</a>.</dd>
+  <dt>client_id</dt>
+  <dd><em>Required</em> <strong>string</strong> - The OAuth client identifier for your application.</dd>
+  <dt>grant_type</dt>
+  <dd><em>Required</em> <strong>string</strong> - This is always just the string &ldquo;password&rdquo;.</dd>
+  <dt>password</dt>
+  <dd><em>Required</em> <strong>string</strong> The password for the user logging in.</dd>
+  <dt>username</dt>
+  <dd><em>Required</em> <strong>string</strong> The username for the user logging in.</dd>
+</dl>
+
+<h3 id="response">Response</h3>
+<p>The response is a JSON object with the following key-value pairs:</p>
+
+<h3 id="key-description">Key Description</h3>
+<dl>
+  <dt>x_user_id</dt>
+  <dd>The numeric ID of the user that just logged in.</dd>
+  <dt>access_token</dt>
+  <dd>The OAuth 2.0 token, which will be presented back to the server for subsequent API calls</dd>
+</dl>
+
+<p>For example, the response might look like this:</p>
+
+<pre><code>{
+"access_token":"123456-ee0a7c2c7f907c7b9b2ee076333c8decdc7838d45b8d25ccb2be37b9ebb2adf3",
+"x_user_id":000001
+}
+</code></pre>
+
+<h2 id="notes">Notes</h2>
+<p>The OAuth token is valid indefinitely, unless the merchant or LevelUp support intentionally resets the token.  This is a manual process and only happens rarely.  For example, the merchant or LevelUp support might invalidate the token if a logged-in terminal device is lost or stolen.</p>
+
+<hr />
+
+<h2 id="levelup-merchant-id-and-location-id">LevelUp Merchant ID and Location ID</h2>
+
+<p>Once the Authentication Token has been obtained (via the Oauth call), you should retrieve information about the logged in merchant via the <code>/users/:id.json</code> endpoint.</p>
+
+<p>This endpoint will provide you with a breakdown of the associated merchant and locations.  This data should be used to allow the merchant to select from a list of their stores.</p>
+
+<p>Authentication Required: YES</p>
+
+<p>Method: GET</p>
+
+<p>Example:</p>
+
+<pre><code>curl -G https://api.thelevelup.com/v13/users/12345.json?access_token=123456-ee0a7c2c7f907c7b9b2ee076333c8decdc7838d45b8d25ccb2be37b9ebb2adf3
+</code></pre>
+
+<p>Response:</p>
+
+<pre><code>{
+	"user": {
+		"able_to_refer": true,
+		"first_name": "MerchantFirstName",
+		"last_initial": "L",
+		"born_at": null,
+		"email": "merchantemail@thelevelup.com",
+		"employer": null,
+		"facebook_access_token": null,
+		"facebook_user_id": null,
+		"gender": null,
+		"id": 123456,
+		"last_name": "LastName",
+		"merchants_visited_count": 1,
+		"orders_count": 1,
+		"percent_donation": "0.0",
+		"referral_code": "123ABC",
+		"subscribed": true,
+		"referral_code_url": "http://code.thelevelup.com/?data=HTTPS://WWW.THELEVELUP.COM/C/123ABC",
+		"division": {
+			"id": 4,
+			"lat": "40.714353",
+			"live": true,
+			"lng": "-74.005973",
+			"name": "New York City"
+		},
+		"merchant": {
+			"id": 1234,
+			"name": "Merchant Name",
+			"message_for_twitter": null,
+			"public_url": "https://www.thelevelup.com/merchants/3744",
+			"image_url_280x128_1x": "https://s3.amazonaws.com/levelup-production/merchants/3744/images/280x128_1x/fposlogo.png?123456789",
+			"image_url_280x128_1_5x": "https://s3.amazonaws.com/levelup-production/merchants/3744/images/280x128_1_5x/fposlogo.png?123456789",
+			"image_url_280x128_2x": "https://s3.amazonaws.com/levelup-production/merchants/3744/images/280x128_2x/fposlogo.png?123456789",
+			"image_url_290x335_1x": "https://s3.amazonaws.com/levelup-production/merchants/3744/images/290x335_1x/fposlogo.png?123456789",
+			"image_url_320x212_1x": "https://s3.amazonaws.com/levelup-production/merchants/3744/images/320x212_1x/fposlogo.png?123456789",
+			"image_url_320x212_1_5x": "https://s3.amazonaws.com/levelup-production/merchants/3744/images/320x212_1_5x/fposlogo.png?123456789",
+			"image_url_320x212_2x": "https://s3.amazonaws.com/levelup-production/merchants/3744/images/320x212_2x/fposlogo.png?123456789",
+			"image_url_400x235_1x": "https://s3.amazonaws.com/levelup-production/merchants/3744/images/400x235_1x/fposlogo.png?123456789",
+			"description_html": "Merchant Name",
+			"employee_rewards_billboard_enabled": false,
+			"exemption_enabled": false,
+			"facebook_url": "",
+			"loyalty_enabled": true,
+			"menu_url": null,
+			"newsletter_url": "",
+			"opentable_url": "",
+			"scvngr_url": "",
+			"twitter_username": "",
+			"url": "",
+			"yelp_url": "",
+			"categories": [{
+				"category": {
+					"id": 46,
+					"name": "Other",
+					"image_url_32x32_1x": "https://www.thelevelup.com/images/merchants_images_other_32x32_1x.png",
+					"image_url_32x32_1_5x": "https://www.thelevelup.com/images/merchants_images_other_32x32_1_5x.png",
+					"image_url_32x32_2x": "https://www.thelevelup.com/images/merchants_images_other_32x32_2x.png"
+				}
+			}],
+			"category_image_url_32x32_1x": "https://www.thelevelup.com/images/merchants_images_other_32x32_1x.png",
+			"category_image_url_32x32_1_5x": "https://www.thelevelup.com/images/merchants_images_other_32x32_1_5x.png",
+			"category_image_url_32x32_2x": "https://www.thelevelup.com/images/merchants_images_other_32x32_2x.png",
+			"earn": {
+				"amount": 9999,
+				"currency_code": "USD",
+				"currency_symbol": "$",
+				"formatted_amount": "99.99"
+			},
+			"featured": false,
+			"locations": [{
+				"location": {
+					"id": 1234,
+					"extended_address": "",
+					"lat": "40.907783",
+					"lng": "-79.924102",
+					"locality": "Butler",
+					"phone": "",
+					"postal_code": "16001",
+					"region": "PA",
+					"street_address": "1234 Test Street."
+				}
+			}, {
+				"location": {
+					"id": 4567,
+					"extended_address": "Number Two",
+					"lat": "40.710394",
+					"lng": "-74.007909",
+					"locality": "New York City",
+					"phone": "",
+					"postal_code": "10453",
+					"region": "NY",
+					"street_address": "1234 Test Street"
+				}
+			}],
+			"loyalty": {
+				"orders_count": 1,
+				"progress_percent": 0,
+				"onboarding_eligible": false,
+				"potential_credit": {
+					"amount": 20000,
+					"currency_code": "USD",
+					"currency_symbol": "$",
+					"formatted_amount": "200.00"
+				},
+				"savings": {
+					"amount": 0,
+					"currency_code": "USD",
+					"currency_symbol": "$",
+					"formatted_amount": "0.00"
+				},
+				"spend_remaining": {
+					"amount": 10000,
+					"currency_code": "USD",
+					"currency_symbol": "$",
+					"formatted_amount": "100.00"
+				}
+			},
+			"onboarding": {
+				"amount": 0,
+				"currency_code": "USD",
+				"currency_symbol": "$",
+				"formatted_amount": "0.00"
+			},
+			"spend": {
+				"amount": 10000,
+				"currency_code": "USD",
+				"currency_symbol": "$",
+				"formatted_amount": "100.00"
+			},
+			"location_locked": false,
+			"manager_confirmation_required": false
+		},
+		"qr_code": {
+			"data_image_url": "https://chart.googleapis.com/chart?chl=010009KA2KAJD91UYHA2C7W1FV010000&amp;chs=500x500&amp;cht=qr",
+			"data": "010009KA2KAJD91UYHA2C7W1FV"
+		},
+		"credit": {
+			"amount": 10000,
+			"currency_code": "USD",
+			"currency_symbol": "$",
+			"formatted_amount": "100.00"
+		},
+		"loyalties_savings": {
+			"amount": 0,
+			"currency_code": "USD",
+			"currency_symbol": "$",
+			"formatted_amount": "0.00"
+		},
+		"payment_eligible": true,
+		"user_addresses": []
+	}
+}
+</code></pre>
+
+<h3 id="parameters-1">Parameters</h3>
+
+<dl>
+  <dt>access_token</dt>
+  <dd><em>Required</em> <strong>string</strong> - The access token you obtained via OAuth</dd>
+</dl>
+
+<h2 id="integration-configuration-1">Integration Configuration</h2>
+
+<p>The setup process for a LevelUp merchant should be a simple and straightforward process.  The merchant should be prompted for their LevelUp email/username and password in order to set up account.  This information should not be stored on the system and should only be used to obtain their access token, merchant ID and location IDs.</p>
+
+<p>Here is an example step-by-step scenario:</p>
+
+<ul>
+  <li>LevelUp integration is installed/activated on the POS</li>
+  <li>Merchant enters their credentials in the Admin or Back of House settings panel and a call is made to the <code>users/:id.json</code> endpoint to retrieve merchant ID and associated location IDs</li>
+  <li>Merchant selects their current Location from the list</li>
+  <li>The access token, merchant ID and location ID is stored on the system and sent with every future request</li>
+</ul>
+
+<p>(Note: the access token will not change if the merchant changes their password.  The only way an access token will become invalid is if the merchant manually de-authenticates it in the LevelUp Admin Panel.  Never store a merchant&rsquo;s username or password but be prepared to prompt them for it if you get an &ldquo;invalid token&rdquo; error.)</p>
+
+<h2 id="tender-experience-at-quick-service-restaurants-qsr">Tender Experience at Quick Service Restaurants (QSR)</h2>
+
+<ul>
+  <li>When customer is paying with LevelUp, select LevelUp tender (or autotender LevelUp when code is scanned)</li>
+</ul>
+
+<h2 id="tender-experience-at-full-service-restaurants-fsr">Tender Experience at Full Service Restaurants (FSR)</h2>
+
+<ul>
+  <li>Server delivers the check to the table</li>
+  <li>Customer indicates they are paying with LevelUp by displaying their QR code</li>
+  <li>Server scans the code at the table via handheld device or wireless 2D barcode scanner</li>
+  <li>The check is closed with &ldquo;LevelUp&rdquo; as the payment type</li>
+</ul>
+
+
+            </div><!--/span-->
+          </div><!--/row-->
+        </div><!--/span-->
+      </div><!--/row-->
+
+      <hr>
+
+      <footer>
+        <p>© LevelUp 2012</p>
+      </footer>
+
+    </div><!--/.fluid-container-->
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src=".js2/jquery.js"></script>
+    <script src=".js2/bootstrap-transition.js"></script>
+    <script src=".js2/bootstrap-alert.js"></script>
+    <script src=".js2/bootstrap-modal.js"></script>
+    <script src=".js2/bootstrap-dropdown.js"></script>
+    <script src=".js2/bootstrap-scrollspy.js"></script>
+    <script src=".js2/bootstrap-tab.js"></script>
+    <script src=".js2/bootstrap-tooltip.js"></script>
+    <script src=".js2/bootstrap-popover.js"></script>
+    <script src=".js2/bootstrap-button.js"></script>
+    <script src=".js2/bootstrap-collapse.js"></script>
+    <script src=".js2/bootstrap-carousel.js"></script>
+    <script src=".js2/bootstrap-typeahead.js"></script>
+
+  
+
+</body></html>
+
+
+
+
