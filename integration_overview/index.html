@@ -8,7 +8,6 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="stylesheet" type="text/css" href="/css/bootstrap.css" media="screen">
-	<script src="/js/epopup.js" language="JavaScript" type="text/javascript"></script>
 	<link rel="icon" 
 	      type="image/png" 
 	      href="../favicon.ico">
@@ -40,12 +39,16 @@
 								<link type="text/css" rel="stylesheet" href="/css/hellobar.css" />
 <script type="text/javascript" src="/js2/hellobar.js"></script>
 <script language="JavaScript" type="text/javascript">
-<!--
 function Tog(x) {
 var expandable = document.getElementById('expandable');
 expandable.style.display = x;
 }
-// -->
+</script>
+<script language="JavaScript" type="text/javascript">
+function Tog(x) {
+var expandable = document.getElementById('expandable2');
+expandable.style.display = x;
+}
 </script>
 </head>
   <body>
@@ -99,31 +102,39 @@ expandable.style.display = x;
         <div class="span9">
           <div class="hero-unit">
     <h1 id="integration-overview">Integration Overview</h1>
-<p><br /></p>
 
-<p>This describes the resources that make up the official LevelUp API. If you have any problems or to request API credentials please contact <a href="mailto:pos@thelevelup.com?subject=LevelUp%20API%20Support">POS Support.</a></p>
+<p>From a high-level, there are three components of a LevelUp Point of Sale integration:</p>
 
-<p>The LevelUp Transaction API is for Point of Sale (POS) devices that facilitate customer orders.</p>
+<h4 id="authentication">1. Authentication</h4>
 
-<p>From a high-level, the API flow for a POS device is:</p>
+<ul>
+  <li>Authenticate with the LevelUp API and obtain an OAuth token using the <code>/oauth/access_tokens.json</code> endpoint.</li>
+  <li>Retrieve information about the currently logged in user using the <code>/users/:id.json</code> endpoint.</li>
+  <li>Save the <code>access_token</code>, <code>merchant ID</code> and <code>location ID</code> to use with all transactions.</li>
+  <li>Discard the merchant login credentials.</li>
+</ul>
 
-<ol>
-  <li>
-    <p>Authenticate with the LevelUp API and obtain an <a href="./oauth/oauth.html">OAuth token</a> using the <code>/oauth/access_tokens.json</code> endpoint and retrieve information about the currently logged in user using the <a href="./midlid/midlid.html"><code>/users/:id.json</code></a> endpoint.  Save the <code>access_token</code>, <code>merchant ID</code> and <code>location ID</code> to use with all transactions and discard the merchant login credentials.</p>
-  </li>
-  <li>
-    <p><a href="./scanning/scanning.html">Scan</a> a consumer’s QR code from the screen of a consumer’s smartphone running the LevelUp app.  Send the QR code and order details to LevelUp using the <a href="./orders/orders.html"><code>/merchants/:id/orders.json</code></a> endpoint.  Allow for refunds of the payment through the <code>/orders/:order_id/refund.json</code> endpoint.</p>
-  </li>
-  <li>
-    <p>Apply the payment to the check and the POS accounting ledger.</p>
-  </li>
-</ol>
+<h4 id="orders--refunds">2. Orders &amp; Refunds</h4>
+
+<ul>
+  <li>Scan a consumer’s QR code from the screen of a consumer’s smartphone running the LevelUp app.  Send the QR code and order details to LevelUp using the <code>/merchants/:id/orders.json</code> endpoint.</li>
+  <li>Allow for refunds of the payment through the <code>/orders/:order_id/refund.json</code> endpoint.</li>
+</ul>
+
+<h4 id="analytics">3. Analytics</h4>
+
+<ul>
+  <li>Apply the payment to the check and the POS accounting ledger.</li>
+  <li>Close out the check</li>
+</ul>
+
+<hr />
 
 <h2 id="schema">Schema</h2>
 
 <p>All communication takes place over HTTPS, and the server responds with JSON messages described in more detail below.  The API is currently at version 13, and all endpoints should be prefixed with <code>https://api.thelevelup.com/v13/</code>.</p>
 
-<p><i>For POST requests, parameters not included in the URL should be encoded as JSON with a Content-Type of </i><code>application/x-www-form-urlencoded</code>.</p>
+<p><em>For POST requests, parameters not included in the URL should be encoded as JSON with a Content-Type of</em> <code>application/x-www-form-urlencoded</code>.</p>
 
 <h2 id="client-errors">Client Errors</h2>
 
@@ -134,7 +145,7 @@ expandable.style.display = x;
 
 <p>The login <code>/oauth/access_tokens</code> endpoint will return OAuth 2.0 error values in the error attribute; human-readable errors there are returned in the error_description attribute instead.</p>
 
-<p>{&ldquo;error_description&rdquo;: &ldquo;Bad email or password&rdquo;, &ldquo;error&rdquo;: &ldquo;invalid_grant&rdquo;}</p>
+<p>{&#8220;error_description&#8221;: &#8220;Bad email or password&#8221;, &#8220;error&#8221;: &#8220;invalid_grant&#8221;}</p>
 
 
             </div><!--/span-->
@@ -178,7 +189,7 @@ expandable.style.display = x;
 		tabSide: 'left',
 		helloBarLogo: false,
 		fontWeight: '500',
-		}, 3.8 );
+		}, 3.9 );
 	</script>
   
 

@@ -8,7 +8,6 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="stylesheet" type="text/css" href="/css/bootstrap.css" media="screen">
-	<script src="/js/epopup.js" language="JavaScript" type="text/javascript"></script>
 	<link rel="icon" 
 	      type="image/png" 
 	      href="../favicon.ico">
@@ -40,12 +39,16 @@
 								<link type="text/css" rel="stylesheet" href="/css/hellobar.css" />
 <script type="text/javascript" src="/js2/hellobar.js"></script>
 <script language="JavaScript" type="text/javascript">
-<!--
 function Tog(x) {
 var expandable = document.getElementById('expandable');
 expandable.style.display = x;
 }
-// -->
+</script>
+<script language="JavaScript" type="text/javascript">
+function Tog(x) {
+var expandable = document.getElementById('expandable2');
+expandable.style.display = x;
+}
 </script>
 </head>
   <body>
@@ -115,9 +118,9 @@ expandable.style.display = x;
 </ol>
 
 <h2 id="security">Security</h2>
-<p>When you authenticate with the LevelUp API, you&rsquo;re given an OAuth token that can be used in subsequent requests. You should keep this token safe if you&rsquo;re going to store it between requests.</p>
+<p>When you authenticate with the LevelUp API, you&#8217;re given an OAuth token that can be used in subsequent requests. You should keep this token safe if you&#8217;re going to store it between requests.</p>
 
-<p>The code submitted to your backend is the key used to charge a user for your item or service. This token belongs to the user and can be reset by him or her at any time, so there&rsquo;s no reason to store it (of course, it&rsquo;s likely it will be invalid the next time you want to reference it anyway). Logging the QR code is also not encouraged.</p>
+<p>The code submitted to your backend is the key used to charge a user for your item or service. This token belongs to the user and can be reset by him or her at any time, so there&#8217;s no reason to store it (of course, it&#8217;s likely it will be invalid the next time you want to reference it anyway). Logging the QR code is also not encouraged.</p>
 
 
             </div><!--/span-->
@@ -161,7 +164,7 @@ expandable.style.display = x;
 		tabSide: 'left',
 		helloBarLogo: false,
 		fontWeight: '500',
-		}, 3.8 );
+		}, 3.9 );
 	</script>
   
 

@@ -8,7 +8,6 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="stylesheet" type="text/css" href="/css/bootstrap.css" media="screen">
-	<script src="/js/epopup.js" language="JavaScript" type="text/javascript"></script>
 	<link rel="icon" 
 	      type="image/png" 
 	      href="../favicon.ico">
@@ -40,12 +39,16 @@
 								<link type="text/css" rel="stylesheet" href="/css/hellobar.css" />
 <script type="text/javascript" src="/js2/hellobar.js"></script>
 <script language="JavaScript" type="text/javascript">
-<!--
 function Tog(x) {
 var expandable = document.getElementById('expandable');
 expandable.style.display = x;
 }
-// -->
+</script>
+<script language="JavaScript" type="text/javascript">
+function Tog(x) {
+var expandable = document.getElementById('expandable2');
+expandable.style.display = x;
+}
 </script>
 </head>
   <body>
@@ -111,7 +114,7 @@ expandable.style.display = x;
   <li>The access token, merchant ID and location ID is stored on the system and sent with every future request</li>
 </ul>
 
-<p>(Note: the access token will not change if the merchant changes their password.  The only way an access token will become invalid is if the merchant manually de-authenticates it in the LevelUp Admin Panel.  Never store a merchant&rsquo;s username or password but be prepared to prompt them for it if you get an &ldquo;invalid token&rdquo; error.)</p>
+<p>(Note: the access token will not change if the merchant changes their password.  The only way an access token will become invalid is if the merchant manually de-authenticates it in the LevelUp Admin Panel.  Never store a merchant&#8217;s username or password but be prepared to prompt them for it if you get an &#8220;invalid token&#8221; error.)</p>
 
 <h1 id="authentication-oauth">Authentication (OAuth)</h1>
 
@@ -147,7 +150,7 @@ you <a href="https://docs.google.com/a/scvngr.com/spreadsheet/viewform?formkey=d
   <dt>client_id</dt>
   <dd><em>Required</em> <strong>string</strong> - The OAuth client identifier for your application.</dd>
   <dt>grant_type</dt>
-  <dd><em>Required</em> <strong>string</strong> - This is always just the string &ldquo;password&rdquo;.</dd>
+  <dd><em>Required</em> <strong>string</strong> - This is always just the string &#8220;password&#8221;.</dd>
   <dt>password</dt>
   <dd><em>Required</em> <strong>string</strong> The password for the user logging in.</dd>
   <dt>username</dt>
@@ -370,7 +373,7 @@ you <a href="https://docs.google.com/a/scvngr.com/spreadsheet/viewform?formkey=d
   <li>The access token, merchant ID and location ID is stored on the system and sent with every future request</li>
 </ul>
 
-<p>(Note: the access token will not change if the merchant changes their password.  The only way an access token will become invalid is if the merchant manually de-authenticates it in the LevelUp Admin Panel.  Never store a merchant&rsquo;s username or password but be prepared to prompt them for it if you get an &ldquo;invalid token&rdquo; error.)</p>
+<p>(Note: the access token will not change if the merchant changes their password.  The only way an access token will become invalid is if the merchant manually de-authenticates it in the LevelUp Admin Panel.  Never store a merchant&#8217;s username or password but be prepared to prompt them for it if you get an &#8220;invalid token&#8221; error.)</p>
 
 <h2 id="tender-experience-at-quick-service-restaurants-qsr">Tender Experience at Quick Service Restaurants (QSR)</h2>
 
@@ -384,7 +387,7 @@ you <a href="https://docs.google.com/a/scvngr.com/spreadsheet/viewform?formkey=d
   <li>Server delivers the check to the table</li>
   <li>Customer indicates they are paying with LevelUp by displaying their QR code</li>
   <li>Server scans the code at the table via handheld device or wireless 2D barcode scanner</li>
-  <li>The check is closed with &ldquo;LevelUp&rdquo; as the payment type</li>
+  <li>The check is closed with &#8220;LevelUp&#8221; as the payment type</li>
 </ul>
 
 
@@ -429,7 +432,7 @@ you <a href="https://docs.google.com/a/scvngr.com/spreadsheet/viewform?formkey=d
 		tabSide: 'left',
 		helloBarLogo: false,
 		fontWeight: '500',
-		}, 3.8 );
+		}, 3.9 );
 	</script>
   
 

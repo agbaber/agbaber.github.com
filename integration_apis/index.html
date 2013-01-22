@@ -8,7 +8,6 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="stylesheet" type="text/css" href="/css/bootstrap.css" media="screen">
-	<script src="/js/epopup.js" language="JavaScript" type="text/javascript"></script>
 	<link rel="icon" 
 	      type="image/png" 
 	      href="../favicon.ico">
@@ -40,12 +39,16 @@
 								<link type="text/css" rel="stylesheet" href="/css/hellobar.css" />
 <script type="text/javascript" src="/js2/hellobar.js"></script>
 <script language="JavaScript" type="text/javascript">
-<!--
 function Tog(x) {
 var expandable = document.getElementById('expandable');
 expandable.style.display = x;
 }
-// -->
+</script>
+<script language="JavaScript" type="text/javascript">
+function Tog(x) {
+var expandable = document.getElementById('expandable2');
+expandable.style.display = x;
+}
 </script>
 </head>
   <body>
@@ -228,7 +231,7 @@ expandable.style.display = x;
 
 <p><code>client_id</code> - <strong>string</strong> - The OAuth client identifier for your POS system.  This does not change from merchant to merchant.</p>
 
-<p><code>grant_type</code> - <strong>string</strong> - This is always just the string &ldquo;password&rdquo;.</p>
+<p><code>grant_type</code> - <strong>string</strong> - This is always just the string &#8220;password&#8221;.</p>
 
 <p><code>merchant_id</code> - <strong>integer</strong> - The ID of the merchant that is posting the order.</p>
 
@@ -322,10 +325,10 @@ expandable.style.display = x;
   <dd>ID of the order, used for issuing refunds.
 <br /><br /></dd>
   <dt><code>"state":"completed"</code></dt>
-  <dd>Order status (will only ever be &ldquo;completed&rdquo; or &ldquo;refunded&rdquo;).
+  <dd>Order status (will only ever be &#8220;completed&#8221; or &#8220;refunded&#8221;).
 <br /><br /></dd>
   <dt><code>"balance":{"amount":0,"currency_code":"USD","currency_symbol":"$","formatted_amount":"0.00"},</code></dt>
-  <dd>Amount that was billed to the customer&rsquo;s credit card
+  <dd>Amount that was billed to the customer&#8217;s credit card
 <br /><br /></dd>
   <dt><code>"credit":{"amount":5,"currency_code":"USD","currency_symbol":"$","formatted_amount":"0.05"},</code></dt>
   <dd>Amount of merchant credit that was used
@@ -410,7 +413,7 @@ expandable.style.display = x;
 		tabSide: 'left',
 		helloBarLogo: false,
 		fontWeight: '500',
-		}, 3.8 );
+		}, 3.9 );
 	</script>
   
 

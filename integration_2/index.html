@@ -8,7 +8,6 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="stylesheet" type="text/css" href="/css/bootstrap.css" media="screen">
-	<script src="/js/epopup.js" language="JavaScript" type="text/javascript"></script>
 	<link rel="icon" 
 	      type="image/png" 
 	      href="../favicon.ico">
@@ -40,12 +39,16 @@
 								<link type="text/css" rel="stylesheet" href="/css/hellobar.css" />
 <script type="text/javascript" src="/js2/hellobar.js"></script>
 <script language="JavaScript" type="text/javascript">
-<!--
 function Tog(x) {
 var expandable = document.getElementById('expandable');
 expandable.style.display = x;
 }
-// -->
+</script>
+<script language="JavaScript" type="text/javascript">
+function Tog(x) {
+var expandable = document.getElementById('expandable2');
+expandable.style.display = x;
+}
 </script>
 </head>
   <body>
@@ -113,28 +116,18 @@ Creates and returns a new order.</p>
 </code></pre>
 
 <h3 id="response">Response:</h3>
-
-<!--- <span title="Click to show reponse" class="expand" onClick="return ExpandToggle('response1')">__Click to view Response__</span>
-
-<div id="response1" class="expandedblock" style="display:none"> -->
-
-<pre><code>{
-"order": {
-	"created_at": "2012-10-24T11:04:32-04:00",
-	"id": 1234567,
-	"refunded_at": null,
-	"state": "completed",
-	"balance": {
-		"amount": 0,
-		"currency_code": "USD",
-		"currency_symbol": "$",
-		"formatted_amount": "0.00"
-</code></pre>
-
-<div id="expandable" style="overflow:hidden;display:none">
-
-
-			},
+<div><pre><code>{
+	"order": {
+		"created_at": "2012-10-24T11:04:32-04:00",
+		"id": 1234567,
+		"refunded_at": null,
+		"state": "completed",
+		"balance": {
+			"amount": 0,
+			"currency_code": "USD",
+			"currency_symbol": "$",
+			"formatted_amount": "0.00"
+			},<div id="expandable" style="overflow:hidden;display:none">
 		"credit": {
 			"amount": 1,
 			"currency_code": "USD",
@@ -225,10 +218,13 @@ Creates and returns a new order.</p>
 			"last_initial": "M"
 		}
 	}
-}
-<a href="javascript:Tog('none')">Less</a>
+}<br />
+<a href="javascript:Tog('none')">Minimize</a>
 </div>
-<p><br /><a href="javascript:Tog('block')">More</a></p>
+<br /><a href="javascript:Tog('block')">Show Full Response</a>
+
+</code></pre>
+</div>
 
 <h2 id="url-parameters">URL Parameters</h2>
 
@@ -256,15 +252,15 @@ Creates and returns a new order.</p>
     <p>The currency symbol must not be prefixed to the amount.</p>
   </dd>
   <dt>order[location_id]</dt>
-  <dd><em>Required</em> <strong>integer</strong> - ID of the merchant&rsquo;s location, which is obtained from the <code>/users/:id</code> GET endpoint. </dd>
+  <dd><em>Required</em> <strong>integer</strong> - ID of the merchant&#8217;s location, which is obtained from the <code>/users/:id</code> GET endpoint. </dd>
   <dt>order[items]</dt>
-  <dd><em>Required</em> <strong>JSON</strong> - A JSON object representing the items being purchased.  The JSON object contains a single root &ldquo;items&rdquo; element, which is an array of individual &ldquo;item&rdquo; elements.
+  <dd><em>Required</em> <strong>JSON</strong> - A JSON object representing the items being purchased.  The JSON object contains a single root &#8220;items&#8221; element, which is an array of individual &#8220;item&#8221; elements.
 
-    <p>Each &ldquo;item&rdquo; element much contain the following fields:</p>
+    <p>Each &#8220;item&#8221; element much contain the following fields:</p>
 
     <p><strong>upc</strong> - the UPC of the item.</p>
 
-    <p><strong>sku</strong> - An opaque field for the merchant&rsquo;s internal item number for the item.</p>
+    <p><strong>sku</strong> - An opaque field for the merchant&#8217;s internal item number for the item.</p>
 
     <p><strong>name</strong> - the name of the item.</p>
 
@@ -276,7 +272,7 @@ Creates and returns a new order.</p>
 
     <p><strong>description</strong> - An optional extended description of the item.</p>
 
-    <p>An example JSON string: &lsquo;[{&ldquo;sku&rdquo;:&rdquo;2342&rdquo;,&rdquo;upc&rdquo;:&rdquo;abc123&rdquo;,&rdquo;name&rdquo;:&rdquo;Coca Cola&rdquo;},{&ldquo;sku&rdquo;:&rdquo;987654&rdquo;,&rdquo;upc&rdquo;:&rdquo;321zxy&rdquo;,&rdquo;name&rdquo;:&rdquo;Hamburger&rdquo;,&rdquo;description&rdquo;:&rdquo;Hamburger with fries&rdquo;}]&rsquo;</p>
+    <p>An example JSON string: &#8216;[{&#8220;sku&#8221;:&#8221;2342&#8221;,&#8221;upc&#8221;:&#8221;abc123&#8221;,&#8221;name&#8221;:&#8221;Coca Cola&#8221;},{&#8220;sku&#8221;:&#8221;987654&#8221;,&#8221;upc&#8221;:&#8221;321zxy&#8221;,&#8221;name&#8221;:&#8221;Hamburger&#8221;,&#8221;description&#8221;:&#8221;Hamburger with fries&#8221;}]&#8217;</p>
   </dd>
   <dt>order[exemption]</dt>
   <dd><em>Optional</em> <strong>decimal</strong> - A decimal value indicating an amount of the order[spend] that is except from credit.  This field may only be used if the <code>/merchants/:id</code> endpoint response said that exemption_enabled is true.</dd>
@@ -292,9 +288,9 @@ Creates and returns a new order.</p>
   <dt><code>"id":123456</code></dt>
   <dd>ID of the order, used for issuing refunds.</dd>
   <dt><code>"state":"completed"</code></dt>
-  <dd>Order status (will only ever be &ldquo;completed&rdquo; or &ldquo;refunded&rdquo;).</dd>
+  <dd>Order status (will only ever be &#8220;completed&#8221; or &#8220;refunded&#8221;).</dd>
   <dt><code>"balance":{"amount":0,"currency_code":"USD","currency_symbol":"$","formatted_amount":"0.00"},</code></dt>
-  <dd>Amount that was billed to the customer&rsquo;s credit card</dd>
+  <dd>Amount that was billed to the customer&#8217;s credit card</dd>
   <dt><code>"credit":{"amount":5,"currency_code":"USD","currency_symbol":"$","formatted_amount":"0.05"},</code></dt>
   <dd>Amount of merchant credit that was used</dd>
   <dt><code>"earn":{"amount":0,"currency_code":"USD","currency_symbol":"$","formatted_amount":"0.00"},</code></dt>
@@ -328,7 +324,7 @@ Creates and returns a new order.</p>
 <h2 id="endpoint">Endpoint</h2>
 <p><code>/orders/:id/refund.json</code></p>
 
-<p>Refunds and returns an order. The resulting order will have &ldquo;state&rdquo;:&rdquo;refunded&rdquo;.  All refunds are for the full amount of the sale, there are no partial refunds through LevelUp.</p>
+<p>Refunds and returns an order. The resulting order will have &#8220;state&#8221;:&#8221;refunded&#8221;.  All refunds are for the full amount of the sale, there are no partial refunds through LevelUp.</p>
 
 <p>Authentication Required: YES</p>
 
@@ -340,111 +336,117 @@ Creates and returns a new order.</p>
 </code></pre>
 
 <h2 id="response-1">Response</h2>
-
-<pre><code>{
-	"order": {
-		"created_at": "2012-10-24T11:04:32-04:00",
-		"id": 1234567,
-		"refunded_at": "2012-10-24T11:05:14-04:00",
-		"state": "refunded",
-		"balance": {
-			"amount": 0,
-			"currency_code": "USD",
-			"currency_symbol": "$",
-			"formatted_amount": "0.00"
-		},
-		"credit": {
-			"amount": 1,
-			"currency_code": "USD",
-			"currency_symbol": "$",
-			"formatted_amount": "0.01"
-		},
-		"earn": {
-			"amount": 0,
-			"currency_code": "USD",
-			"currency_symbol": "$",
-			"formatted_amount": "0.00"
-		},
-		"unfunded_credit": {
-			"amount": 1,
-			"currency_code": "USD",
-			"currency_symbol": "$",
-			"formatted_amount": "0.01"
-		},
-		"spend": {
-			"amount": 1,
-			"currency_code": "USD",
-			"currency_symbol": "$",
-			"formatted_amount": "0.01"
-		},
-		"tip": {
-			"amount": 0,
-			"currency_code": "USD",
-			"currency_symbol": "$",
-			"formatted_amount": "0.00"
-		},
-		"total": {
-			"amount": 1,
-			"currency_code": "USD",
-			"currency_symbol": "$",
-			"formatted_amount": "0.01"
-		},
-		"location": {
-			"id": 1234,
-			"extended_address": "",
-			"lat": "40.907783",
-			"lng": "-79.924102",
-			"locality": "Boston",
-			"phone": "",
-			"postal_code": "02114",
-			"region": "MA",
-			"street_address": "1234 Test Street"
-		},
-		"loyalty": {
-			"orders_count": 2,
-			"progress_percent": 0,
-			"onboarding_eligible": false,
-			"potential_credit": {
-				"amount": 20000,
+<div><pre><code>
+	{
+		"order": {
+			"created_at": "2012-10-24T11:04:32-04:00",
+			"id": 1234567,
+			"refunded_at": "2012-10-24T11:05:14-04:00",
+			"state": "refunded",
+			"balance": {
+				"amount": 0,
 				"currency_code": "USD",
 				"currency_symbol": "$",
-				"formatted_amount": "200.00"
+				"formatted_amount": "0.00"
+			},<div id="expandable" style="overflow:hidden;display:none">
+			"credit": {
+				"amount": 1,
+				"currency_code": "USD",
+				"currency_symbol": "$",
+				"formatted_amount": "0.01"
 			},
-			"savings": {
+			"earn": {
 				"amount": 0,
 				"currency_code": "USD",
 				"currency_symbol": "$",
 				"formatted_amount": "0.00"
 			},
-			"spend_remaining": {
-				"amount": 10000,
+			"unfunded_credit": {
+				"amount": 1,
 				"currency_code": "USD",
 				"currency_symbol": "$",
-				"formatted_amount": "100.00"
+				"formatted_amount": "0.01"
+			},
+			"spend": {
+				"amount": 1,
+				"currency_code": "USD",
+				"currency_symbol": "$",
+				"formatted_amount": "0.01"
+			},
+			"tip": {
+				"amount": 0,
+				"currency_code": "USD",
+				"currency_symbol": "$",
+				"formatted_amount": "0.00"
+			},
+			"total": {
+				"amount": 1,
+				"currency_code": "USD",
+				"currency_symbol": "$",
+				"formatted_amount": "0.01"
+			},
+			"location": {
+				"id": 1234,
+				"extended_address": "",
+				"lat": "40.907783",
+				"lng": "-79.924102",
+				"locality": "Boston",
+				"phone": "",
+				"postal_code": "02114",
+				"region": "MA",
+				"street_address": "1234 Test Street"
+			},
+			"loyalty": {
+				"orders_count": 2,
+				"progress_percent": 0,
+				"onboarding_eligible": false,
+				"potential_credit": {
+					"amount": 20000,
+					"currency_code": "USD",
+					"currency_symbol": "$",
+					"formatted_amount": "200.00"
+				},
+				"savings": {
+					"amount": 0,
+					"currency_code": "USD",
+					"currency_symbol": "$",
+					"formatted_amount": "0.00"
+				},
+				"spend_remaining": {
+					"amount": 10000,
+					"currency_code": "USD",
+					"currency_symbol": "$",
+					"formatted_amount": "100.00"
+				}
+			},
+			"merchant": {
+				"id": 1234,
+				"name": "Example Merchant",
+				"message_for_twitter": null,
+				"public_url": "https://www.thelevelup.com/merchants/1234",
+				"image_url_280x128_1x": "https://s3.amazonaws.com/levelup-production/merchants/1234/images/280x128_1x/fposlogo.png?1346946087",
+				"image_url_280x128_1_5x": "https://s3.amazonaws.com/levelup-production/merchants/1234/images/280x128_1_5x/fposlogo.png?1346946087",
+				"image_url_280x128_2x": "https://s3.amazonaws.com/levelup-production/merchants/1234/images/280x128_2x/fposlogo.png?1346946087",
+				"image_url_290x335_1x": "https://s3.amazonaws.com/levelup-production/merchants/1234/images/290x335_1x/fposlogo.png?1346946087",
+				"image_url_320x212_1x": "https://s3.amazonaws.com/levelup-production/merchants/1234/images/320x212_1x/fposlogo.png?1346946087",
+				"image_url_320x212_1_5x": "https://s3.amazonaws.com/levelup-production/merchants/1234/images/320x212_1_5x/fposlogo.png?1346946087",
+				"image_url_320x212_2x": "https://s3.amazonaws.com/levelup-production/merchants/1234/images/320x212_2x/fposlogo.png?1346946087",
+				"image_url_400x235_1x": "https://s3.amazonaws.com/levelup-production/merchants/1234/images/400x235_1x/fposlogo.png?1346946087"
+			},
+			"user": {
+				"able_to_refer": true,
+				"first_name": "Example",
+				"last_initial": "M"
 			}
-		},
-		"merchant": {
-			"id": 1234,
-			"name": "Example Merchant",
-			"message_for_twitter": null,
-			"public_url": "https://www.thelevelup.com/merchants/1234",
-			"image_url_280x128_1x": "https://s3.amazonaws.com/levelup-production/merchants/1234/images/280x128_1x/fposlogo.png?1346946087",
-			"image_url_280x128_1_5x": "https://s3.amazonaws.com/levelup-production/merchants/1234/images/280x128_1_5x/fposlogo.png?1346946087",
-			"image_url_280x128_2x": "https://s3.amazonaws.com/levelup-production/merchants/1234/images/280x128_2x/fposlogo.png?1346946087",
-			"image_url_290x335_1x": "https://s3.amazonaws.com/levelup-production/merchants/1234/images/290x335_1x/fposlogo.png?1346946087",
-			"image_url_320x212_1x": "https://s3.amazonaws.com/levelup-production/merchants/1234/images/320x212_1x/fposlogo.png?1346946087",
-			"image_url_320x212_1_5x": "https://s3.amazonaws.com/levelup-production/merchants/1234/images/320x212_1_5x/fposlogo.png?1346946087",
-			"image_url_320x212_2x": "https://s3.amazonaws.com/levelup-production/merchants/1234/images/320x212_2x/fposlogo.png?1346946087",
-			"image_url_400x235_1x": "https://s3.amazonaws.com/levelup-production/merchants/1234/images/400x235_1x/fposlogo.png?1346946087"
-		},
-		"user": {
-			"able_to_refer": true,
-			"first_name": "Example",
-			"last_initial": "M"
 		}
 	}
-}
-</code></pre>
+	<br />
+	<a href="javascript:Tog('none')">Minimize</a>
+	</div>
+	<br /><a href="javascript:Tog('block')">Show Full Response</a>
+
+	</code></pre>
+	</div>
 
 <h2 id="parameters">Parameters</h2>
 
@@ -495,7 +497,7 @@ Creates and returns a new order.</p>
 		tabSide: 'left',
 		helloBarLogo: false,
 		fontWeight: '500',
-		}, 3.8 );
+		}, 3.9 );
 	</script>
   
 

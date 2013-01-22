@@ -8,7 +8,6 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="stylesheet" type="text/css" href="/css/bootstrap.css" media="screen">
-	<script src="/js/epopup.js" language="JavaScript" type="text/javascript"></script>
 	<link rel="icon" 
 	      type="image/png" 
 	      href="../favicon.ico">
@@ -40,12 +39,16 @@
 								<link type="text/css" rel="stylesheet" href="/css/hellobar.css" />
 <script type="text/javascript" src="/js2/hellobar.js"></script>
 <script language="JavaScript" type="text/javascript">
-<!--
 function Tog(x) {
 var expandable = document.getElementById('expandable');
 expandable.style.display = x;
 }
-// -->
+</script>
+<script language="JavaScript" type="text/javascript">
+function Tog(x) {
+var expandable = document.getElementById('expandable2');
+expandable.style.display = x;
+}
 </script>
 </head>
   <body>
@@ -98,11 +101,11 @@ expandable.style.display = x;
         </div><!--/span-->
         <div class="span9">
           <div class="hero-unit">
-    <h1 id="customer-data-apis">Customer Data APIs</h1>
+    <h2 id="customer-data-apis">Customer Data APIs</h2>
 
 <p>Leverage loyalty data with the LevelUp loyalty API calls.  These two endpoints will provide all the information you need to slice &amp; dice the rich data of a successful loyalty program.</p>
 
-<h2 id="loyaltiesuniqueidjson">/loyalties/<code>:unique_id</code>.json</h2>
+<h4 id="loyaltiesuniqueidjson">/loyalties/<code>:unique_id</code>.json</h4>
 <p>This displays the basic information and purchasing habits of a unique customer for a business.</p>
 
 <p>Retrieve Loyalty Information for Unique Customer  // <strong>Authentication Required: YES</strong> // Type: <em>GET</em></p>
@@ -113,12 +116,30 @@ expandable.style.display = x;
 
 <p>Sample Request:</p>
 
-<pre><code>curl -G https://api.thelevelup.com/v13/loyalties/12345.json  
+<pre><code>curl -G https://api.thelevelup.com/v13/loyalties/294247.json?access_token=123456-a12345b12c123456abc12345ab1abc1a123456ab12a1234567a1ab12ab1a12a1
+</code></pre>
+
+<p>Response:</p>
+
+<pre><code>{
+    "loyalty": {
+        "average_days_between_visits": 1.1496598639455782,
+        "average_spend": "0.23",
+        "email": "",
+        "first_name": "Andrew",
+        "first_order_created_at": "08/06/12",
+        "id": 294247,
+        "last_name": "B",
+        "last_order_created_at": "01/22/13",
+        "number_of_visits": 203,
+        "total_spend": "34.90"
+    }
+}
 </code></pre>
 
 <hr />
 
-<h2 id="merchantsmerchantidloyaltiesjsonpagepagenumber">/merchants/<code>:merchant_id</code>/loyalties.json?page=<code>:page_number</code></h2>
+<h4 id="merchantsmerchantidloyaltiesjson">/merchants/<code>:merchant_id</code>/loyalties.json</h4>
 
 <p>View customers loyal to business // <strong>Authentication Required: YES</strong> // Type: <em>GET</em></p>
 
@@ -129,7 +150,258 @@ expandable.style.display = x;
 
 <p>Sample Request:</p>
 
-<pre><code>curl
+<pre><code>curl -G https://api.thelevelup.com/v13/merchants/3225/loyalties.json?access_token=123456-a12345b12c123456abc12345ab1abc1a123456ab12a1234567a1ab12ab1a12a1
+</code></pre>
+
+<p>Response:</p>
+
+<pre><code>
+{
+    "loyalties": [{
+        "average_days_between_visits": 1.1496598639455782,
+        "average_spend": "0.23",
+        "email": "",
+        "first_name": "Andrew",
+        "first_order_created_at": "08/06/12",
+        "id": 294247,
+        "last_name": "B",
+        "last_order_created_at": "01/22/13",
+        "number_of_visits": 203,
+        "total_spend": "34.90"
+    }, {
+        "average_days_between_visits": 6.636363636363637,
+        "average_spend": "0.42",
+        "email": "",
+        "first_name": "Michael",
+        "first_order_created_at": "08/22/12",
+        "id": 319463,
+        "last_name": "H",
+        "last_order_created_at": "01/15/13",
+        "number_of_visits": 27,
+        "total_spend": "9.73"
+    }, {
+        "average_days_between_visits": null,
+        "average_spend": "0.01",
+        "email": "",
+        "first_name": "UDG",
+        "first_order_created_at": "01/09/13",
+        "id": 494083,
+        "last_name": "A",
+        "last_order_created_at": "01/09/13",
+        "number_of_visits": 1,
+        "total_spend": "0.01"
+    }, {
+        "average_days_between_visits": 0.0,
+        "average_spend": "0.02",
+        "email": "",
+        "first_name": "Merchant",
+        "first_order_created_at": "12/11/12",
+        "id": 469416,
+        "last_name": "W",
+        "last_order_created_at": "12/11/12",
+        "number_of_visits": 6,
+        "total_spend": "0.14"
+    }, {
+        "average_days_between_visits": null,
+        "average_spend": "0.05",
+        "email": "",
+        "first_name": "vtwo",
+        "first_order_created_at": "12/11/12",
+        "id": 469660,
+        "last_name": "v",
+        "last_order_created_at": "12/11/12",
+        "number_of_visits": 1,
+        "total_spend": "0.05"
+    }, {
+        "average_days_between_visits": null,
+        "average_spend": "0.01",
+        "email": "",
+        "first_name": "Lone",
+        "first_order_created_at": "12/10/12",
+        "id": 469071,
+        "last_name": "T",
+        "last_order_created_at": "12/10/12",
+        "number_of_visits": 1,
+        "total_spend": "0.01"
+    }, {
+        "average_days_between_visits": 10.333333333333334,
+        "average_spend": "0.12",
+        "email": "",
+        "first_name": "Kayhan",
+        "first_order_created_at": "11/09/12",
+        "id": 433508,
+        "last_name": "A",
+        "last_order_created_at": "12/10/12",
+        "number_of_visits": 5,
+        "total_spend": "0.51"
+    }, {
+        "average_days_between_visits": 0.0,
+        "average_spend": "0.05",
+        "email": "",
+        "first_name": "V2",
+        "first_order_created_at": "12/05/12",
+        "id": 462879,
+        "last_name": "C",
+        "last_order_created_at": "12/05/12",
+        "number_of_visits": 2,
+        "total_spend": "0.11"
+    }, {
+        "average_days_between_visits": 0.034482758620689655,
+        "average_spend": "0.11",
+        "email": "",
+        "first_name": "Kevin",
+        "first_order_created_at": "11/12/12",
+        "id": 440572,
+        "last_name": "H",
+        "last_order_created_at": "11/13/12",
+        "number_of_visits": 31,
+        "total_spend": "3.54"
+    }, {
+        "average_days_between_visits": 1.0,
+        "average_spend": "0.06",
+        "email": "",
+        "first_name": "Travis",
+        "first_order_created_at": "11/12/12",
+        "id": 352067,
+        "last_name": "G",
+        "last_order_created_at": "11/13/12",
+        "number_of_visits": 4,
+        "total_spend": "0.13"
+    }, {
+        "average_days_between_visits": null,
+        "average_spend": "0.16",
+        "email": "",
+        "first_name": "Terence",
+        "first_order_created_at": "11/13/12",
+        "id": 441657,
+        "last_name": "C",
+        "last_order_created_at": "11/13/12",
+        "number_of_visits": 1,
+        "total_spend": "0.16"
+    }, {
+        "average_days_between_visits": null,
+        "average_spend": "0.19",
+        "email": "",
+        "first_name": "Brendan",
+        "first_order_created_at": "11/02/12",
+        "id": 428428,
+        "last_name": "Q",
+        "last_order_created_at": "11/02/12",
+        "number_of_visits": 1,
+        "total_spend": "0.19"
+    }, {
+        "average_days_between_visits": 0.5454545454545454,
+        "average_spend": "0.34",
+        "email": "",
+        "first_name": "Randeep",
+        "first_order_created_at": "10/19/12",
+        "id": 410986,
+        "last_name": "T",
+        "last_order_created_at": "10/25/12",
+        "number_of_visits": 15,
+        "total_spend": "4.15"
+    }, {
+        "average_days_between_visits": null,
+        "average_spend": "0.01",
+        "email": "",
+        "first_name": "socheat",
+        "first_order_created_at": "10/18/12",
+        "id": 410377,
+        "last_name": "t",
+        "last_order_created_at": "10/18/12",
+        "number_of_visits": 1,
+        "total_spend": "0.01"
+    }, {
+        "average_days_between_visits": null,
+        "average_spend": "0.10",
+        "email": "",
+        "first_name": "Tim",
+        "first_order_created_at": "10/18/12",
+        "id": 409508,
+        "last_name": "M",
+        "last_order_created_at": "10/18/12",
+        "number_of_visits": 1,
+        "total_spend": "0.10"
+    }, {
+        "average_days_between_visits": null,
+        "average_spend": "0.08",
+        "email": "",
+        "first_name": "Mark",
+        "first_order_created_at": "10/08/12",
+        "id": 396404,
+        "last_name": "T",
+        "last_order_created_at": "10/08/12",
+        "number_of_visits": 1,
+        "total_spend": "0.08"
+    }, {
+        "average_days_between_visits": 24.0,
+        "average_spend": "2.83",
+        "email": "",
+        "first_name": "Christina",
+        "first_order_created_at": "09/11/12",
+        "id": 343905,
+        "last_name": "D",
+        "last_order_created_at": "10/05/12",
+        "number_of_visits": 4,
+        "total_spend": "5.67"
+    }, {
+        "average_days_between_visits": 6.0,
+        "average_spend": "2.67",
+        "email": "",
+        "first_name": "Andrew",
+        "first_order_created_at": "09/28/12",
+        "id": 382109,
+        "last_name": "B",
+        "last_order_created_at": "10/04/12",
+        "number_of_visits": 2,
+        "total_spend": "5.35"
+    }, {
+        "average_days_between_visits": null,
+        "average_spend": "0.05",
+        "email": "",
+        "first_name": "Support",
+        "first_order_created_at": "09/19/12",
+        "id": 366720,
+        "last_name": "T",
+        "last_order_created_at": "09/19/12",
+        "number_of_visits": 2,
+        "total_spend": "0.05"
+    }, {
+        "average_days_between_visits": 28.0,
+        "average_spend": "0.27",
+        "email": "",
+        "first_name": "Seth",
+        "first_order_created_at": "08/13/12",
+        "id": 304842,
+        "last_name": "P",
+        "last_order_created_at": "09/10/12",
+        "number_of_visits": 3,
+        "total_spend": "0.55"
+    }, {
+        "average_days_between_visits": null,
+        "average_spend": "0.10",
+        "email": "",
+        "first_name": "Seth",
+        "first_order_created_at": "09/10/12",
+        "id": 347917,
+        "last_name": "P",
+        "last_order_created_at": "09/10/12",
+        "number_of_visits": 1,
+        "total_spend": "0.10"
+    }, {
+        "average_days_between_visits": null,
+        "average_spend": "1.34",
+        "email": "",
+        "first_name": "Evan",
+        "first_order_created_at": "09/07/12",
+        "id": 343869,
+        "last_name": "K",
+        "last_order_created_at": "09/07/12",
+        "number_of_visits": 1,
+        "total_spend": "1.34"
+    }]
+}
+
 </code></pre>
 
 
@@ -174,7 +446,7 @@ expandable.style.display = x;
 		tabSide: 'left',
 		helloBarLogo: false,
 		fontWeight: '500',
-		}, 3.8 );
+		}, 3.9 );
 	</script>
   
 

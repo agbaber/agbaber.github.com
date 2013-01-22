@@ -8,7 +8,6 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="stylesheet" type="text/css" href="/css/bootstrap.css" media="screen">
-	<script src="/js/epopup.js" language="JavaScript" type="text/javascript"></script>
 	<link rel="icon" 
 	      type="image/png" 
 	      href="../favicon.ico">
@@ -40,12 +39,16 @@
 								<link type="text/css" rel="stylesheet" href="/css/hellobar.css" />
 <script type="text/javascript" src="/js2/hellobar.js"></script>
 <script language="JavaScript" type="text/javascript">
-<!--
 function Tog(x) {
 var expandable = document.getElementById('expandable');
 expandable.style.display = x;
 }
-// -->
+</script>
+<script language="JavaScript" type="text/javascript">
+function Tog(x) {
+var expandable = document.getElementById('expandable2');
+expandable.style.display = x;
+}
 </script>
 </head>
   <body>
@@ -108,12 +111,12 @@ expandable.style.display = x;
 
 <p>URL: https://api.thelevelup.com/v13/merchants/<code>MERCHANT_ID</code>/orders.json</p>
 
-<p>Authentication: This call must be made through your OAuth2 library once you&rsquo;re authenticated.</p>
+<p>Authentication: This call must be made through your OAuth2 library once you&#8217;re authenticated.</p>
 
 <h2 id="params">Params:</h2>
-<p><code>order[qr_code_data]</code>: The QR code data from the hidden &ldquo;levelup_code&rdquo; &lt;input&gt; element in your form.</p>
+<p><code>order[qr_code_data]</code>: The QR code data from the hidden &#8220;levelup_code&#8221; &lt;input&gt; element in your form.</p>
 
-<p><code>order[spend]</code>: A string of the form &ldquo;15.99&rdquo;, representing the purchase price in dollars.</p>
+<p><code>order[spend]</code>: A string of the form &#8220;15.99&#8221;, representing the purchase price in dollars.</p>
 
 <p><code>access_token</code>: A copy of OAuth2 access token from your OAuth2 library, passed as string.</p>
 
@@ -151,7 +154,7 @@ flash[:oauth_error] = "Error: #{e.code}"
 redirect_to action: 'oops'   end
 </code></pre>
 
-<p>And that should be it! Now your customers can pay with their phones and enjoy all the benefits of LevelUp&hellip; on the web!</p>
+<p>And that should be it! Now your customers can pay with their phones and enjoy all the benefits of LevelUp&#8230; on the web!</p>
 
 
             </div><!--/span-->
@@ -195,7 +198,7 @@ redirect_to action: 'oops'   end
 		tabSide: 'left',
 		helloBarLogo: false,
 		fontWeight: '500',
-		}, 3.8 );
+		}, 3.9 );
 	</script>
   
 
