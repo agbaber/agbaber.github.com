@@ -1,0 +1,421 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+        <title>LevelUp API Documentation - LevelUp POS Integration API's</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap.css" media="screen">
+	<script src="/js/epopup.js" language="JavaScript" type="text/javascript"></script>
+	<link rel="icon" 
+	      type="image/png" 
+	      href="../favicon.ico">
+    <!-- you don't need to keep this, but it's cool for stats! -->
+    <!-- Le styles -->
+    <link href="/css/bootstrap.css" rel="stylesheet">
+    <style type="text/css">
+      body {
+        padding-top: 20px;
+        padding-bottom: 40px;
+      }
+      .sidebar-nav {
+        padding: 9px 0;
+      }
+    </style>
+    <link href="/css/bootstrap-responsive.css" rel="stylesheet">
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Fav and touch icons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://twitter.github.com/bootstrap/assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://twitter.github.com/bootstrap/assets/ico/apple-touch-icon-114-precomposed.png">
+      <link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://twitter.github.com/bootstrap/assets/ico/apple-touch-icon-72-precomposed.png">
+                    <link rel="apple-touch-icon-precomposed" href="http://twitter.github.com/bootstrap/assets/ico/apple-touch-icon-57-precomposed.png">
+                                   <link rel="shortcut icon" href="../img/favicon.ico">  
+								<link type="text/css" rel="stylesheet" href="/css/hellobar.css" />
+<script type="text/javascript" src="/js2/hellobar.js"></script>
+<script language="JavaScript" type="text/javascript">
+<!--
+function Tog(x) {
+var expandable = document.getElementById('expandable');
+expandable.style.display = x;
+}
+// -->
+</script>
+</head>
+  <body>
+    <div class="container-fluid">
+      <div class="row-fluid">
+        <div class="span3">
+          <div class="well sidebar-nav">
+            <ul class="nav nav-list">
+              <li class="nav-header">LevelUp API Overview</li>
+              <li><a href="../index.html">What is LevelUp?</a></li>
+              <li><a href="/use_cases/index.html">Developer Use Cases</a></li>
+              <li><a href="/dev_support/index.html">Developer Support</a></li>
+              <li class="nav-header">Full API Documentation</li>
+              <li><a href="/endpoints/index.html">Endpoints</a></li>
+              <li class="nav-header">Transaction Flow</li>
+              <li><a href="/transaction_flow/index.html">Transaction Flow</a></li>
+              <li class="nav-header">Customer Data APIs</li>
+              <li><a href="/customer_data/index.html">Customer Data APIs</a></li>
+              <li class="nav-header">POS Integration</li>
+              <li><a href="/integration_overview/index.html">Overview</a></li>
+              <li><a href="/integration_1/index.html">Step 1 - Authentication</a></li>
+              <li><a href="/integration_2/index.html">Step 2 - Orders & Refunds</a></li>
+              <li><a href="/integration_3/index.html">Step 3 - Analytics and Testing</a></li>
+              <li><a href="/dodont/index.html">Do's and Dont's</a></li>
+              <li><a href="/scanner/index.html">LevelUp Scanner</a></li>
+              <li><a href="/orders/index.html">Order Process</a></li>
+              <li><a href="/integration_apis/index.html">Selected POS Integration APIs</a></li>
+              <li class="nav-header">White Label App</li>
+              <li><a href="/whitelabel_overview/index.html">Overview</a></li>
+              <li><a href="/whitelabel_sdk_features/index.html">Features in SDK</a></li>
+              <li><a href="/whitelabel_sample_app/index.html">Features in Sample App</a></li>
+              <li class="nav-header">Web Ordering</li>
+              <li><a href="/web_overview/index.html">Overview</a></li>
+              <li><a href="/web_1/index.html">Step 1 - Web Payments JavaScript</a></li>
+              <li><a href="/web_2/index.html">Step 2 - LevelUp Scanner Button</a></li>
+              <li><a href="/web_3/index.html">Step 3 - (Optional) Notification</a></li>
+              <li><a href="/web_4/index.html">Step 4 - Complete Transaction</a></li>
+              <li><a href="/web_apis/index.html">Selected Web Ordering APIs</a></li>
+              <li class="nav-header">Browsing Places</li>
+              <li><a href="/browsing_overview/index.html">Overview</a></li>
+              <li><a href="/browsing_1/index.html">Step 1 - Listing Merchants</a></li>
+              <li><a href="/browsing_2/index.html">Step 2 - Listing Locations</a></li>
+              <li><a href="/browsing_3/index.html">Step 3 - Specific Information</a></li>
+              <li><a href="/browsing_4/index.html">Selected Browsing APIs</a></li>
+
+
+
+                          </ul>
+          </div><!--/.well -->
+        </div><!--/span-->
+        <div class="span9">
+          <div class="hero-unit">
+    <h1 id="pos-integration-api-endpoints">POS Integration API Endpoints</h1>
+
+<h2 id="base-uri">Base URI</h2>
+<p>All communication takes place over HTTPS, and the server responds with JSON messages described in more detail below.  The API is currently at version 13, and all endpoints should be prefixed with <code>https://api.thelevelup.com/v13/</code>.</p>
+
+<hr />
+
+<h2 id="retrieve-loyalty-information-for-unique-customer">Retrieve Loyalty Information for Unique Customer</h2>
+
+<p><code>/loyalties/:unique_id.json</code> // <strong>Authentication Required: YES</strong> // Type: <em>GET</em></p>
+
+<p>Parameters:
+<code>unique_id</code>
+<code>access_token</code></p>
+
+<p>Sample Request:</p>
+
+<pre><code>curl -G https://api.thelevelup.com/v13/loyalties/12345.json  
+</code></pre>
+
+<hr />
+
+<h2 id="retrieve-access-token">Retrieve Access Token</h2>
+
+<p><code>/oauth/access_token</code> // <strong>Authentication Required: NO</strong> // Type: <em>POST</em></p>
+
+<p>Parameters:
+<code>client_id</code>
+<code>username</code>
+<code>password</code>
+<code>grant_type</code></p>
+
+<p>Sample Request:</p>
+
+<pre><code>curl -d "client_id=ac28ba9aakd0913jci9192ad928c83ka7k882ke917la001pl172w3g29oao2lla&amp;grant_type=password&amp;username=user@thelevelup.com&amp;password=password&amp;/oauth/access_token" https://api.thelevelup.com/v13/oauth/access_token
+</code></pre>
+
+<hr />
+
+<h2 id="refund-order">Refund Order</h2>
+
+<p><code>/orders/:merchant_id/refund.json</code> // <strong>Authentication Required: YES</strong> // Type: <em>PUT</em></p>
+
+<p>Parameters:
+<code>order_id</code>
+<code>merchant_id</code>
+<code>access_token</code></p>
+
+<p>Sample Request:</p>
+
+<pre><code>curl -i -X PUT -d "&amp;access_token=123456-ee0a7c2c7f907c7b9b2ee076333c8decdc7838d45b8d25ccb2be37b9ebb2adf3" https://api.thelevelup.com/v13/orders/1234567/refund.json
+</code></pre>
+
+<hr />
+
+<h2 id="get-info-about-merchant">Get info about merchant</h2>
+
+<p><code>/merchants/:merchant_id.json</code> // <strong>Authentication Required: NO</strong> // Type: <em>GET</em></p>
+
+<p>Parameters:
+<code>merchant_id</code></p>
+
+<p>Sample Request:</p>
+
+<pre><code>curl https://api.thelevelup.com/v13/merchants/1.json
+</code></pre>
+
+<hr />
+
+<h2 id="view-customers-loyal-to-business">View customers loyal to business</h2>
+
+<p><code>/merchants/:merchant_id/loyalties.json?page=:page_number</code> // <strong>Authentication Required: YES</strong> // Type: <em>GET</em></p>
+
+<p>Parameters:
+<code>merchant_id</code>
+<code>access_token</code>
+<code>page_number</code></p>
+
+<p>Sample Request:</p>
+
+<pre><code>curl
+</code></pre>
+
+<hr />
+
+<h2 id="place-an-order-or-view-list-of-orders">Place an order or view list of orders</h2>
+
+<p><code>/merchants/:merchant_id/orders.json</code> // <strong>Authentication Required: YES</strong> // Type: <em>GET/POST</em></p>
+
+<p>Required Parameters:
+<code>merchant_id</code>
+<code>access_token</code>
+<code>order[location_id]</code>
+<code>order[items]</code>
+<code>order[spend]</code>
+<code>order[qr_code_data]</code></p>
+
+<p>Optional Parameters:
+<code>order[exemption]</code>
+<code>order[lat]</code>
+<code>order[lng]</code></p>
+
+<p>Sample Request:</p>
+
+<pre><code>curl -d 'order[qr_code_data]=010001AV4ILKF22WSDF3X5G3HS010000&amp;order[spend]=0.01&amp;order[location_id]=1234&amp;order[items]=[{"sku":"5K0BKGBNPYW3R","name":"Coke Zero","upc":"049000042566","charged_price":"0.04","standard_price":"0.04"},{"sku":"48HDHOA919HA","name":"Ninja Uniform","upc":"052000031541","charged_price":"0.14","standard_price":"0.14"}]&amp;access_token=123456-ee0a7c2c7f907c7b9b2ee076333c8decdc7838d45b8d25ccb2be37b9ebb2adf3' https://api.thelevelup.com/v13/merchants/1234/orders.json
+</code></pre>
+
+<hr />
+
+<h2 id="get-info-on-logged-in-merchant">Get info on logged in merchant</h2>
+
+<p><code>/users/:x_user_id.json</code> // <strong>Authentication Required: YES</strong> // Type: <em>GET</em></p>
+
+<p>Parameters:
+<code>x_user_id</code>
+<code>access_token</code></p>
+
+<p>Sample Request:</p>
+
+<pre><code>curl -G https://api.thelevelup.com/v13/users/12345.json?access_token=123456-ee0a7c2c7f907c7b9b2ee076333c8decdc7838d45b8d25ccb2be37b9ebb2adf3
+</code></pre>
+
+<hr />
+
+<h2 id="all-params">All Params</h2>
+
+<p><code>access_token</code> -  <strong>string</strong> - The OAuth 2.0 bearer token, as previously retrieved from <code>/oauth/access_tokens.json</code>.</p>
+
+<p><code>client_id</code> - <strong>string</strong> - The OAuth client identifier for your POS system.  This does not change from merchant to merchant.</p>
+
+<p><code>grant_type</code> - <strong>string</strong> - This is always just the string &ldquo;password&rdquo;.</p>
+
+<p><code>merchant_id</code> - <strong>integer</strong> - The ID of the merchant that is posting the order.</p>
+
+<p><code>order[exemption]</code> - <strong>decimal</strong> - A decimal value indicating an amount of the order[spend] that is except from credit. This field may only be used if the /merchants/:id endpoint response said that exemption_enabled is true.</p>
+
+<p><code>order[spend]</code> - <strong>decimal</strong> - A decimal value of the spend amount. Spend must be greater than zero, otherwise the order will be rejected.</p>
+
+<p>The spend should always include two decimal places, such as 2.99 (for even spends like 3.00, the decimal places should still be included). The current server implementation will accept orders with more than two decimal digits, although digits past the first two will be dropped. For example, 2.999 would be treated as 2.99. This behavior may change in the future, so it is strongly recommended that clients only send two decimal places.</p>
+
+<p>Spend must only contain numeric digits and a period. Comma must not not be used for a thousands separator (in US localization rules) or for a decimal separator (for some international localization rules).</p>
+
+<p><code>order[qr_code_data]</code> - <strong>string</strong> - The scanned QR code data.</p>
+
+<p><code>order[items]</code> - <strong>JSON</strong> - A JSON object representing the items being purchased. The JSON object contains a single root “items” element, which is an array of individual “item” elements.</p>
+
+<p>Each “item” element much contain the following fields:</p>
+
+<blockquote>
+  <blockquote>
+    <p><code>upc</code> -  the UPC of the item.</p>
+  </blockquote>
+</blockquote>
+
+<blockquote>
+  <blockquote>
+    <p><code>sku</code> - An opaque field for the merchant’s internal item number for the item.</p>
+  </blockquote>
+</blockquote>
+
+<blockquote>
+  <blockquote>
+    <p><code>name</code> - the name of the item.</p>
+  </blockquote>
+</blockquote>
+
+<blockquote>
+  <blockquote>
+    <p><code>quantity</code>- An integer for the number of units purchased. This must be greater than 0. This must contain only digit characters.</p>
+  </blockquote>
+</blockquote>
+
+<blockquote>
+  <blockquote>
+    <p><code>standard_price</code> - The normal price of one unit of the item. Discounts are not included in this price. For the format of this field, please follow the requirements described in order[spend].</p>
+  </blockquote>
+</blockquote>
+
+<blockquote>
+  <blockquote>
+    <p><code>charged_price</code> - The price the customer was charged for all units of the item. While this will often be equal to (standard_price * quantity), that may not always be the case. For example, non-LevelUp price adjustments such as paper coupons, buy one get one free promotions, industry discounts, etc. may affect the charged_price. For the format of this field, please follow the requirements described in order[spend].</p>
+  </blockquote>
+</blockquote>
+
+<blockquote>
+  <blockquote>
+    <p><code>description</code> - An optional extended description of the item.</p>
+  </blockquote>
+</blockquote>
+
+<blockquote>
+  <blockquote>
+    <p>An example JSON string:</p>
+  </blockquote>
+</blockquote>
+
+<blockquote>
+  <blockquote>
+    <pre><code>‘[{“sku”:”2342”,”upc”:”abc123”,”name”:”Coca Cola”},{“sku”:”987654”,”upc”:”321zxy”,”name”:”Hamburger”,”description”:”Hamburger with fries”}]’
+</code></pre>
+  </blockquote>
+</blockquote>
+
+<p><code>order[location_id]</code> - <strong>integer</strong> - ID of the merchant’s location, which is obtained from the <code>/users/:id</code> GET endpoint.</p>
+
+<p><code>page_number</code> - <strong>integer</strong> - The page number of the loyalty information requested.</p>
+
+<p><code>password</code> - <strong>string</strong> The password for the user logging in.</p>
+
+<p><code>username</code> - <strong>string</strong> The username for the user logging in.</p>
+
+<p><code>x_user_id</code> - <strong>integer</strong> - The numeric ID of the user that just logged in.</p>
+
+<p><code>unique_id</code>- <strong>integer</strong> - The merchant-specific ID of a loyal customer.</p>
+
+<h2 id="response-objects">Response Objects</h2>
+
+<p>Here is a breakdown of the objects included in the response:</p>
+
+<dl>
+  <dt><code>"id":123456</code></dt>
+  <dd>ID of the order, used for issuing refunds.
+<br /><br /></dd>
+  <dt><code>"state":"completed"</code></dt>
+  <dd>Order status (will only ever be &ldquo;completed&rdquo; or &ldquo;refunded&rdquo;).
+<br /><br /></dd>
+  <dt><code>"balance":{"amount":0,"currency_code":"USD","currency_symbol":"$","formatted_amount":"0.00"},</code></dt>
+  <dd>Amount that was billed to the customer&rsquo;s credit card
+<br /><br /></dd>
+  <dt><code>"credit":{"amount":5,"currency_code":"USD","currency_symbol":"$","formatted_amount":"0.05"},</code></dt>
+  <dd>Amount of merchant credit that was used
+<br /><br /></dd>
+  <dt><code>"earn":{"amount":0,"currency_code":"USD","currency_symbol":"$","formatted_amount":"0.00"},</code></dt>
+  <dd>Amount of credit earned on this transaction
+<br /><br /></dd>
+  <dt><code>"unfunded_credit":{"amount":0,"currency_code":"USD","currency_symbol":"$","formatted_amount":"0.00"},</code></dt>
+  <dd>Amount of global (LevelUp-funded) credit used
+<br /><br /></dd>
+  <dt><code>"spend":{"amount":5,"currency_code":"USD","currency_symbol":"$","formatted_amount":"0.05"},</code></dt>
+  <dd>Order subtotal without tip
+<br /><br /></dd>
+  <dt><code>"tip":{"amount":0,"currency_code":"USD","currency_symbol":"$","formatted_amount":"0.00"},</code></dt>
+  <dd>Tip amount
+<br /><br /></dd>
+  <dt><code>"total":{"amount":5,"currency_code":"USD","currency_symbol":"$","formatted_amount":"0.05"},</code></dt>
+  <dd>Grand total spent through LevelUp
+<br /><br /></dd>
+  <dt><code>"location":{"id":3796,"extended_address":"Ste 111","lat":"42.362733","lng":"-71.058461","locality":</code></dt>
+  <dt><code>"Boston","phone":"","postal_code":"02114","region":"MA","street_address":"1 Congress St"},</code></dt>
+  <dd>Location information
+<br /><br /></dd>
+  <dt><code>"loyalty":{"orders_count":25,"progress_percent":11,</code></dt>
+  <dd>Loyalty Progression
+<br /><br /></dd>
+  <dt><code>"onboarding_eligible":false,</code></dt>
+  <dd>Eligibility for first-time credit
+<br /><br /></dd>
+  <dt><code>"potential_credit":{"amount":5105,"currency_code":"USD","currency_symbol":"$",</code></dt>
+  <dt><code>"formatted_amount":"51.05"},</code></dt>
+  <dd>Global credit available
+<br /><br /></dd>
+  <dt><code>"savings":{"amount":1199,"currency_code":"USD","currency_symbol":"$","formatted_amount":"11.99"},</code></dt>
+  <dd>Savings at this merchant to-date
+<br /><br /></dd>
+  <dt><code>"spend_remaining":{"amount":8801,"currency_code":"USD","currency_symbol":"$",</code></dt>
+  <dt><code>"formatted_amount":"88.01"}},</code></dt>
+  <dd>Amount until unlocking next reward
+<br /><br /></dd>
+</dl>
+
+
+            </div><!--/span-->
+          </div><!--/row-->
+        </div><!--/span-->
+      </div><!--/row-->
+
+      <hr>
+
+      <footer>
+        <p>© LevelUp 2012</p>
+      </footer>
+
+    </div><!--/.fluid-container-->
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="/js2/jquery.js"></script>
+    <script src="/js2/bootstrap-transition.js"></script>
+    <script src="/js2/bootstrap-alert.js"></script>
+    <script src="/js2/bootstrap-modal.js"></script>
+    <script src="/js2/bootstrap-dropdown.js"></script>
+    <script src="/js2/bootstrap-scrollspy.js"></script>
+    <script src="/js2/bootstrap-tab.js"></script>
+    <script src="/js2/bootstrap-tooltip.js"></script>
+    <script src="/js2/bootstrap-popover.js"></script>
+    <script src="/js2/bootstrap-button.js"></script>
+    <script src="/js2/bootstrap-collapse.js"></script>
+    <script src="/js2/bootstrap-carousel.js"></script>
+    <script src="/js2/bootstrap-typeahead.js"></script>
+	<script type="text/javascript">
+	    new HelloBar( "Welcome to the LevelUp API Documentation Site! -- Questions? Email <a href=mailto:pos@thelevelup.com>pos@thelevelup.com</a>", {
+		showWait: 110,
+		positioning: 'sticky',
+		transition: 'bouncy',
+		wiggleWait: 500,
+		shadow: true,
+		speed: 1000,
+		texture: 'diagonal',
+		tabSide: 'left',
+		helloBarLogo: false,
+		fontWeight: '500',
+		}, 3.8 );
+	</script>
+  
+
+</body></html>
+
+
+
+
