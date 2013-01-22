@@ -98,11 +98,68 @@ expandable.style.display = x;
         </div><!--/span-->
         <div class="span9">
           <div class="hero-unit">
+<<<<<<< HEAD
     <h1 id="white-label-sdk-features">White Label SDK Features</h1>
 
 <p>This describes the features of the White Label SDK:</p>
 
 <p>-</p>
+=======
+    <h1 class="no_toc" id="white-label-sdk-features">White Label SDK Features</h1>
+
+<p>The core SDK detailed below is for use in adding LevelUp to existing apps, or for custom apps not wanting or able to use the sample app flow as a base. The SDK includes client code for iOS and Android to automatically handle talking to the LevelUp servers for the following functions:</p>
+
+<ul id="markdown-toc">
+  <li><a href="#registration--login">Registration &amp; Login</a></li>
+  <li><a href="#user-info-retrieval">User Info Retrieval</a></li>
+  <li><a href="#merchant--location-information">Merchant &amp; Location Information</a></li>
+  <li><a href="#facebook-account-linking">Facebook Account Linking</a></li>
+  <li><a href="#integration-with-server-side-push">Integration with Server-Side Push</a></li>
+  <li><a href="#scanning--claiming-campaign-codes">Scanning &amp; Claiming Campaign Codes</a></li>
+  <li><a href="#converting-existing-loyalty-cards">Converting Existing Loyalty Cards</a></li>
+  <li><a href="#account-management">Account Management</a></li>
+  <li><a href="#credit-card-management">Credit Card Management</a></li>
+  <li><a href="#transaction-history">Transaction History</a></li>
+</ul>
+
+<h3 id="registration--login">Registration &amp; Login</h3>
+
+<p>Registering for LevelUp via email or Facebook, along with logging in to existing accounts, again via email + password combination or Facebook connect. The registration flow also supports custom registration fields.</p>
+
+<h3 id="user-info-retrieval">User Info Retrieval</h3>
+<p>Retrieving and displaying data about the authenticated user from LevelUp. This data can include:</p>
+
+<ul>
+  <li>QR Code Data - including tokenization and rotation</li>
+  <li>User Name</li>
+  <li>User Email (with appropriate permissions)</li>
+  <li>Friend Referral Campaign Data</li>
+</ul>
+
+<h3 id="merchant--location-information">Merchant &amp; Location Information</h3>
+<p>Retrieving merchant location listings, savings, loyalty info and available credit by location.  Merchants are generally returned by proximity of the nearest merchant location, but can also be returned by category, visited status, and several other parameters.</p>
+
+<h3 id="facebook-account-linking">Facebook Account Linking</h3>
+<p>Seamless integration into Facebook&#8217;s Sign On functionality to enable users to link their LevelUp accounts to Facebook and thus gain access to all of LevelUp&#8217;s implicit server-side open-graph sharing functionality.</p>
+
+<h3 id="integration-with-server-side-push">Integration with Server-Side Push</h3>
+<p>Linking a LevelUp account with Google Cloud Messaging / Apple Push Notification Services.  Push notification receipts.</p>
+
+<h3 id="scanning--claiming-campaign-codes">Scanning &amp; Claiming Campaign Codes</h3>
+<p>Integrated and optimized ZXing QR Scanning Library for easy claiming of LevelUp Campaign Codes (printed as QR Code) in printed and/or display material. Gives merchants deep analytics (e.g. we know that the ad in the newspaper was scanned this many times and the user came back this many times and transacted at this level.)</p>
+
+<h3 id="converting-existing-loyalty-cards">Converting Existing Loyalty Cards</h3>
+<p>Powerful migration functionality to transfer a user&#8217;s existing loyalty rewards / progress into LevelUp. This is useful for moving your old loyalty program to your new one.</p>
+
+<h3 id="account-management">Account Management</h3>
+<p>Resetting password and general LevelUp account holder information.</p>
+
+<h3 id="credit-card-management">Credit Card Management</h3>
+<p>Allows card addition, set default, and delete functionality, with client-side encryption.</p>
+
+<h3 id="transaction-history">Transaction History</h3>
+<p>Retrieving and displaying a user’s transaction history at all or a single merchant.</p>
+>>>>>>> add whitelabel
 
 
             </div><!--/span-->

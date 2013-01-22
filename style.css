@@ -106,9 +106,17 @@ text-decoration: underline;
 font-style: italic; 
 }
 .expandedblock {
+<<<<<<< HEAD
   padding: 2px 4px;
   color: #d14;
   white-space: nowrap;
   background-color: #f7f7f9;
   border: 1px solid #e1e1e8;
+=======
+margin-left: 40px;
+margin-right: 2%;
+display: block;
+padding: 10px; 
+background-color: #ffffff; 
+>>>>>>> add whitelabel
 }
