@@ -99,3 +99,16 @@ a:hover {
 
   line-height: 20px;
 }
+
+.expand {
+color: #000099;
+text-decoration: underline;
+font-style: italic; 
+}
+.expandedblock {
+  padding: 2px 4px;
+  color: #d14;
+  white-space: nowrap;
+  background-color: #f7f7f9;
+  border: 1px solid #e1e1e8;
+}

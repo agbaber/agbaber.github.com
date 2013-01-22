@@ -8,6 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="stylesheet" type="text/css" href="/css/bootstrap.css" media="screen">
+	<script src="/js/epopup.js" language="JavaScript" type="text/javascript"></script>
 	<link rel="icon" 
 	      type="image/png" 
 	      href="../favicon.ico">
@@ -35,7 +36,18 @@
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://twitter.github.com/bootstrap/assets/ico/apple-touch-icon-114-precomposed.png">
       <link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://twitter.github.com/bootstrap/assets/ico/apple-touch-icon-72-precomposed.png">
                     <link rel="apple-touch-icon-precomposed" href="http://twitter.github.com/bootstrap/assets/ico/apple-touch-icon-57-precomposed.png">
-                                   <link rel="shortcut icon" href="../img/favicon.ico">  </head>
+                                   <link rel="shortcut icon" href="../img/favicon.ico">  
+								<link type="text/css" rel="stylesheet" href="/css/hellobar.css" />
+<script type="text/javascript" src="/js2/hellobar.js"></script>
+<script language="JavaScript" type="text/javascript">
+<!--
+function Tog(x) {
+var expandable = document.getElementById('expandable');
+expandable.style.display = x;
+}
+// -->
+</script>
+</head>
   <body>
     <div class="container-fluid">
       <div class="row-fluid">
@@ -43,10 +55,15 @@
           <div class="well sidebar-nav">
             <ul class="nav nav-list">
               <li class="nav-header">LevelUp API Overview</li>
-              <li><a href="../index.html">Overview of LevelUp</a></li>
-              <li><a href="/use_cases/index.html">Use Cases</a></li>
+              <li><a href="../index.html">What is LevelUp?</a></li>
+              <li><a href="/use_cases/index.html">Developer Use Cases</a></li>
+              <li><a href="/dev_support/index.html">Developer Support</a></li>
               <li class="nav-header">Full API Documentation</li>
               <li><a href="/endpoints/index.html">Endpoints</a></li>
+              <li class="nav-header">Transaction Flow</li>
+              <li><a href="/transaction_flow/index.html">Transaction Flow</a></li>
+              <li class="nav-header">Customer Data APIs</li>
+              <li><a href="/customer_data/index.html">Customer Data APIs</a></li>
               <li class="nav-header">POS Integration</li>
               <li><a href="/integration_overview/index.html">Overview</a></li>
               <li><a href="/integration_1/index.html">Step 1 - Authentication</a></li>
@@ -56,8 +73,10 @@
               <li><a href="/scanner/index.html">LevelUp Scanner</a></li>
               <li><a href="/orders/index.html">Order Process</a></li>
               <li><a href="/integration_apis/index.html">Selected POS Integration APIs</a></li>
-              <li class="nav-header">White Label Apps on Levelup</li>
-              <li><a href="/whitelabel_overview/index.html">Overview (Coming Soon)</a></li>
+              <li class="nav-header">White Label App</li>
+              <li><a href="/whitelabel_overview/index.html">Overview</a></li>
+              <li><a href="/whitelabel_sdk_features/index.html">Features in SDK</a></li>
+              <li><a href="/whitelabel_sample_app/index.html">Features in Sample App</a></li>
               <li class="nav-header">Web Ordering</li>
               <li><a href="/web_overview/index.html">Overview</a></li>
               <li><a href="/web_1/index.html">Step 1 - Web Payments JavaScript</a></li>
@@ -68,7 +87,7 @@
               <li class="nav-header">Browsing Places</li>
               <li><a href="/browsing_overview/index.html">Overview</a></li>
               <li><a href="/browsing_1/index.html">Step 1 - Listing Merchants</a></li>
-              <li><a href="/browsing_2/index.html">Step 2 - Listing Location</a></li>
+              <li><a href="/browsing_2/index.html">Step 2 - Listing Locations</a></li>
               <li><a href="/browsing_3/index.html">Step 3 - Specific Information</a></li>
               <li><a href="/browsing_4/index.html">Selected Browsing APIs</a></li>
 
@@ -79,44 +98,17 @@
         </div><!--/span-->
         <div class="span9">
           <div class="hero-unit">
-    <h1 id="customer-process">Customer Process</h1>
+    <h1 id="order-process">Order Process</h1>
 
-<p>LevelUp is a revolutionary payment experience and should feel &ldquo;magical&rdquo; to the consumer.</p>
+<p>Completing an order via LevelUp should be quick and easy for both the consumer and the cashier.</p>
 
-<p>The checkout process for a LevelUp transaction is sesame street simple:</p>
+<h2 id="pc-based-systems">PC Based Systems</h2>
 
-<ul>
-  <li>Place order with cashier or server</li>
-  <li>Open LevelUp app, scan QR code</li>
-  <li>Receive digital receipt &amp; email confirmation</li>
-</ul>
+<p>When you have a workstation-server setup generally the workstation does the scanning (via USB or serial in HDD mode) and the backoffice PC executes the API calls.  When the order is rung in, the consumer scans their QR code for payment.  The details of the order are transmitted to the backoffice PC and the transaction is sent through the API, approved or denied, sent back to the workstation and logged in the analytics.</p>
 
-<h2 id="quick-service-restaurants-qsr">Quick Service Restaurants (QSR)</h2>
+<h2 id="ipad-based-systems">iPad Based Systems</h2>
 
-<p>At quick service establishments, the customer will be scanning their own code into the POS system.  They should be able to do this at any time and the POS should cache the QR code for use once the LevelUp tender has been selected.</p>
-
-<h2 id="full-service-restaurants-fsr">Full Service Restaurants (FSR)</h2>
-
-<p>In a full service dining enviroment, the server will be scanning the QR code tableside (via bluetooth scanner or mobile device).  All the customer needs to do is place their phone on the table with the LevelUp app running.  The customer&rsquo;s phone should never be removed from the table under any circumstance.</p>
-
-<hr />
-
-<h1 id="cashier-process">Cashier Process</h1>
-
-<h2 id="tender-experience-at-quick-service-restaurants-qsr">Tender Experience at Quick Service Restaurants (QSR)</h2>
-
-<ul>
-  <li>When customer is paying with LevelUp, select LevelUp tender (or autotender LevelUp when code is scanned)</li>
-</ul>
-
-<h2 id="tender-experience-at-full-service-restaurants-fsr">Tender Experience at Full Service Restaurants (FSR)</h2>
-
-<ul>
-  <li>Server delivers the check to the table</li>
-  <li>Customer indicates they are paying with LevelUp by displaying their QR code</li>
-  <li>Server scans the code at the table via handheld device or wireless 2D barcode scanner</li>
-  <li>The check is closed with &ldquo;LevelUp&rdquo; as the payment type</li>
-</ul>
+<p>Since iPad systems are cloud-based, they do their own API calls.  The QR code is entered via bluetooth so all integrations must configure their system to allow for input while a bluetooth &#8220;keyboard&#8221; is attached.  <a href="&#109;&#097;&#105;&#108;&#116;&#111;:&#112;&#111;&#115;&#064;&#116;&#104;&#101;&#108;&#101;&#118;&#101;&#108;&#117;&#112;&#046;&#099;&#111;&#109;">Contact us</a> with questions on or options for how to do this.</p>
 
 
             </div><!--/span-->
@@ -135,20 +127,33 @@
     <!-- Le javascript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src=".js2/jquery.js"></script>
-    <script src=".js2/bootstrap-transition.js"></script>
-    <script src=".js2/bootstrap-alert.js"></script>
-    <script src=".js2/bootstrap-modal.js"></script>
-    <script src=".js2/bootstrap-dropdown.js"></script>
-    <script src=".js2/bootstrap-scrollspy.js"></script>
-    <script src=".js2/bootstrap-tab.js"></script>
-    <script src=".js2/bootstrap-tooltip.js"></script>
-    <script src=".js2/bootstrap-popover.js"></script>
-    <script src=".js2/bootstrap-button.js"></script>
-    <script src=".js2/bootstrap-collapse.js"></script>
-    <script src=".js2/bootstrap-carousel.js"></script>
-    <script src=".js2/bootstrap-typeahead.js"></script>
-
+    <script src="/js2/jquery.js"></script>
+    <script src="/js2/bootstrap-transition.js"></script>
+    <script src="/js2/bootstrap-alert.js"></script>
+    <script src="/js2/bootstrap-modal.js"></script>
+    <script src="/js2/bootstrap-dropdown.js"></script>
+    <script src="/js2/bootstrap-scrollspy.js"></script>
+    <script src="/js2/bootstrap-tab.js"></script>
+    <script src="/js2/bootstrap-tooltip.js"></script>
+    <script src="/js2/bootstrap-popover.js"></script>
+    <script src="/js2/bootstrap-button.js"></script>
+    <script src="/js2/bootstrap-collapse.js"></script>
+    <script src="/js2/bootstrap-carousel.js"></script>
+    <script src="/js2/bootstrap-typeahead.js"></script>
+	<script type="text/javascript">
+	    new HelloBar( "Welcome to the LevelUp API Documentation Site! -- Questions? Email <a href=mailto:pos@thelevelup.com>pos@thelevelup.com</a>", {
+		showWait: 110,
+		positioning: 'sticky',
+		transition: 'bouncy',
+		wiggleWait: 500,
+		shadow: true,
+		speed: 1000,
+		texture: 'diagonal',
+		tabSide: 'left',
+		helloBarLogo: false,
+		fontWeight: '500',
+		}, 3.8 );
+	</script>
   
 
 </body></html>

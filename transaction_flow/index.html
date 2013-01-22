@@ -1,0 +1,215 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+        <title>LevelUp API Documentation - Transaction Flow</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap.css" media="screen">
+	<script src="/js/epopup.js" language="JavaScript" type="text/javascript"></script>
+	<link rel="icon" 
+	      type="image/png" 
+	      href="../favicon.ico">
+    <!-- you don't need to keep this, but it's cool for stats! -->
+    <!-- Le styles -->
+    <link href="/css/bootstrap.css" rel="stylesheet">
+    <style type="text/css">
+      body {
+        padding-top: 20px;
+        padding-bottom: 40px;
+      }
+      .sidebar-nav {
+        padding: 9px 0;
+      }
+    </style>
+    <link href="/css/bootstrap-responsive.css" rel="stylesheet">
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Fav and touch icons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://twitter.github.com/bootstrap/assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://twitter.github.com/bootstrap/assets/ico/apple-touch-icon-114-precomposed.png">
+      <link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://twitter.github.com/bootstrap/assets/ico/apple-touch-icon-72-precomposed.png">
+                    <link rel="apple-touch-icon-precomposed" href="http://twitter.github.com/bootstrap/assets/ico/apple-touch-icon-57-precomposed.png">
+                                   <link rel="shortcut icon" href="../img/favicon.ico">  
+								<link type="text/css" rel="stylesheet" href="/css/hellobar.css" />
+<script type="text/javascript" src="/js2/hellobar.js"></script>
+<script language="JavaScript" type="text/javascript">
+<!--
+function Tog(x) {
+var expandable = document.getElementById('expandable');
+expandable.style.display = x;
+}
+// -->
+</script>
+</head>
+  <body>
+    <div class="container-fluid">
+      <div class="row-fluid">
+        <div class="span3">
+          <div class="well sidebar-nav">
+            <ul class="nav nav-list">
+              <li class="nav-header">LevelUp API Overview</li>
+              <li><a href="../index.html">What is LevelUp?</a></li>
+              <li><a href="/use_cases/index.html">Developer Use Cases</a></li>
+              <li><a href="/dev_support/index.html">Developer Support</a></li>
+              <li class="nav-header">Full API Documentation</li>
+              <li><a href="/endpoints/index.html">Endpoints</a></li>
+              <li class="nav-header">Transaction Flow</li>
+              <li><a href="/transaction_flow/index.html">Transaction Flow</a></li>
+              <li class="nav-header">Customer Data APIs</li>
+              <li><a href="/customer_data/index.html">Customer Data APIs</a></li>
+              <li class="nav-header">POS Integration</li>
+              <li><a href="/integration_overview/index.html">Overview</a></li>
+              <li><a href="/integration_1/index.html">Step 1 - Authentication</a></li>
+              <li><a href="/integration_2/index.html">Step 2 - Orders & Refunds</a></li>
+              <li><a href="/integration_3/index.html">Step 3 - Analytics and Testing</a></li>
+              <li><a href="/dodont/index.html">Do's and Dont's</a></li>
+              <li><a href="/scanner/index.html">LevelUp Scanner</a></li>
+              <li><a href="/orders/index.html">Order Process</a></li>
+              <li><a href="/integration_apis/index.html">Selected POS Integration APIs</a></li>
+              <li class="nav-header">White Label App</li>
+              <li><a href="/whitelabel_overview/index.html">Overview</a></li>
+              <li><a href="/whitelabel_sdk_features/index.html">Features in SDK</a></li>
+              <li><a href="/whitelabel_sample_app/index.html">Features in Sample App</a></li>
+              <li class="nav-header">Web Ordering</li>
+              <li><a href="/web_overview/index.html">Overview</a></li>
+              <li><a href="/web_1/index.html">Step 1 - Web Payments JavaScript</a></li>
+              <li><a href="/web_2/index.html">Step 2 - LevelUp Scanner Button</a></li>
+              <li><a href="/web_3/index.html">Step 3 - (Optional) Notification</a></li>
+              <li><a href="/web_4/index.html">Step 4 - Complete Transaction</a></li>
+              <li><a href="/web_apis/index.html">Selected Web Ordering APIs</a></li>
+              <li class="nav-header">Browsing Places</li>
+              <li><a href="/browsing_overview/index.html">Overview</a></li>
+              <li><a href="/browsing_1/index.html">Step 1 - Listing Merchants</a></li>
+              <li><a href="/browsing_2/index.html">Step 2 - Listing Locations</a></li>
+              <li><a href="/browsing_3/index.html">Step 3 - Specific Information</a></li>
+              <li><a href="/browsing_4/index.html">Selected Browsing APIs</a></li>
+
+
+
+                          </ul>
+          </div><!--/.well -->
+        </div><!--/span-->
+        <div class="span9">
+          <div class="hero-unit">
+    <h1 class="no_toc" id="transaction-flow">Transaction Flow</h1>
+
+<ul id="markdown-toc">
+  <li><a href="#api">API</a></li>
+  <li><a href="#customer-experience-at-quick-service-restaurants-qsr">Customer Experience at Quick Service Restaurants (QSR)</a></li>
+  <li><a href="#customer-experience-at-full-service-restaurants-fsr">Customer Experience at Full Service Restaurants (FSR)</a></li>
+  <li><a href="#cashier-experience-at-quick-service-restaurants-qsr">Cashier Experience at Quick Service Restaurants (QSR)</a></li>
+  <li><a href="#server-experience-at-full-service-restaurants-fsr">Server Experience at Full Service Restaurants (FSR)</a></li>
+</ul>
+
+<h2 id="api">API</h2>
+<p>From a high-level, the technical order flow for an integrated POS device is:</p>
+
+<ol>
+  <li>Ring up the customer&#8217;s order and capture the user&#8217;s QR code data.</li>
+  <li>Send (POST) a new order to the LevelUp API with:
+    <ul>
+      <li>the <strong>user’s</strong> <code>order[qr_code_data]</code>: so we know whom to charge</li>
+      <li>the <strong>store’s</strong> <code>order[location_id]</code>: so we know which location the order coming from</li>
+      <li>the <strong>check&#8217;s</strong> <code>order[spend]</code>: so we know how much to charge the user</li>
+      <li>the <strong>check&#8217;s</strong> <code>order[items]</code>: for SKU-level analytics and promotions</li>
+      <li>the <strong>merchant’s</strong> <code>access_token</code>: to authenticate the merchant</li>
+      <li>the <strong>merchant&#8217;s</strong> <code>merchant_id</code> <em>in the URL</em>: to identify the merchant placing the order</li>
+    </ul>
+  </li>
+  <li>Receive a response from the LevelUp API including:
+    <ul>
+      <li>the <strong>order</strong> <code>id</code></li>
+      <li>a <strong>state</strong> : <code>completed</code></li>
+      <li>the <strong>tip</strong> : amount selected by the user</li>
+      <li>the grand <strong>total</strong>: full amount tendered</li>
+    </ul>
+  </li>
+  <li>(If needed) Reverse the grand total to the customer&#8217;s funding source via the <code>order_id</code>.</li>
+  <li>Record the sale</li>
+</ol>
+
+<hr />
+
+<h2 id="customer-experience-at-quick-service-restaurants-qsr">Customer Experience at Quick Service Restaurants (QSR)</h2>
+
+<p>At quick service establishments, the customer will be scanning their own code into the POS system.  They should be able to do this at any time and the POS should cache the QR code for use once the LevelUp tender has been selected.  Since the code begins and ends with &#8220;LU&#8221; it&#8217;s easy to identify LevelUp codes.</p>
+
+<h2 id="customer-experience-at-full-service-restaurants-fsr">Customer Experience at Full Service Restaurants (FSR)</h2>
+
+<p>In a full service dining environment, the server will be scanning the QR code table-side (via mobile device or POS handheld).  All the customer needs to do is place their phone on the table with the LevelUp app running.  The customer&#8217;s phone should never be removed from the table under any circumstance.</p>
+
+<hr />
+
+<h2 id="cashier-experience-at-quick-service-restaurants-qsr">Cashier Experience at Quick Service Restaurants (QSR)</h2>
+
+<ul>
+  <li>When customer is paying with LevelUp, their code should automatically select LevelUp as tender when QR code is detected.  If this is not possible, simply select the LevelUp tender type and have the customer scan their code.</li>
+</ul>
+
+<h2 id="server-experience-at-full-service-restaurants-fsr">Server Experience at Full Service Restaurants (FSR)</h2>
+
+<ul>
+  <li>Delivers the check to the table</li>
+  <li>Recognize LevelUp tender when customer displays their QR code</li>
+  <li>Scans the code at the table via mobile device or POS handheld</li>
+  <li>Close each LevelUp payment to the &#8220;LevelUp&#8221; tender type</li>
+</ul>
+
+
+            </div><!--/span-->
+          </div><!--/row-->
+        </div><!--/span-->
+      </div><!--/row-->
+
+      <hr>
+
+      <footer>
+        <p>© LevelUp 2012</p>
+      </footer>
+
+    </div><!--/.fluid-container-->
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="/js2/jquery.js"></script>
+    <script src="/js2/bootstrap-transition.js"></script>
+    <script src="/js2/bootstrap-alert.js"></script>
+    <script src="/js2/bootstrap-modal.js"></script>
+    <script src="/js2/bootstrap-dropdown.js"></script>
+    <script src="/js2/bootstrap-scrollspy.js"></script>
+    <script src="/js2/bootstrap-tab.js"></script>
+    <script src="/js2/bootstrap-tooltip.js"></script>
+    <script src="/js2/bootstrap-popover.js"></script>
+    <script src="/js2/bootstrap-button.js"></script>
+    <script src="/js2/bootstrap-collapse.js"></script>
+    <script src="/js2/bootstrap-carousel.js"></script>
+    <script src="/js2/bootstrap-typeahead.js"></script>
+	<script type="text/javascript">
+	    new HelloBar( "Welcome to the LevelUp API Documentation Site! -- Questions? Email <a href=mailto:pos@thelevelup.com>pos@thelevelup.com</a>", {
+		showWait: 110,
+		positioning: 'sticky',
+		transition: 'bouncy',
+		wiggleWait: 500,
+		shadow: true,
+		speed: 1000,
+		texture: 'diagonal',
+		tabSide: 'left',
+		helloBarLogo: false,
+		fontWeight: '500',
+		}, 3.8 );
+	</script>
+  
+
+</body></html>
+
+
+
+

@@ -8,6 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="stylesheet" type="text/css" href="/css/bootstrap.css" media="screen">
+	<script src="/js/epopup.js" language="JavaScript" type="text/javascript"></script>
 	<link rel="icon" 
 	      type="image/png" 
 	      href="../favicon.ico">
@@ -35,7 +36,18 @@
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://twitter.github.com/bootstrap/assets/ico/apple-touch-icon-114-precomposed.png">
       <link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://twitter.github.com/bootstrap/assets/ico/apple-touch-icon-72-precomposed.png">
                     <link rel="apple-touch-icon-precomposed" href="http://twitter.github.com/bootstrap/assets/ico/apple-touch-icon-57-precomposed.png">
-                                   <link rel="shortcut icon" href="../img/favicon.ico">  </head>
+                                   <link rel="shortcut icon" href="../img/favicon.ico">  
+								<link type="text/css" rel="stylesheet" href="/css/hellobar.css" />
+<script type="text/javascript" src="/js2/hellobar.js"></script>
+<script language="JavaScript" type="text/javascript">
+<!--
+function Tog(x) {
+var expandable = document.getElementById('expandable');
+expandable.style.display = x;
+}
+// -->
+</script>
+</head>
   <body>
     <div class="container-fluid">
       <div class="row-fluid">
@@ -43,10 +55,15 @@
           <div class="well sidebar-nav">
             <ul class="nav nav-list">
               <li class="nav-header">LevelUp API Overview</li>
-              <li><a href="../index.html">Overview of LevelUp</a></li>
-              <li><a href="/use_cases/index.html">Use Cases</a></li>
+              <li><a href="../index.html">What is LevelUp?</a></li>
+              <li><a href="/use_cases/index.html">Developer Use Cases</a></li>
+              <li><a href="/dev_support/index.html">Developer Support</a></li>
               <li class="nav-header">Full API Documentation</li>
               <li><a href="/endpoints/index.html">Endpoints</a></li>
+              <li class="nav-header">Transaction Flow</li>
+              <li><a href="/transaction_flow/index.html">Transaction Flow</a></li>
+              <li class="nav-header">Customer Data APIs</li>
+              <li><a href="/customer_data/index.html">Customer Data APIs</a></li>
               <li class="nav-header">POS Integration</li>
               <li><a href="/integration_overview/index.html">Overview</a></li>
               <li><a href="/integration_1/index.html">Step 1 - Authentication</a></li>
@@ -56,8 +73,10 @@
               <li><a href="/scanner/index.html">LevelUp Scanner</a></li>
               <li><a href="/orders/index.html">Order Process</a></li>
               <li><a href="/integration_apis/index.html">Selected POS Integration APIs</a></li>
-              <li class="nav-header">White Label Apps on Levelup</li>
-              <li><a href="/whitelabel_overview/index.html">Overview (Coming Soon)</a></li>
+              <li class="nav-header">White Label App</li>
+              <li><a href="/whitelabel_overview/index.html">Overview</a></li>
+              <li><a href="/whitelabel_sdk_features/index.html">Features in SDK</a></li>
+              <li><a href="/whitelabel_sample_app/index.html">Features in Sample App</a></li>
               <li class="nav-header">Web Ordering</li>
               <li><a href="/web_overview/index.html">Overview</a></li>
               <li><a href="/web_1/index.html">Step 1 - Web Payments JavaScript</a></li>
@@ -68,7 +87,7 @@
               <li class="nav-header">Browsing Places</li>
               <li><a href="/browsing_overview/index.html">Overview</a></li>
               <li><a href="/browsing_1/index.html">Step 1 - Listing Merchants</a></li>
-              <li><a href="/browsing_2/index.html">Step 2 - Listing Location</a></li>
+              <li><a href="/browsing_2/index.html">Step 2 - Listing Locations</a></li>
               <li><a href="/browsing_3/index.html">Step 3 - Specific Information</a></li>
               <li><a href="/browsing_4/index.html">Selected Browsing APIs</a></li>
 
@@ -79,7 +98,7 @@
         </div><!--/span-->
         <div class="span9">
           <div class="hero-unit">
-    <p>Hi, I&rsquo;m a new item!</p>
+    <p>Hi, I&#8217;m a new item!</p>
 
 
             </div><!--/span-->
@@ -98,20 +117,33 @@
     <!-- Le javascript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src=".js2/jquery.js"></script>
-    <script src=".js2/bootstrap-transition.js"></script>
-    <script src=".js2/bootstrap-alert.js"></script>
-    <script src=".js2/bootstrap-modal.js"></script>
-    <script src=".js2/bootstrap-dropdown.js"></script>
-    <script src=".js2/bootstrap-scrollspy.js"></script>
-    <script src=".js2/bootstrap-tab.js"></script>
-    <script src=".js2/bootstrap-tooltip.js"></script>
-    <script src=".js2/bootstrap-popover.js"></script>
-    <script src=".js2/bootstrap-button.js"></script>
-    <script src=".js2/bootstrap-collapse.js"></script>
-    <script src=".js2/bootstrap-carousel.js"></script>
-    <script src=".js2/bootstrap-typeahead.js"></script>
-
+    <script src="/js2/jquery.js"></script>
+    <script src="/js2/bootstrap-transition.js"></script>
+    <script src="/js2/bootstrap-alert.js"></script>
+    <script src="/js2/bootstrap-modal.js"></script>
+    <script src="/js2/bootstrap-dropdown.js"></script>
+    <script src="/js2/bootstrap-scrollspy.js"></script>
+    <script src="/js2/bootstrap-tab.js"></script>
+    <script src="/js2/bootstrap-tooltip.js"></script>
+    <script src="/js2/bootstrap-popover.js"></script>
+    <script src="/js2/bootstrap-button.js"></script>
+    <script src="/js2/bootstrap-collapse.js"></script>
+    <script src="/js2/bootstrap-carousel.js"></script>
+    <script src="/js2/bootstrap-typeahead.js"></script>
+	<script type="text/javascript">
+	    new HelloBar( "Welcome to the LevelUp API Documentation Site! -- Questions? Email <a href=mailto:pos@thelevelup.com>pos@thelevelup.com</a>", {
+		showWait: 110,
+		positioning: 'sticky',
+		transition: 'bouncy',
+		wiggleWait: 500,
+		shadow: true,
+		speed: 1000,
+		texture: 'diagonal',
+		tabSide: 'left',
+		helloBarLogo: false,
+		fontWeight: '500',
+		}, 3.8 );
+	</script>
   
 
 </body></html>

@@ -227,7 +227,7 @@ body {
   font-size: 14px;
   line-height: 20px;
   color: #333333;
-    background: url(http://levelup-assets.s3.amazonaws.com/support-page/images/support_background.png) #0568ea no-repeat top center;
+    background: url('/images/support_background.png') #0568ea no-repeat top center;
     background-attachment: fixed;
   }
 
