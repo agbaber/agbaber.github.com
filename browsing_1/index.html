@@ -3,7 +3,7 @@
   <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta charset="utf-8">
-        <title>LevelUp API Documentation - Listing Merchants</title>
+        <title>LevelUp API Documentation - Listing Divisions & Merchants</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -89,7 +89,7 @@ expandable.style.display = x;
               <li><a href="/web_apis/index.html">Selected Web Ordering APIs</a></li>
               <li class="nav-header">Browsing Places</li>
               <li><a href="/browsing_overview/index.html">Overview</a></li>
-              <li><a href="/browsing_1/index.html">Step 1 - Listing Merchants</a></li>
+              <li><a href="/browsing_1/index.html">Step 1 - Listing Divisions & Merchants</a></li>
               <li><a href="/browsing_2/index.html">Step 2 - Listing Locations</a></li>
               <li><a href="/browsing_3/index.html">Step 3 - Specific Information</a></li>
               <li><a href="/browsing_4/index.html">Selected Browsing APIs</a></li>
@@ -101,9 +101,410 @@ expandable.style.display = x;
         </div><!--/span-->
         <div class="span9">
           <div class="hero-unit">
-    <h1 id="listing-merchants">Listing Merchants</h1>
+    <h2 id="listing-divisions--merchants">Listing Divisions &amp; Merchants</h2>
 
-<p>Get listings of LevelUp Merchants via City or GPS coordinates.</p>
+<h3 id="divisions">Divisions</h3>
+
+<p>Response:</p>
+
+<pre><code>
+[{
+    "division": {
+        "id": 53,
+        "lat": "33.748995",
+        "live": true,
+        "lng": "-84.387982",
+        "name": "Atlanta"
+    }
+}, {
+    "division": {
+        "id": 115,
+        "lat": "39.364283",
+        "live": true,
+        "lng": "-74.422927",
+        "name": "Atlantic City, NJ"
+    }
+}, {
+    "division": {
+        "id": 54,
+        "lat": "30.267153",
+        "live": true,
+        "lng": "-97.743061",
+        "name": "Austin"
+    }
+}, {
+    "division": {
+        "id": 109,
+        "lat": "30.458283",
+        "live": true,
+        "lng": "-91.14032",
+        "name": "Baton Rouge, LA"
+    }
+}, {
+    "division": {
+        "id": 58,
+        "lat": "33.520661",
+        "live": true,
+        "lng": "-86.80249",
+        "name": "Birmingham, AL"
+    }
+}, {
+    "division": {
+        "id": 1,
+        "lat": "42.358431",
+        "live": true,
+        "lng": "-71.059773",
+        "name": "Boston"
+    }
+}, {
+    "division": {
+        "id": 56,
+        "lat": "42.886447",
+        "live": true,
+        "lng": "-78.878369",
+        "name": "Buffalo, NY"
+    }
+}, {
+    "division": {
+        "id": 63,
+        "lat": "44.475883",
+        "live": false,
+        "lng": "-73.212072",
+        "name": "Burlington"
+    }
+}, {
+    "division": {
+        "id": 119,
+        "lat": "32.776566",
+        "live": true,
+        "lng": "-79.930922",
+        "name": "Charleston, SC"
+    }
+}, {
+    "division": {
+        "id": 111,
+        "lat": "35.227087",
+        "live": true,
+        "lng": "-80.843127",
+        "name": "Charlotte, NC"
+    }
+}, {
+    "division": {
+        "id": 112,
+        "lat": "39.934974",
+        "live": true,
+        "lng": "-74.966138",
+        "name": "Cherry Hill, NJ"
+    }
+}, {
+    "division": {
+        "id": 8,
+        "lat": "41.878114",
+        "live": true,
+        "lng": "-87.629798",
+        "name": "Chicago"
+    }
+}, {
+    "division": {
+        "id": 116,
+        "lat": "27.965853",
+        "live": true,
+        "lng": "-82.800103",
+        "name": "Clearwater, FL"
+    }
+}, {
+    "division": {
+        "id": 67,
+        "lat": "39.961176",
+        "live": true,
+        "lng": "-82.998794",
+        "name": "Columbus, OH"
+    }
+}, {
+    "division": {
+        "id": 13,
+        "lat": "32.802955",
+        "live": true,
+        "lng": "-96.769923",
+        "name": "Dallas"
+    }
+}, {
+    "division": {
+        "id": 27,
+        "lat": "39.739154",
+        "live": true,
+        "lng": "-104.984703",
+        "name": "Denver"
+    }
+}, {
+    "division": {
+        "id": 65,
+        "lat": "42.331427",
+        "live": false,
+        "lng": "-83.045754",
+        "name": "Detroit"
+    }
+}, {
+    "division": {
+        "id": 70,
+        "lat": "32.912624",
+        "live": true,
+        "lng": "-96.638883",
+        "name": "Garland, TX"
+    }
+}, {
+    "division": {
+        "id": 72,
+        "lat": "40.2737",
+        "live": true,
+        "lng": "-76.884418",
+        "name": "Harrisburg, PA"
+    }
+}, {
+    "division": {
+        "id": 110,
+        "lat": "29.741746",
+        "live": true,
+        "lng": "-95.450696",
+        "name": "Houston"
+    }
+}, {
+    "division": {
+        "id": 73,
+        "lat": "42.443961",
+        "live": true,
+        "lng": "-76.501881",
+        "name": "Ithaca, NY"
+    }
+}, {
+    "division": {
+        "id": 108,
+        "lat": "36.255123",
+        "live": true,
+        "lng": "-115.238349",
+        "name": "Las Vegas"
+    }
+}, {
+    "division": {
+        "id": 6,
+        "lat": "51.513263",
+        "live": false,
+        "lng": "-0.128665",
+        "name": "London"
+    }
+}, {
+    "division": {
+        "id": 5,
+        "lat": "34.040675",
+        "live": true,
+        "lng": "-118.26173",
+        "name": "Los Angeles"
+    }
+}, {
+    "division": {
+        "id": 114,
+        "lat": "38.252665",
+        "live": true,
+        "lng": "-85.758456",
+        "name": "Louisville, KY"
+    }
+}, {
+    "division": {
+        "id": 60,
+        "lat": "25.788969",
+        "live": true,
+        "lng": "-80.226439",
+        "name": "Miami, FL"
+    }
+}, {
+    "division": {
+        "id": 75,
+        "lat": "44.983334",
+        "live": true,
+        "lng": "-93.26667",
+        "name": "Minneapolis, Minnesota"
+    }
+}, {
+    "division": {
+        "id": 61,
+        "lat": "32.366805",
+        "live": true,
+        "lng": "-86.299969",
+        "name": "Montgomery, AL"
+    }
+}, {
+    "division": {
+        "id": 57,
+        "lat": "36.166667",
+        "live": true,
+        "lng": "-86.783333",
+        "name": "Nashville"
+    }
+}, {
+    "division": {
+        "id": 64,
+        "lat": "29.951066",
+        "live": false,
+        "lng": "-90.071532",
+        "name": "New Orleans"
+    }
+}, {
+    "division": {
+        "id": 4,
+        "lat": "40.714353",
+        "live": true,
+        "lng": "-74.005973",
+        "name": "New York City"
+    }
+}, {
+    "division": {
+        "id": 68,
+        "lat": "26.705621",
+        "live": true,
+        "lng": "-80.03643",
+        "name": "Palm Beach"
+    }
+}, {
+    "division": {
+        "id": 2,
+        "lat": "39.952335",
+        "live": true,
+        "lng": "-75.163789",
+        "name": "Philadelphia"
+    }
+}, {
+    "division": {
+        "id": 113,
+        "lat": "40.440625",
+        "live": true,
+        "lng": "-79.995886",
+        "name": "Pittsburgh, PA"
+    }
+}, {
+    "division": {
+        "id": 118,
+        "lat": "37.662431",
+        "live": true,
+        "lng": "-121.874679",
+        "name": "Pleasanton, CA"
+    }
+}, {
+    "division": {
+        "id": 30,
+        "lat": "45.523452",
+        "live": true,
+        "lng": "-122.676207",
+        "name": "Portland, OR"
+    }
+}, {
+    "division": {
+        "id": 71,
+        "lat": "43.071755",
+        "live": true,
+        "lng": "-70.762553",
+        "name": "Portsmouth"
+    }
+}, {
+    "division": {
+        "id": 117,
+        "lat": "41.823989",
+        "live": true,
+        "lng": "-71.412834",
+        "name": "Providence, RI"
+    }
+}, {
+    "division": {
+        "id": 66,
+        "lat": "42.658366",
+        "live": true,
+        "lng": "-83.149932",
+        "name": "Rochester Hills, MI"
+    }
+}, {
+    "division": {
+        "id": 74,
+        "lat": "45.006077",
+        "live": true,
+        "lng": "-93.156611",
+        "name": "Roseville, Minnesota"
+    }
+}, {
+    "division": {
+        "id": 36,
+        "lat": "38.581572",
+        "live": false,
+        "lng": "-121.4944",
+        "name": "Sacramento"
+    }
+}, {
+    "division": {
+        "id": 69,
+        "lat": "38.581572",
+        "live": true,
+        "lng": "-121.4944",
+        "name": "Sacramento, CA"
+    }
+}, {
+    "division": {
+        "id": 12,
+        "lat": "32.715329",
+        "live": true,
+        "lng": "-117.157255",
+        "name": "San Diego"
+    }
+}, {
+    "division": {
+        "id": 3,
+        "lat": "37.77493",
+        "live": true,
+        "lng": "-122.419416",
+        "name": "San Francisco"
+    }
+}, {
+    "division": {
+        "id": 25,
+        "lat": "47.60621",
+        "live": true,
+        "lng": "-122.332071",
+        "name": "Seattle"
+    }
+}, {
+    "division": {
+        "id": 55,
+        "lat": "38.627003",
+        "live": true,
+        "lng": "-90.199404",
+        "name": "St. Louis"
+    }
+}, {
+    "division": {
+        "id": 52,
+        "lat": "38.895112",
+        "live": true,
+        "lng": "-77.036366",
+        "name": "Washington, DC"
+    }
+}, {
+    "division": {
+        "id": 59,
+        "lat": "40.718155",
+        "live": false,
+        "lng": "-73.354287",
+        "name": "West Babylon"
+    }
+}, {
+    "division": {
+        "id": 62,
+        "lat": "40.718155",
+        "live": true,
+        "lng": "-73.354287",
+        "name": "West Babylon, NY"
+    }
+}]
+
+</code></pre>
+
+<h3 id="list-merchants-by-division">List Merchants By Division</h3>
 
 
             </div><!--/span-->
@@ -137,7 +538,7 @@ expandable.style.display = x;
     <script src="/js2/bootstrap-typeahead.js"></script>
 	<script type="text/javascript">
 	    new HelloBar( "Welcome to the LevelUp API Documentation Site! -- Questions? Email <a href=mailto:pos@thelevelup.com>pos@thelevelup.com</a>", {
-		showWait: 110,
+		showWait: 500,
 		positioning: 'sticky',
 		transition: 'bouncy',
 		wiggleWait: 500,

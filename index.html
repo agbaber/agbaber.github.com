@@ -89,7 +89,7 @@ expandable.style.display = x;
               <li><a href="/web_apis/index.html">Selected Web Ordering APIs</a></li>
               <li class="nav-header">Browsing Places</li>
               <li><a href="/browsing_overview/index.html">Overview</a></li>
-              <li><a href="/browsing_1/index.html">Step 1 - Listing Merchants</a></li>
+              <li><a href="/browsing_1/index.html">Step 1 - Listing Divisions & Merchants</a></li>
               <li><a href="/browsing_2/index.html">Step 2 - Listing Locations</a></li>
               <li><a href="/browsing_3/index.html">Step 3 - Specific Information</a></li>
               <li><a href="/browsing_4/index.html">Selected Browsing APIs</a></li>
@@ -101,7 +101,7 @@ expandable.style.display = x;
         </div><!--/span-->
         <div class="span9">
           <div class="hero-unit">
-    <h1 id="what-is-levelup">What is LevelUp?</h1>
+    <h2 id="what-is-levelup">What is LevelUp?</h2>
 
 <p>LevelUp is a mobile payment and loyalty solution. It provides five main value propositions to merchants:</p>
 
@@ -123,7 +123,7 @@ expandable.style.display = x;
   </li>
 </ul>
 
-<h2 id="integration-faq-and-overview">Integration FAQ and Overview</h2>
+<h3 id="integration-faq-and-overview">Integration FAQ and Overview</h3>
 
 <ul>
   <li><a href="#what-are-the-benefits-to-a-pos-company-of-integrating-with-levelup">What are the benefits to a POS company of integrating with LevelUp?</a> </li>
@@ -139,7 +139,7 @@ expandable.style.display = x;
   <li><a href="#what-pos-integrations-are-currently-under-development">What POS integrations are currently under development?</a></li>
 </ul>
 
-<h2 id="what-are-the-benefits-to-a-pos-company-of-integrating-with-levelup">What are the benefits to a POS company of integrating with LevelUp?</h2>
+<h3 id="what-are-the-benefits-to-a-pos-company-of-integrating-with-levelup">What are the benefits to a POS company of integrating with LevelUp?</h3>
 
 <ul>
   <li>
@@ -255,17 +255,17 @@ expandable.style.display = x;
 Awesome, now we’re done and ready for the next transaction! But, what happens if a mistake occurred? Well, in the next step we’ll overview the functionality to refund transactions. </li>
 </ul>
 
-<h2 id="refunding-transactions">Refunding Transactions</h2>
+<h3 id="refunding-transactions">Refunding Transactions</h3>
 
 <p>If you want to refund a transaction, you’ll simply take the <code>order_id</code> and hit the <code>orders/:id/refund.json</code> endpoint detailed in the API documentation. This will refund the transaction and send the money back to the user. You’ll receive a confirmation that the refund was successful from the API.</p>
 
-<h2 id="let-us-know-youre-live">Let Us Know You’re Live</h2>
+<h3 id="let-us-know-youre-live">Let Us Know You’re Live</h3>
 
 <p>We’re always excited about developers working with the LevelUp API. Once you’re done with your integration, please reach out to us so we can feature you on our Partners Page and also in our communications to our merchants. Simply email <a href="mailto:pos@thelevelup.com">pos@thelevelup.com</a> and we’ll get you listed in all the right places.</p>
 
 <p>As always, if you have any questions, please submit a ticket or email <a href="mailto:pos@thelevelup.com">pos@thelevelup.com</a>. Thanks for integrating with LevelUp!</p>
 
-<h2 id="should-i-issue-a-paper-receipt-when-transactions-are-processed-with-levelup">Should I issue a paper receipt when transactions are processed with LevelUp?</h2>
+<h3 id="should-i-issue-a-paper-receipt-when-transactions-are-processed-with-levelup">Should I issue a paper receipt when transactions are processed with LevelUp?</h3>
 
 <p>Nope!</p>
 
@@ -280,7 +280,7 @@ Awesome, now we’re done and ready for the next transaction! But, what happens 
   <li><strong>You Can Save A Tree:</strong> Not printing receipts is green! It reduces trash and “pocket clutter syndrome”.</li>
 </ul>
 
-<h2 id="what-pos-integrations-are-currently-under-development">What POS integrations are currently under development?</h2>
+<h3 id="what-pos-integrations-are-currently-under-development">What POS integrations are currently under development?</h3>
 
 <p>There are several POS integrations currently under development. Some of these are client specific projects that are not open source, others are productized as part of a 3rd party offering (say an iPad POS solution) and others still are open source. Where applicable we’ll try to link to the open-source repository.</p>
 
@@ -347,7 +347,7 @@ Awesome, now we’re done and ready for the next transaction! But, what happens 
     <script src="/js2/bootstrap-typeahead.js"></script>
 	<script type="text/javascript">
 	    new HelloBar( "Welcome to the LevelUp API Documentation Site! -- Questions? Email <a href=mailto:pos@thelevelup.com>pos@thelevelup.com</a>", {
-		showWait: 110,
+		showWait: 500,
 		positioning: 'sticky',
 		transition: 'bouncy',
 		wiggleWait: 500,

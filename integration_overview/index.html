@@ -89,7 +89,7 @@ expandable.style.display = x;
               <li><a href="/web_apis/index.html">Selected Web Ordering APIs</a></li>
               <li class="nav-header">Browsing Places</li>
               <li><a href="/browsing_overview/index.html">Overview</a></li>
-              <li><a href="/browsing_1/index.html">Step 1 - Listing Merchants</a></li>
+              <li><a href="/browsing_1/index.html">Step 1 - Listing Divisions & Merchants</a></li>
               <li><a href="/browsing_2/index.html">Step 2 - Listing Locations</a></li>
               <li><a href="/browsing_3/index.html">Step 3 - Specific Information</a></li>
               <li><a href="/browsing_4/index.html">Selected Browsing APIs</a></li>
@@ -101,7 +101,7 @@ expandable.style.display = x;
         </div><!--/span-->
         <div class="span9">
           <div class="hero-unit">
-    <h1 id="integration-overview">Integration Overview</h1>
+    <h2 id="integration-overview">Integration Overview</h2>
 
 <p>From a high-level, there are three components of a LevelUp Point of Sale integration:</p>
 
@@ -130,13 +130,13 @@ expandable.style.display = x;
 
 <hr />
 
-<h2 id="schema">Schema</h2>
+<h3 id="schema">Schema</h3>
 
 <p>All communication takes place over HTTPS, and the server responds with JSON messages described in more detail below.  The API is currently at version 13, and all endpoints should be prefixed with <code>https://api.thelevelup.com/v13/</code>.</p>
 
 <p><em>For POST requests, parameters not included in the URL should be encoded as JSON with a Content-Type of</em> <code>application/x-www-form-urlencoded</code>.</p>
 
-<h2 id="client-errors">Client Errors</h2>
+<h3 id="client-errors">Client Errors</h3>
 
 <p>The API responds to errors with an appropriate HTTP status code and (optional) error message.</p>
 
@@ -179,7 +179,7 @@ expandable.style.display = x;
     <script src="/js2/bootstrap-typeahead.js"></script>
 	<script type="text/javascript">
 	    new HelloBar( "Welcome to the LevelUp API Documentation Site! -- Questions? Email <a href=mailto:pos@thelevelup.com>pos@thelevelup.com</a>", {
-		showWait: 110,
+		showWait: 500,
 		positioning: 'sticky',
 		transition: 'bouncy',
 		wiggleWait: 500,

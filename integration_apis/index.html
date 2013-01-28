@@ -89,7 +89,7 @@ expandable.style.display = x;
               <li><a href="/web_apis/index.html">Selected Web Ordering APIs</a></li>
               <li class="nav-header">Browsing Places</li>
               <li><a href="/browsing_overview/index.html">Overview</a></li>
-              <li><a href="/browsing_1/index.html">Step 1 - Listing Merchants</a></li>
+              <li><a href="/browsing_1/index.html">Step 1 - Listing Divisions & Merchants</a></li>
               <li><a href="/browsing_2/index.html">Step 2 - Listing Locations</a></li>
               <li><a href="/browsing_3/index.html">Step 3 - Specific Information</a></li>
               <li><a href="/browsing_4/index.html">Selected Browsing APIs</a></li>
@@ -101,14 +101,14 @@ expandable.style.display = x;
         </div><!--/span-->
         <div class="span9">
           <div class="hero-unit">
-    <h1 id="pos-integration-api-endpoints">POS Integration API Endpoints</h1>
+    <h2 id="selected-pos-integration-apis">Selected POS Integration APIs</h2>
 
-<h2 id="base-uri">Base URI</h2>
+<h3 id="base-uri">Base URI</h3>
 <p>All communication takes place over HTTPS, and the server responds with JSON messages described in more detail below.  The API is currently at version 13, and all endpoints should be prefixed with <code>https://api.thelevelup.com/v13/</code>.</p>
 
 <hr />
 
-<h2 id="retrieve-loyalty-information-for-unique-customer">Retrieve Loyalty Information for Unique Customer</h2>
+<h3 id="retrieve-loyalty-information-for-unique-customer">Retrieve Loyalty Information for Unique Customer</h3>
 
 <p><code>/loyalties/:unique_id.json</code> // <strong>Authentication Required: YES</strong> // Type: <em>GET</em></p>
 
@@ -123,7 +123,7 @@ expandable.style.display = x;
 
 <hr />
 
-<h2 id="retrieve-access-token">Retrieve Access Token</h2>
+<h3 id="retrieve-access-token">Retrieve Access Token</h3>
 
 <p><code>/oauth/access_token</code> // <strong>Authentication Required: NO</strong> // Type: <em>POST</em></p>
 
@@ -140,7 +140,7 @@ expandable.style.display = x;
 
 <hr />
 
-<h2 id="refund-order">Refund Order</h2>
+<h3 id="refund-order">Refund Order</h3>
 
 <p><code>/orders/:merchant_id/refund.json</code> // <strong>Authentication Required: YES</strong> // Type: <em>PUT</em></p>
 
@@ -156,7 +156,7 @@ expandable.style.display = x;
 
 <hr />
 
-<h2 id="get-info-about-merchant">Get info about merchant</h2>
+<h3 id="get-info-about-merchant">Get info about merchant</h3>
 
 <p><code>/merchants/:merchant_id.json</code> // <strong>Authentication Required: NO</strong> // Type: <em>GET</em></p>
 
@@ -170,7 +170,7 @@ expandable.style.display = x;
 
 <hr />
 
-<h2 id="view-customers-loyal-to-business">View customers loyal to business</h2>
+<h3 id="view-customers-loyal-to-business">View customers loyal to business</h3>
 
 <p><code>/merchants/:merchant_id/loyalties.json?page=:page_number</code> // <strong>Authentication Required: YES</strong> // Type: <em>GET</em></p>
 
@@ -186,7 +186,7 @@ expandable.style.display = x;
 
 <hr />
 
-<h2 id="place-an-order-or-view-list-of-orders">Place an order or view list of orders</h2>
+<h3 id="place-an-order-or-view-list-of-orders">Place an order or view list of orders</h3>
 
 <p><code>/merchants/:merchant_id/orders.json</code> // <strong>Authentication Required: YES</strong> // Type: <em>GET/POST</em></p>
 
@@ -210,7 +210,7 @@ expandable.style.display = x;
 
 <hr />
 
-<h2 id="get-info-on-logged-in-merchant">Get info on logged in merchant</h2>
+<h3 id="get-info-on-logged-in-merchant">Get info on logged in merchant</h3>
 
 <p><code>/users/:x_user_id.json</code> // <strong>Authentication Required: YES</strong> // Type: <em>GET</em></p>
 
@@ -225,7 +225,7 @@ expandable.style.display = x;
 
 <hr />
 
-<h2 id="all-params">All Params</h2>
+<h3 id="all-params">All Params</h3>
 
 <p><code>access_token</code> -  <strong>string</strong> - The OAuth 2.0 bearer token, as previously retrieved from <code>/oauth/access_tokens.json</code>.</p>
 
@@ -316,7 +316,7 @@ expandable.style.display = x;
 
 <p><code>unique_id</code>- <strong>integer</strong> - The merchant-specific ID of a loyal customer.</p>
 
-<h2 id="response-objects">Response Objects</h2>
+<h3 id="response-objects">Response Objects</h3>
 
 <p>Here is a breakdown of the objects included in the response:</p>
 
@@ -403,7 +403,7 @@ expandable.style.display = x;
     <script src="/js2/bootstrap-typeahead.js"></script>
 	<script type="text/javascript">
 	    new HelloBar( "Welcome to the LevelUp API Documentation Site! -- Questions? Email <a href=mailto:pos@thelevelup.com>pos@thelevelup.com</a>", {
-		showWait: 110,
+		showWait: 500,
 		positioning: 'sticky',
 		transition: 'bouncy',
 		wiggleWait: 500,

@@ -3,7 +3,7 @@
   <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta charset="utf-8">
-        <title>LevelUp API Documentation - OAuth | LevelUp API</title>
+        <title>LevelUp API Documentation - Authentication | LevelUp API</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -89,7 +89,7 @@ expandable.style.display = x;
               <li><a href="/web_apis/index.html">Selected Web Ordering APIs</a></li>
               <li class="nav-header">Browsing Places</li>
               <li><a href="/browsing_overview/index.html">Overview</a></li>
-              <li><a href="/browsing_1/index.html">Step 1 - Listing Merchants</a></li>
+              <li><a href="/browsing_1/index.html">Step 1 - Listing Divisions & Merchants</a></li>
               <li><a href="/browsing_2/index.html">Step 2 - Listing Locations</a></li>
               <li><a href="/browsing_3/index.html">Step 3 - Specific Information</a></li>
               <li><a href="/browsing_4/index.html">Selected Browsing APIs</a></li>
@@ -101,7 +101,7 @@ expandable.style.display = x;
         </div><!--/span-->
         <div class="span9">
           <div class="hero-unit">
-    <h1 id="integration-configuration">Integration Configuration</h1>
+    <h2 id="authentication">Authentication</h2>
 
 <p>The setup process for a LevelUp merchant should be a simple and straightforward process.  The merchant should be prompted for their LevelUp email/username and password in order to set up account.  This information should not be stored on the system and should only be used to obtain their access token, merchant ID and location IDs.</p>
 
@@ -116,7 +116,7 @@ expandable.style.display = x;
 
 <p>(Note: the access token will not change if the merchant changes their password.  The only way an access token will become invalid is if the merchant manually de-authenticates it in the LevelUp Admin Panel.  Never store a merchant&#8217;s username or password but be prepared to prompt them for it if you get an &#8220;invalid token&#8221; error.)</p>
 
-<h1 id="authentication-oauth">Authentication (OAuth)</h1>
+<h3 id="oauth">OAuth</h3>
 
 <p>Nearly all LevelUp API requests require an <code>access_token</code>.  This token should be stored in place of user credentials and can be used indefinitely (unless manually de-authenticated by the merchant or by LevelUp).</p>
 
@@ -130,7 +130,7 @@ expandable.style.display = x;
 
 <p>Method: POST</p>
 
-<h2 id="obtain-access-token">Obtain Access Token</h2>
+<h3 id="obtain-access-token">Obtain Access Token</h3>
 
 <p>This is a description of process for obtaining an OAuth authentication token:</p>
 
@@ -176,12 +176,12 @@ you <a href="https://docs.google.com/a/scvngr.com/spreadsheet/viewform?formkey=d
 }
 </code></pre>
 
-<h2 id="notes">Notes</h2>
+<h3 id="notes">Notes</h3>
 <p>The OAuth token is valid indefinitely, unless the merchant or LevelUp support intentionally resets the token.  This is a manual process and only happens rarely.  For example, the merchant or LevelUp support might invalidate the token if a logged-in terminal device is lost or stolen.</p>
 
 <hr />
 
-<h2 id="levelup-merchant-id-and-location-id">LevelUp Merchant ID and Location ID</h2>
+<h3 id="levelup-merchant-id-and-location-id">LevelUp Merchant ID and Location ID</h3>
 
 <p>Once the Authentication Token has been obtained (via the Oauth call), you should retrieve information about the logged in merchant via the <code>/users/:id.json</code> endpoint.</p>
 
@@ -360,7 +360,7 @@ you <a href="https://docs.google.com/a/scvngr.com/spreadsheet/viewform?formkey=d
   <dd><em>Required</em> <strong>string</strong> - The access token you obtained via OAuth</dd>
 </dl>
 
-<h2 id="integration-configuration-1">Integration Configuration</h2>
+<h3 id="integration-configuration">Integration Configuration</h3>
 
 <p>The setup process for a LevelUp merchant should be a simple and straightforward process.  The merchant should be prompted for their LevelUp email/username and password in order to set up account.  This information should not be stored on the system and should only be used to obtain their access token, merchant ID and location IDs.</p>
 
@@ -375,13 +375,13 @@ you <a href="https://docs.google.com/a/scvngr.com/spreadsheet/viewform?formkey=d
 
 <p>(Note: the access token will not change if the merchant changes their password.  The only way an access token will become invalid is if the merchant manually de-authenticates it in the LevelUp Admin Panel.  Never store a merchant&#8217;s username or password but be prepared to prompt them for it if you get an &#8220;invalid token&#8221; error.)</p>
 
-<h2 id="tender-experience-at-quick-service-restaurants-qsr">Tender Experience at Quick Service Restaurants (QSR)</h2>
+<h3 id="tender-experience-at-quick-service-restaurants-qsr">Tender Experience at Quick Service Restaurants (QSR)</h3>
 
 <ul>
   <li>When customer is paying with LevelUp, select LevelUp tender (or autotender LevelUp when code is scanned)</li>
 </ul>
 
-<h2 id="tender-experience-at-full-service-restaurants-fsr">Tender Experience at Full Service Restaurants (FSR)</h2>
+<h3 id="tender-experience-at-full-service-restaurants-fsr">Tender Experience at Full Service Restaurants (FSR)</h3>
 
 <ul>
   <li>Server delivers the check to the table</li>
@@ -422,7 +422,7 @@ you <a href="https://docs.google.com/a/scvngr.com/spreadsheet/viewform?formkey=d
     <script src="/js2/bootstrap-typeahead.js"></script>
 	<script type="text/javascript">
 	    new HelloBar( "Welcome to the LevelUp API Documentation Site! -- Questions? Email <a href=mailto:pos@thelevelup.com>pos@thelevelup.com</a>", {
-		showWait: 110,
+		showWait: 500,
 		positioning: 'sticky',
 		transition: 'bouncy',
 		wiggleWait: 500,

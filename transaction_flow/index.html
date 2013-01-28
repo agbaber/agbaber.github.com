@@ -89,7 +89,7 @@ expandable.style.display = x;
               <li><a href="/web_apis/index.html">Selected Web Ordering APIs</a></li>
               <li class="nav-header">Browsing Places</li>
               <li><a href="/browsing_overview/index.html">Overview</a></li>
-              <li><a href="/browsing_1/index.html">Step 1 - Listing Merchants</a></li>
+              <li><a href="/browsing_1/index.html">Step 1 - Listing Divisions & Merchants</a></li>
               <li><a href="/browsing_2/index.html">Step 2 - Listing Locations</a></li>
               <li><a href="/browsing_3/index.html">Step 3 - Specific Information</a></li>
               <li><a href="/browsing_4/index.html">Selected Browsing APIs</a></li>
@@ -101,7 +101,7 @@ expandable.style.display = x;
         </div><!--/span-->
         <div class="span9">
           <div class="hero-unit">
-    <h1 class="no_toc" id="transaction-flow">Transaction Flow</h1>
+    <h2 class="no_toc" id="transaction-flow">Transaction Flow</h2>
 
 <p>This section describes the flow of a transaction in different scenarios.</p>
 
@@ -113,7 +113,7 @@ expandable.style.display = x;
   <li><a href="#server-experience-at-full-service-restaurants-fsr">Server Experience at Full Service Restaurants (FSR)</a></li>
 </ul>
 
-<h2 id="api">API</h2>
+<h3 id="api">API</h3>
 <p>From a high-level, the technical order flow for an integrated POS device is:</p>
 
 <ol>
@@ -142,23 +142,23 @@ expandable.style.display = x;
 
 <hr />
 
-<h2 id="customer-experience-at-quick-service-restaurants-qsr">Customer Experience at Quick Service Restaurants (QSR)</h2>
+<h3 id="customer-experience-at-quick-service-restaurants-qsr">Customer Experience at Quick Service Restaurants (QSR)</h3>
 
 <p>At quick service establishments, the customer will be scanning their own code into the POS system.  They should be able to do this at any time and the POS should cache the QR code for use once the LevelUp tender has been selected.  Since the code begins and ends with &#8220;LU&#8221; it&#8217;s easy to identify LevelUp codes.</p>
 
-<h2 id="customer-experience-at-full-service-restaurants-fsr">Customer Experience at Full Service Restaurants (FSR)</h2>
+<h3 id="customer-experience-at-full-service-restaurants-fsr">Customer Experience at Full Service Restaurants (FSR)</h3>
 
 <p>In a full service dining environment, the server will be scanning the QR code table-side (via mobile device or POS handheld).  All the customer needs to do is place their phone on the table with the LevelUp app running.  The customer&#8217;s phone should never be removed from the table under any circumstance.</p>
 
 <hr />
 
-<h2 id="cashier-experience-at-quick-service-restaurants-qsr">Cashier Experience at Quick Service Restaurants (QSR)</h2>
+<h3 id="cashier-experience-at-quick-service-restaurants-qsr">Cashier Experience at Quick Service Restaurants (QSR)</h3>
 
 <ul>
   <li>When customer is paying with LevelUp, their code should automatically select LevelUp as tender when QR code is detected.  If this is not possible, simply select the LevelUp tender type and have the customer scan their code.</li>
 </ul>
 
-<h2 id="server-experience-at-full-service-restaurants-fsr">Server Experience at Full Service Restaurants (FSR)</h2>
+<h3 id="server-experience-at-full-service-restaurants-fsr">Server Experience at Full Service Restaurants (FSR)</h3>
 
 <ul>
   <li>Delivers the check to the table</li>
@@ -199,7 +199,7 @@ expandable.style.display = x;
     <script src="/js2/bootstrap-typeahead.js"></script>
 	<script type="text/javascript">
 	    new HelloBar( "Welcome to the LevelUp API Documentation Site! -- Questions? Email <a href=mailto:pos@thelevelup.com>pos@thelevelup.com</a>", {
-		showWait: 110,
+		showWait: 500,
 		positioning: 'sticky',
 		transition: 'bouncy',
 		wiggleWait: 500,

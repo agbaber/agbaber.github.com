@@ -89,7 +89,7 @@ expandable.style.display = x;
               <li><a href="/web_apis/index.html">Selected Web Ordering APIs</a></li>
               <li class="nav-header">Browsing Places</li>
               <li><a href="/browsing_overview/index.html">Overview</a></li>
-              <li><a href="/browsing_1/index.html">Step 1 - Listing Merchants</a></li>
+              <li><a href="/browsing_1/index.html">Step 1 - Listing Divisions & Merchants</a></li>
               <li><a href="/browsing_2/index.html">Step 2 - Listing Locations</a></li>
               <li><a href="/browsing_3/index.html">Step 3 - Specific Information</a></li>
               <li><a href="/browsing_4/index.html">Selected Browsing APIs</a></li>
@@ -101,15 +101,15 @@ expandable.style.display = x;
         </div><!--/span-->
         <div class="span9">
           <div class="hero-unit">
-    <h1 id="order-process">Order Process</h1>
+    <h2 id="order-process">Order Process</h2>
 
 <p>Completing an order via LevelUp should be quick and easy for both the consumer and the cashier.</p>
 
-<h2 id="pc-based-systems">PC Based Systems</h2>
+<h3 id="pc-based-systems">PC Based Systems</h3>
 
 <p>When you have a workstation-server setup generally the workstation does the scanning (via USB or serial in HDD mode) and the backoffice PC executes the API calls.  When the order is rung in, the consumer scans their QR code for payment.  The details of the order are transmitted to the backoffice PC and the transaction is sent through the API, approved or denied, sent back to the workstation and logged in the analytics.</p>
 
-<h2 id="ipad-based-systems">iPad Based Systems</h2>
+<h3 id="ipad-based-systems">iPad Based Systems</h3>
 
 <p>Since iPad systems are cloud-based, they do their own API calls.  The QR code is entered via bluetooth so all integrations must configure their system to allow for input while a bluetooth &#8220;keyboard&#8221; is attached.  <a href="&#109;&#097;&#105;&#108;&#116;&#111;:&#112;&#111;&#115;&#064;&#116;&#104;&#101;&#108;&#101;&#118;&#101;&#108;&#117;&#112;&#046;&#099;&#111;&#109;">Contact us</a> with questions on or options for how to do this.</p>
 
@@ -145,7 +145,7 @@ expandable.style.display = x;
     <script src="/js2/bootstrap-typeahead.js"></script>
 	<script type="text/javascript">
 	    new HelloBar( "Welcome to the LevelUp API Documentation Site! -- Questions? Email <a href=mailto:pos@thelevelup.com>pos@thelevelup.com</a>", {
-		showWait: 110,
+		showWait: 500,
 		positioning: 'sticky',
 		transition: 'bouncy',
 		wiggleWait: 500,
