@@ -215,7 +215,7 @@ expandable.style.display = x;
 
 <h3 id="enabling-merchant-authentication--mapping-locations">Enabling Merchant Authentication + Mapping Locations</h3>
 
-<p>Each merchant will need to be able to connect their LevelUp merchant account to their account on your POS system. Each merchant has a username and password. You’ll use a standard OAuth flow to enable them to connect the two accounts. More detail on that flow can be found <a href="./oauth/oauth.html">here</a>.</p>
+<p>Each merchant will need to be able to connect their LevelUp merchant account to their account on your POS system. Each merchant has a username and password. You’ll use a standard OAuth flow to enable them to connect the two accounts.</p>
 
 <p>This OAuth login flow generally only needs to be done once. You’ll get passed back an <code>access_token</code> which should be passed in on all future requests. While these access_tokens are generally valid for a very long time, they can be manually de-authenticated by the merchant and you might need to request a new one.</p>
 
