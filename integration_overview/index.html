@@ -50,6 +50,33 @@ var expandable = document.getElementById('expandable2');
 expandable.style.display = x;
 }
 </script>
+<!--jQuery References-->
+<script src="http://code.jquery.com/jquery-1.8.2.min.js" type="text/javascript"></script>
+<script src="http://code.jquery.com/ui/1.9.1/jquery-ui.min.js" type="text/javascript"></script>
+ 
+<!--Theme-->
+<link href="http://cdn.wijmo.com/themes/rocket/jquery-wijmo.css" rel="stylesheet" type="text/css" title="rocket-jqueryui" />
+ 
+<!--Wijmo Widgets CSS-->
+<link href="http://cdn.wijmo.com/jquery.wijmo-complete.all.2.3.5.min.css" rel="stylesheet" type="text/css" />
+ 
+<!--Wijmo Widgets JavaScript-->
+<script src="http://cdn.wijmo.com/jquery.wijmo-open.all.2.3.5.min.js" type="text/javascript"></script>
+<script src="http://cdn.wijmo.com/jquery.wijmo-complete.all.2.3.5.min.js" type="text/javascript"></script>
+<style type="text/css">
+    #expander1
+    {
+        width: 550px;
+    }
+</style>
+<script id="scriptInit" type="text/javascript">
+    $(document).ready(function () { 
+        $("#expander1").wijexpander({ 
+            contentUrl: "http://www.msdn.com",
+            expandDirection: "top"
+        });
+    });
+</script>
 </head>
   <body>
     <div class="container-fluid">
@@ -80,18 +107,13 @@ expandable.style.display = x;
               <li><a href="/whitelabel_overview/index.html">Overview</a></li>
               <li><a href="/whitelabel_sdk_features/index.html">Features in SDK</a></li>
               <li><a href="/whitelabel_sample_app/index.html">Features in Sample App</a></li>
-              <li class="nav-header">Web Ordering</li>
+              <li class="nav-header">Connected Apps</li>
               <li><a href="/web_overview/index.html">Overview</a></li>
-              <li><a href="/web_1/index.html">Step 1 - Web Payments JavaScript</a></li>
-              <li><a href="/web_2/index.html">Step 2 - LevelUp Scanner Button</a></li>
-              <li><a href="/web_3/index.html">Step 3 - (Optional) Notification</a></li>
-              <li><a href="/web_4/index.html">Step 4 - Complete Transaction</a></li>
-              <li><a href="/web_apis/index.html">Selected Web Ordering APIs</a></li>
               <li class="nav-header">Browsing Places</li>
               <li><a href="/browsing_overview/index.html">Overview</a></li>
-              <li><a href="/browsing_1/index.html">Step 1 - Listing Divisions & Merchants</a></li>
-              <li><a href="/browsing_2/index.html">Step 2 - Listing Locations</a></li>
-              <li><a href="/browsing_3/index.html">Step 3 - Specific Information</a></li>
+              <li><a href="/browsing_1/index.html">Step 1 - Listing Divisions</a></li>
+              <li><a href="/browsing_2/index.html">Step 2 - Listing Merchants</a></li>
+              <li><a href="/browsing_3/index.html">Step 3 - Listing Locations</a></li>
               <li><a href="/browsing_4/index.html">Selected Browsing APIs</a></li>
 
 
@@ -101,11 +123,11 @@ expandable.style.display = x;
         </div><!--/span-->
         <div class="span9">
           <div class="hero-unit">
-    <h2 id="integration-overview">Integration Overview</h2>
+    <h2 id="overview">Overview</h2>
 
 <p>From a high-level, there are three components of a LevelUp Point of Sale integration:</p>
 
-<h4 id="authentication">1. Authentication</h4>
+<h4 id="authenticationintegration1indexhtml">1. <a href="/integration_1/index.html">Authentication</a></h4>
 
 <ul>
   <li>Authenticate with the LevelUp API and obtain an OAuth token using the <code>/oauth/access_tokens.json</code> endpoint.</li>
@@ -114,14 +136,14 @@ expandable.style.display = x;
   <li>Discard the merchant login credentials.</li>
 </ul>
 
-<h4 id="orders--refunds">2. Orders &amp; Refunds</h4>
+<h4 id="orders--refundsintegration2indexhtml">2. <a href="/integration_2/index.html">Orders &amp; Refunds</a></h4>
 
 <ul>
   <li>Scan a consumer’s QR code from the screen of a consumer’s smartphone running the LevelUp app.  Send the QR code and order details to LevelUp using the <code>/merchants/:id/orders.json</code> endpoint.</li>
   <li>Allow for refunds of the payment through the <code>/orders/:order_id/refund.json</code> endpoint.</li>
 </ul>
 
-<h4 id="analytics">3. Analytics</h4>
+<h4 id="analyticsintegration3indexhtml">3. <a href="/integration_3/index.html">Analytics</a></h4>
 
 <ul>
   <li>Apply the payment to the check and the POS accounting ledger.</li>

@@ -1,0 +1,119 @@
+	{
+		"merchant": {
+			"id": 1,
+			"name": "LevelUp Cafe",
+			"loyalty_enabled": true,
+			"public_url": "https://www.thelevelup.com/merchants/1",
+			"image_url_280x128_1x": "https://s3.amazonaws.com/levelup-production/merchants/1/images/280x128_1x/levelupcafe.jpg?1345126790",
+			"image_url_280x128_1_5x": "https://s3.amazonaws.com/levelup-production/merchants/1/images/280x128_1_5x/levelupcafe.jpg?1345126790",
+			"image_url_280x128_2x": "https://s3.amazonaws.com/levelup-production/merchants/1/images/280x128_2x/levelupcafe.jpg?1345126790",
+			"image_url_290x335_1x": "https://s3.amazonaws.com/levelup-production/merchants/1/images/290x335_1x/levelupcafe.jpg?1345126790",
+			"image_url_320x212_1x": "https://s3.amazonaws.com/levelup-production/merchants/1/images/320x212_1x/levelupcafe.jpg?1345126790",
+			"image_url_320x212_1_5x": "https://s3.amazonaws.com/levelup-production/merchants/1/images/320x212_1_5x/levelupcafe.jpg?1345126790",
+			"image_url_320x212_2x": "https://s3.amazonaws.com/levelup-production/merchants/1/images/320x212_2x/levelupcafe.jpg?1345126790",
+			"image_url_400x235_1x": "https://s3.amazonaws.com/levelup-production/merchants/1/images/400x235_1x/levelupcafe.jpg?1345126790",
+			"description_html": "LevelUp is the better way to pay and LevelUp cafe is the better way to get coffee! Located right here at SCVNGR/LevelUp HQ, the first thing you'll notice about LevelUp Cafe is that it's not a real cafe. In fact, it exists solely so that the team at LevelUp can test out new features and make sure everything's working smoothly. So if you do swing by, don't expect a real cafe, but we'll probably give you some sweet LevelUp gear. ",
+			"employee_rewards_billboard_enabled": false,
+			"exemption_enabled": false,
+			"facebook_url": "http://facebook.com/TheLevelUp",
+			"menu_url": "",
+			"newsletter_url": "",
+			"opentable_url": "http://opentable.com",
+			"scvngr_url": "http://scvngr.com/",
+			"twitter_username": "thelevelup",
+			"url": "http://thelevelup.com",
+			"yelp_url": "http://www.yelp.com",
+			"categories": [
+			{
+				"category": {
+					"id": 35,
+					"name": "Cafe",
+					"image_url_32x32_1x": "https://www.thelevelup.com/images/merchants_images_cafe_32x32_1x.png",
+					"image_url_32x32_1_5x": "https://www.thelevelup.com/images/merchants_images_cafe_32x32_1_5x.png",
+					"image_url_32x32_2x": "https://www.thelevelup.com/images/merchants_images_cafe_32x32_2x.png"
+				}
+			},
+			{
+				"category": {
+					"id": 38,
+					"name": "Quick Bite",
+					"image_url_32x32_1x": "https://www.thelevelup.com/images/merchants_images_fast_food_32x32_1x.png",
+					"image_url_32x32_1_5x": "https://www.thelevelup.com/images/merchants_images_fast_food_32x32_1_5x.png",
+					"image_url_32x32_2x": "https://www.thelevelup.com/images/merchants_images_fast_food_32x32_2x.png"
+				}
+			}],
+			"category_image_url_32x32_1x": "https://www.thelevelup.com/images/merchants_images_fast_food_32x32_1x.png",
+			"category_image_url_32x32_1_5x": "https://www.thelevelup.com/images/merchants_images_fast_food_32x32_1_5x.png",
+			"category_image_url_32x32_2x": "https://www.thelevelup.com/images/merchants_images_fast_food_32x32_2x.png",
+			"earn": {
+				"amount": 1000,
+				"currency_code": "USD",
+				"currency_symbol": "$",
+				"formatted_amount": "10.00"
+			},
+			"featured": false,
+			"locations": [
+			{
+				"location": {
+					"id": 1855,
+					"visible": true,
+					"extended_address": "9th Floor",
+					"hours": null,
+					"lat": "42.362733",
+					"lng": "-71.058461",
+					"locality": "Boston",
+					"phone": "",
+					"postal_code": "02114",
+					"region": "MA",
+					"street_address": "1 Congress Street"
+				}
+			}],
+			"loyalty": {
+				"id": null,
+				"orders_count": 0,
+				"progress_percent": 0,
+				"potential_credit": {
+					"amount": 0,
+					"currency_code": "USD",
+					"currency_symbol": "$",
+					"formatted_amount": "0.00"
+				},
+				"savings": {
+					"amount": 0,
+					"currency_code": "USD",
+					"currency_symbol": "$",
+					"formatted_amount": "0.00"
+				},
+				"should_spend": {
+					"amount": 10000,
+					"currency_code": "USD",
+					"currency_symbol": "$",
+					"formatted_amount": "100.00"
+				},
+				"spend_remaining": {
+					"amount": 10000,
+					"currency_code": "USD",
+					"currency_symbol": "$",
+					"formatted_amount": "100.00"
+				},
+				"total_volume": {
+					"amount": 0,
+					"currency_code": "USD",
+					"currency_symbol": "$",
+					"formatted_amount": "0.00"
+				},
+				"will_earn": {
+					"amount": 1000,
+					"currency_code": "USD",
+					"currency_symbol": "$",
+					"formatted_amount": "10.00"
+				}
+			},
+			"spend": {
+				"amount": 10000,
+				"currency_code": "USD",
+				"currency_symbol": "$",
+				"formatted_amount": "100.00"
+			}
+		}
+	}

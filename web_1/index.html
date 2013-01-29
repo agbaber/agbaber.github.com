@@ -50,6 +50,33 @@ var expandable = document.getElementById('expandable2');
 expandable.style.display = x;
 }
 </script>
+<!--jQuery References-->
+<script src="http://code.jquery.com/jquery-1.8.2.min.js" type="text/javascript"></script>
+<script src="http://code.jquery.com/ui/1.9.1/jquery-ui.min.js" type="text/javascript"></script>
+ 
+<!--Theme-->
+<link href="http://cdn.wijmo.com/themes/rocket/jquery-wijmo.css" rel="stylesheet" type="text/css" title="rocket-jqueryui" />
+ 
+<!--Wijmo Widgets CSS-->
+<link href="http://cdn.wijmo.com/jquery.wijmo-complete.all.2.3.5.min.css" rel="stylesheet" type="text/css" />
+ 
+<!--Wijmo Widgets JavaScript-->
+<script src="http://cdn.wijmo.com/jquery.wijmo-open.all.2.3.5.min.js" type="text/javascript"></script>
+<script src="http://cdn.wijmo.com/jquery.wijmo-complete.all.2.3.5.min.js" type="text/javascript"></script>
+<style type="text/css">
+    #expander1
+    {
+        width: 550px;
+    }
+</style>
+<script id="scriptInit" type="text/javascript">
+    $(document).ready(function () { 
+        $("#expander1").wijexpander({ 
+            contentUrl: "http://www.msdn.com",
+            expandDirection: "top"
+        });
+    });
+</script>
 </head>
   <body>
     <div class="container-fluid">
@@ -80,18 +107,13 @@ expandable.style.display = x;
               <li><a href="/whitelabel_overview/index.html">Overview</a></li>
               <li><a href="/whitelabel_sdk_features/index.html">Features in SDK</a></li>
               <li><a href="/whitelabel_sample_app/index.html">Features in Sample App</a></li>
-              <li class="nav-header">Web Ordering</li>
+              <li class="nav-header">Connected Apps</li>
               <li><a href="/web_overview/index.html">Overview</a></li>
-              <li><a href="/web_1/index.html">Step 1 - Web Payments JavaScript</a></li>
-              <li><a href="/web_2/index.html">Step 2 - LevelUp Scanner Button</a></li>
-              <li><a href="/web_3/index.html">Step 3 - (Optional) Notification</a></li>
-              <li><a href="/web_4/index.html">Step 4 - Complete Transaction</a></li>
-              <li><a href="/web_apis/index.html">Selected Web Ordering APIs</a></li>
               <li class="nav-header">Browsing Places</li>
               <li><a href="/browsing_overview/index.html">Overview</a></li>
-              <li><a href="/browsing_1/index.html">Step 1 - Listing Divisions & Merchants</a></li>
-              <li><a href="/browsing_2/index.html">Step 2 - Listing Locations</a></li>
-              <li><a href="/browsing_3/index.html">Step 3 - Specific Information</a></li>
+              <li><a href="/browsing_1/index.html">Step 1 - Listing Divisions</a></li>
+              <li><a href="/browsing_2/index.html">Step 2 - Listing Merchants</a></li>
+              <li><a href="/browsing_3/index.html">Step 3 - Listing Locations</a></li>
               <li><a href="/browsing_4/index.html">Selected Browsing APIs</a></li>
 
 
@@ -101,7 +123,7 @@ expandable.style.display = x;
         </div><!--/span-->
         <div class="span9">
           <div class="hero-unit">
-    <h2 id="web-payment-javascript">Web Payment JavaScript</h2>
+    <h2 id="step-1---web-payment-javascript">Step 1 - Web Payment JavaScript</h2>
 
 <p>Include the Web Payments JavaScript on your web page.</p>
 
