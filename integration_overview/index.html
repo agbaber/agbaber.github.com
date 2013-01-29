@@ -123,11 +123,11 @@ expandable.style.display = x;
         </div><!--/span-->
         <div class="span9">
           <div class="hero-unit">
-    <h2 id="overview">Overview</h2>
+    <h2 class="no_toc" id="overview">Overview</h2>
 
 <p>From a high-level, there are three components of a LevelUp Point of Sale integration:</p>
 
-<h4 id="authenticationintegration1indexhtml">1. <a href="/integration_1/index.html">Authentication</a></h4>
+<h4 class="no_toc" id="authenticationintegration1indexhtml">1. <a href="/integration_1/index.html">Authentication</a></h4>
 
 <ul>
   <li>Authenticate with the LevelUp API and obtain an OAuth token using the <code>/oauth/access_tokens.json</code> endpoint.</li>
@@ -136,21 +136,208 @@ expandable.style.display = x;
   <li>Discard the merchant login credentials.</li>
 </ul>
 
-<h4 id="orders--refundsintegration2indexhtml">2. <a href="/integration_2/index.html">Orders &amp; Refunds</a></h4>
+<h4 class="no_toc" id="orders--refundsintegration2indexhtml">2. <a href="/integration_2/index.html">Orders &amp; Refunds</a></h4>
 
 <ul>
   <li>Scan a consumer’s QR code from the screen of a consumer’s smartphone running the LevelUp app.  Send the QR code and order details to LevelUp using the <code>/merchants/:id/orders.json</code> endpoint.</li>
   <li>Allow for refunds of the payment through the <code>/orders/:order_id/refund.json</code> endpoint.</li>
 </ul>
 
-<h4 id="analyticsintegration3indexhtml">3. <a href="/integration_3/index.html">Analytics</a></h4>
+<h4 class="no_toc" id="analyticsintegration3indexhtml">3. <a href="/integration_3/index.html">Analytics</a></h4>
 
 <ul>
   <li>Apply the payment to the check and the POS accounting ledger.</li>
   <li>Close out the check</li>
 </ul>
 
-<hr />
+<h3 class="no_toc" id="integration-faq">Integration FAQ</h3>
+
+<ul id="markdown-toc">
+  <li><a href="#what-are-the-benefits-to-a-pos-company-of-integrating-with-levelup">What are the benefits to a POS company of integrating with LevelUp?</a></li>
+  <li><a href="#alright-enough-of-the-sales-pitch-how-do-i-integrate-with-levelup">Alright, enough of the sales pitch, how do I integrate with LevelUp?</a></li>
+  <li><a href="#becoming-a-levelup-developer">Becoming A LevelUp Developer</a></li>
+  <li><a href="#enabling-merchant-authentication--mapping-locations">Enabling Merchant Authentication + Mapping Locations</a></li>
+  <li><a href="#scanning-qr-codes">Scanning QR Codes</a></li>
+  <li><a href="#issuing-the-transaction">Issuing the Transaction</a></li>
+  <li><a href="#closing-the-transaction">Closing The Transaction</a></li>
+  <li><a href="#refunding-transactions">Refunding Transactions</a></li>
+  <li><a href="#let-us-know-youre-live">Let Us Know You’re Live</a></li>
+  <li><a href="#should-i-issue-a-paper-receipt-when-transactions-are-processed-with-levelup">Should I issue a paper receipt when transactions are processed with LevelUp?</a></li>
+  <li><a href="#what-pos-integrations-are-currently-under-development">What POS integrations are currently under development?</a></li>
+  <li><a href="#security">Security</a></li>
+  <li><a href="#schema">Schema</a></li>
+  <li><a href="#client-errors">Client Errors</a></li>
+</ul>
+
+<h3 id="what-are-the-benefits-to-a-pos-company-of-integrating-with-levelup">What are the benefits to a POS company of integrating with LevelUp?</h3>
+
+<ul>
+  <li>
+    <p>Integrating LevelUp into your POS is straightforward and generally takes just about a week of effort. But, like any engineering project, it needs to have clear benefits. There are several strong reasons to integrate LevelUp into your POS.</p>
+  </li>
+  <li>
+    <p>Integrating with LevelUp makes your POS a stronger (and thus stickier) value proposition for your merchant base.  Over 50% of LevelUp merchants do not yet use a POS solution and 85% of them have reported to us they’re looking to upgrade to a supported POS system.</p>
+  </li>
+  <li>
+    <p>LevelUp is the largest and fastest growing mobile payment platform in the United States and so supporting a full integration is a great selling point for your POS offering.</p>
+  </li>
+  <li>
+    <p>It can help your merchants save on payment processing as LevelUp continues to <a href="https://www.thelevelup.com/mission">force interchange rates down</a>.</p>
+  </li>
+</ul>
+
+<h3 id="alright-enough-of-the-sales-pitch-how-do-i-integrate-with-levelup">Alright, enough of the sales pitch, how do I integrate with LevelUp?</h3>
+
+<p>There are 7 steps you’ll need to accomplish for a successful integration.</p>
+
+<ul>
+  <li>Setting your POS solution up as a developer within the LevelUp ecosystem. </li>
+  <li>Enabling your merchants to authenticate their LevelUp accounts and map locations for LevelUp reporting purposes. </li>
+  <li>Scanning the LevelUp Code (QR Code) displayed on a consumer’s device. </li>
+  <li>Sending the data in that LevelUp Code along with an amount to the LevelUp API to process the transaction. </li>
+  <li>Closing the transaction and recording the appropriate data (such as credit used) in your POS software for merchant reporting purposes. </li>
+  <li>Being able to refund transactions processed with LevelUp. </li>
+  <li>(Optional) Let us know you’re live so we can promote you to our merchant community. </li>
+</ul>
+
+<h3 id="becoming-a-levelup-developer">Becoming A LevelUp Developer</h3>
+
+<p>This is simple and 100% free. Email <a href="mailto:pos@thelevelup.com">pos@thelevelup.com</a> and we’ll set you up with the following assets:</p>
+
+<ul>
+  <li><strong>An OAuth Client ID:</strong> This is a unique ID that identifies your POS integration to LevelUp. It does not vary by merchant. They each have their own logins also, but this is akin to you developer ID. </li>
+  <li><strong>Test Merchant &amp; Locations:</strong> We will provide a test merchant and locations for you to do some test transactions as you integrate. </li>
+  <li><strong>Test User:</strong> We will provide a test user for you to charge as you integrate. We will also provide instruction on how to trigger different responses from  the LevelUp API to simulate approvals, rejections and other error conditions. </li>
+  <li><strong>Demo Package (Optional):</strong> if you’d like a LevelUp Scanner to play around with, we’d be happy to send you one. This costs $100 and is therefore optional. However, we will also include some LevelUp candy bars and other good LevelUp swag. </li>
+</ul>
+
+<p>Now that you’re a LevelUp developer, we can move on to the next step.</p>
+
+<h3 id="enabling-merchant-authentication--mapping-locations">Enabling Merchant Authentication + Mapping Locations</h3>
+
+<p>Each merchant will need to be able to connect their LevelUp merchant account to their account on your POS system. Each merchant has a username and password. You’ll use a standard OAuth flow to enable them to connect the two accounts. More detail on that flow can be found <a href="./oauth/oauth.html">here</a>.</p>
+
+<p>This OAuth login flow generally only needs to be done once. You’ll get passed back an <code>access_token</code> which should be passed in on all future requests. While these access_tokens are generally valid for a very long time, they can be manually de-authenticated by the merchant and you might need to request a new one.</p>
+
+<p>Each merchant contains one or more locations. For reporting and payment purposes, it is important that you always pass in a <code>location_id</code> for each order. You’ll be able to get a list of all locations for a given merchant using the <code>/users/:id.json</code> call which will pass back the merchant with locations nested. You must enable your merchant to map their locations to our <code>location_id</code>s.  On each order, this location_id should be passed to LevelUp to complete the transaction.</p>
+
+<p>Once the merchant is set up within your system, the “preparation” phase is complete. The next steps move on the fun parts, actually doing LevelUp transactions!</p>
+
+<h3 id="scanning-qr-codes">Scanning QR Codes</h3>
+
+<p>LevelUp Codes are really just QR codes and can be scanned by any 2D barcode scanner. While any 2D barcode scanner should work, we highly recommend using the <a href="/scanner/index.html">LevelUp Scanner</a> as we provide it free of charge to LevelUp merchants.</p>
+
+<p>You can also use a camera and a QR decoding library running locally (see <a href="https://github.com/TheLevelUp/ZXingObjC">ZXing</a> for an example library) but this is only acceptable for table-side transactions. Bringing, for example, an iPod Touch to the table side and using that camera is a great experience. However, for counter transactions, you need to use an optical scanner for speed and consistency reasons.</p>
+
+<p>Most scanners, including the LevelUp Scanner, simply emulate keyboard input so you won’t need any new drivers or anything. Whatever scanning solution you select, the output should always be a string of the data in the LevelUp code.</p>
+
+<p>Here are some natural topics that come up around capturing the LevelUp code:</p>
+
+<p><em>Is The Code PCI-Scoped Data:</em> No. It is important to note that this code is NOT in any way representative of the consumer’s credit card number or any other funding source. It is simply a perishable random token that will identify that consumer to the LevelUp servers. As such, it is not PCI-scoped data. While you might need to cache it momentarily, we do not allow the permanent storage of these codes. Anyways, given that they’re perishable, it is unlikely to work for more than one transaction.</p>
+
+<p><em>What To Do If The Consumer Scans Prematurely:</em> Consumers get really excited when they want to pay with LevelUp and sometimes they’ll scan prematurely. Don’t worry, this is perfectly natural… The ideal experience involves you being prepared to accept the scan at any point in the transaction process (say while items are still being entered) and potentially cache the code until you’re ready to tender the order and submit it to LevelUp. If you’re not able to build in that caching, then the consumer will simply have to scan after the cashier hits the LevelUp tender button. Either is fine.</p>
+
+<p>Once you have the code, you will be able to proceed to the next steps and issue the transaction.</p>
+
+<h3 id="issuing-the-transaction">Issuing the Transaction</h3>
+
+<p>Once you’ve got the code, you’ll want to use the LevelUp API to actually submit a transaction request. Full details are in the API documentation but you’re basically passing in:</p>
+
+<ul>
+  <li><strong>the merchant’s access_token:</strong> to authenticate the merchant </li>
+  <li><strong>the store’s location_id:</strong> so we know which location it’s coming from </li>
+  <li><strong>the final sale amount:</strong> so we know how much to charge the user </li>
+  <li><strong>the user’s code:</strong> so we know whom to charge </li>
+  <li><strong>the items in the order:</strong> all the individual items in the order </li>
+  <li><strong>a couple other things also…</strong> see the <a href="/integration_2/index.html">orders endpoint page</a> for full details. 
+ This request will attempt to issue the transaction. We’ll apply any available credit that the user might have earned at that merchant and either respond with a success message or a failure message with some explanation.</li>
+</ul>
+
+<p>Here are some answers to common topics that come up about issuing LevelUp transactions:</p>
+
+<p><strong>You Don’t Have To Apply Credit Or Track A User’s Progress:</strong> You never have to worry about applying any credit or keeping track of a users progress or anything like that. One of the benefits of having a loyalty solution baked into the payment is that we can handle all of that for you. We will simply pass back (in the next step) any credit that was applied so you can store it as a discount or voucher or credit for your merchant’s reporting purposes.</p>
+
+<p><strong>Customers Tipping Is Also Handled Automatically:</strong> Users of LevelUp can encode a tip into their LevelUp code before scanning, either as a percent or (coming soon) as a dollar amount. We will pass back the tip amount as an attribute on the return object after the transaction goes through. You can then record it as makes sense for your system. More on this in the next step.</p>
+
+<p><strong>Handling Sales Tax:</strong> Our preferred approach to handling sales tax is to not change your process at all. Simply calculate the sales tax as you would normally and that final sales request will be passed on to us.</p>
+
+<p>Sales tax is never charged on the tip, so the fact that we calculate that after the fact on the total amount handles that nicely. There is some legal question as to whether sales tax should be charged on LevelUp credit. This same question applies to Groupons, coupons, gift cards and more. The absolutely-guaranteed-to-be-safe approach is to charge sales tax on the total amount and just consider any credit earned by the user (say by unlocking a loyalty reward) as a fully fledged tender equivalent to cash. This is also the simplest because it requires no change to your flow, the tax is charged to the user, paid with LevelUp (either actual money or credit) and paid to the government. As such, this is our strong recommendation.</p>
+
+<p>It is also technically possible to “pre-auth” the transaction and determine how much credit the user would use on a transaction, subtract that from the taxable amount, and then issue the “actual” transaction to LevelUp, however, this is much more complicated and while legitimate in many jurisdictions, may violate a segment of tax law which is rapidly evolving. If you take this secondary approach, you will have to be ready to update your implementation if the law evolves. Our recommended approach is the most conservative and guaranteed to be safe, but if you’d like to go this other route, please email us at <a href="mailto:pos@thelevelup.com">pos@thelevelup.com</a> and we’ll provide the additional API calls and documentation necessary.</p>
+
+<p><strong>You Don’t Have To Worry About Funding Sources:</strong> LevelUp allows users to link many funding sources and we will be adding to those options over time. Right now these include all credit and debit cards, but may over time expand to carrier billing, direct ACH bank linking, gift cards, purchased LevelUp credit and more. The good news is that you don’t have to worry about any of this. It’s all just money in the end. LevelUp abstracts all these sources away from you, so it’s best to not consider LevelUp to be a proxy for a credit card or anything specific like that, rather just a first-class payment type in its own right.</p>
+
+<p>Ok, now that you’ve issued the transaction to LevelUp, you’ll get a response back from the API and can move on to the next step.</p>
+
+<h3 id="closing-the-transaction">Closing The Transaction</h3>
+
+<p>If we were unable to process the transaction (not enough funds etc…) you’ll get an error message back from LevelUp.</p>
+
+<p>But, the vast majority of the time, you’ll get back a successful transaction. Full details of this response can be found in the API documentation. After you receive this response, you’ll want to take the following steps:</p>
+
+<ul>
+  <li><strong>Record The Tip (If Any):</strong> If there was a tip left by the consumer, it’ll be passed back in the response object.  Right now, tips are treated just like any other part of the payment so they can be could in theory be covered by a users earned credit or a refunded store credit, though both of these edge-cases are very rare.   </li>
+  <li><strong>Record The Credit Used (If Any):</strong> If the user had any “unfunded” credit applied to this order, it will be passed back in the response object and should be recorded as either a discount or a voucher. This credit is money that <em>will not</em> be paid to the merchant because the credit is “unfunded” and therefore deducted in real-time. You should record this as makes sense for your merchant’s reporting expectations. </li>
+  <li>Some credit is “prefunded” and therefore paid to the merchant. We will not pass this back to you as it ought to not matter from your perspective, it’s just cash at that point. An example of this is that sometimes LevelUp offers new users $10 in LevelUp credit to try out whatever place they’d like. We pre-fund that credit and so you won’t ever see or hear or need to worry about it. The credit passed back is always only the unfunded credit offered by that merchant. </li>
+  <li><strong>Record The Transaction ID:</strong> LevelUp will pass back an ID for this transaction. You should record this order_id as you will need it later for refunding purposes.</li>
+  <li><strong>Don’t Issue A Paper Receipt (Unless Specifically Requested):</strong> LevelUp customers do not expect paper receipts. We email them detailed receipts showing any credit applied, any progress made towards unlocking loyalty credit and custom messages from the merchants. They also receive a push notification and in-app receipt instantly with all the same details. A paper receipt is not expected and potentially confusing as it won’t have all the information the LevelUp receipt will. Even if you show the “unfunded” credit applied, it might not show any prefunded credit that was applied by us, but not funded by the merchant and thus not shown to the merchant. So save a tree and don’t issue a receipt. If the consumer explicitly requests a receipt (or you need to print one for whatever reason) please be sure to mark the payment type as LevelUp and if possible include a message that reads “To see full details about any credit applied to this purchase, please check your digital LevelUp receipt.”</li>
+  <li><strong>Close The Transaction:</strong> And we’re done! Just close out the transaction and mark as paid with LevelUp.
+Awesome, now we’re done and ready for the next transaction! But, what happens if a mistake occurred? Well, in the next step we’ll overview the functionality to refund transactions. </li>
+</ul>
+
+<h3 id="refunding-transactions">Refunding Transactions</h3>
+
+<p>If you want to refund a transaction, you’ll simply take the <code>order_id</code> and hit the <code>orders/:id/refund.json</code> endpoint detailed in the API documentation. This will refund the transaction and send the money back to the user. You’ll receive a confirmation that the refund was successful from the API.</p>
+
+<h3 id="let-us-know-youre-live">Let Us Know You’re Live</h3>
+
+<p>We’re always excited about developers working with the LevelUp API. Once you’re done with your integration, please reach out to us so we can feature you on our Partners Page and also in our communications to our merchants. Simply email <a href="mailto:pos@thelevelup.com">pos@thelevelup.com</a> and we’ll get you listed in all the right places.</p>
+
+<p>As always, if you have any questions, please submit a ticket or email <a href="mailto:pos@thelevelup.com">pos@thelevelup.com</a>. Thanks for integrating with LevelUp!</p>
+
+<h3 id="should-i-issue-a-paper-receipt-when-transactions-are-processed-with-levelup">Should I issue a paper receipt when transactions are processed with LevelUp?</h3>
+
+<p>Nope!</p>
+
+<p>LevelUp will always send a detailed receipt via push notification and email to the consumer.</p>
+
+<p>There are a couple other reasons to not print a receipt:</p>
+
+<ul>
+  <li><strong>It Might Not Be Accurate:</strong> The consumer’s digital receipt will show what (if any) credit was applied. This credit includes both credit that you might be funding as the merchant (say your loyalty construct) but also credit they might have come from LevelUp directly (we often give users global credit to spend anywhere) or that they received from elsewhere. The consumer sees all the credit applied in their receipt, but you of course only fund your credit. For this reason, the receipt you would print out might actually not be accurate to the transaction from the customers perspective.</li>
+  <li><strong>Consumers Don’t Expect It When They Pay With LevelUp:</strong> Consumers are used to not getting paper receipts when they pay with LevelUp because they always get digital receipts.</li>
+  <li><strong>It’s Faster:</strong> No printing receipt means no time spent waiting for the printer to print, or handing it to the customer.</li>
+  <li><strong>You Can Save A Tree:</strong> Not printing receipts is green! It reduces trash and “pocket clutter syndrome”.</li>
+</ul>
+
+<h3 id="what-pos-integrations-are-currently-under-development">What POS integrations are currently under development?</h3>
+
+<p>There are several POS integrations currently under development. Some of these are client specific projects that are not open source, others are productized as part of a 3rd party offering (say an iPad POS solution) and others still are open source. Where applicable we’ll try to link to the open-source repository.</p>
+
+<p>Current integration projects (that we’re aware of) touch the following POS providers:</p>
+
+<ul>
+  <li>NetPOS </li>
+  <li>Micros </li>
+  <li>POSitouch </li>
+  <li>Dinerware </li>
+  <li>Revel </li>
+  <li>ISIS </li>
+  <li>Clover </li>
+  <li>Merchant Warehouse </li>
+  <li>Heartland </li>
+  <li>Foodtronix </li>
+  <li>ShopKeep </li>
+  <li>Future POS </li>
+  <li>Maitre’D </li>
+</ul>
+
+<p>There are others under development that we can’t post publicly here, but if you want to know if your POS is supported already by an integration project, please submit a ticket or email <a href="mailto:support@thelevelup.com">support@thelevelup.com</a></p>
+
+<h3 id="security">Security</h3>
+<p>When you authenticate with the LevelUp API, you’re given an OAuth token that can be used in subsequent requests. You should keep this token safe if you’re going to store it between requests.</p>
+
+<p>The code submitted to your backend is the key used to charge a user for your item or service. This token belongs to the user and can be reset by him or her at any time, so there’s no reason to store it (of course, it’s likely it will be invalid the next time you want to reference it anyway). Logging the QR code is also not encouraged.</p>
 
 <h3 id="schema">Schema</h3>
 
