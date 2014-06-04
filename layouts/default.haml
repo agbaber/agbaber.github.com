@@ -1,0 +1,78 @@
+!!! 5
+%html
+  %head
+    %meta(charset="utf-8")
+    %meta(name="generator" content="nanoc #{Nanoc::VERSION}")
+    - if @item[:redirect]
+      %meta(http-equiv="refresh" content="0; #{@item[:redirect]}")
+    %title
+      LevelUp Development .:
+      = @item[:title]
+    %link(href="//fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900" media="screen" rel="stylesheet" type="text/css")
+    %link(href="/styles.css" media="screen, projection" rel="stylesheet" type="text/css")
+    %link(href="/images/icon.png" rel="shortcut icon" type="image/png")
+
+    %body
+      .main-nav
+        %ul.l-horizontal
+          %li
+            = link_to 'LevelUp', 'https://www.thelevelup.com/', class: 'main-nav__button'
+          %li.l-right
+            = link_to 'Support', 'http://support.thelevelup.com/',
+              class: 'main-nav__button main-nav__button--right'
+          %li.l-right
+            = link_to 'Join', '/getting-started/sign-up/',
+              class: 'main-nav__button main-nav__button--right'
+
+      .l-wrap
+        .content
+          %ul.side-nav
+            %li{ class: is_active_if_section('/getting-started/') || is_active_if_home }
+              = link_to 'Platform Overview', '/',
+                class: 'side-nav__button side-nav__button--getting-started'
+              = section_navigation '/getting-started/'
+
+            %li{ class: is_active_if_section('/api-reference/') }
+              = link_to 'API Reference', '/api-reference/',
+                class: 'side-nav__button side-nav__button--api-reference'
+              = section_navigation '/api-reference/'
+
+            %li{ class: is_active_if_section('/mobile-sdks/') }
+              = link_to 'Mobile SDK', '/mobile-sdks/',
+                class: 'side-nav__button side-nav__button--mobile-sdk'
+              = section_navigation '/mobile-sdks/'
+
+            %li{ class: is_active_if_section('/pos-integration/') }
+              = link_to 'POS Integration', '/pos-integration/',
+                class: 'side-nav__button side-nav__button--pos-integration'
+              = section_navigation '/pos-integration/'
+
+            %li{ class: is_active_if_section('/online-ordering/') }
+              = link_to 'Mobile & E-Commerce', '/online-ordering/',
+                class: 'side-nav__button side-nav__button--online-ordering'
+              = section_navigation '/online-ordering/'
+
+          .documentation
+            .documentation__header
+              .l-horizontal
+                %h4
+                  = @item[:title]
+                %h4.documentation__header--section.l-right
+                  = section_breadcrumb_titles.join(' / ')
+            .documentation__content
+              = yield
+          .l-clearfix
+
+      %script(src='//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js')
+      %script(src='/scripts.js')
+      :javascript
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-6677962-51']);
+        _gaq.push(['_setDomainName', 'developer.thelevelup.com']);
+        _gaq.push(['_trackPageview']);
+
+        (function() {
+          var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+          ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+          var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();

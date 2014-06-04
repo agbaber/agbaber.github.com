@@ -1,0 +1,339 @@
+Crashlog created at 2014-06-04 16:15:54 -0400
+
+===== MESSAGE:
+
+SyntaxError: ./Rules:97: syntax error, unexpected end-of-input, expecting keyword_end
+
+===== COMPILATION STACK:
+
+  (empty)
+
+===== STACK TRACE:
+
+  0. /Users/baberlevelup/.rvm/gems/ruby-2.1.1/gems/nanoc-3.6.7/lib/nanoc/base/compilation/rules_collection.rb:78:in `instance_eval'
+  1. /Users/baberlevelup/.rvm/gems/ruby-2.1.1/gems/nanoc-3.6.7/lib/nanoc/base/compilation/rules_collection.rb:78:in `load'
+  2. /Users/baberlevelup/.rvm/gems/ruby-2.1.1/gems/nanoc-3.6.7/lib/nanoc/base/compilation/compiler.rb:120:in `load'
+  3. /Users/baberlevelup/.rvm/gems/ruby-2.1.1/gems/nanoc-3.6.7/lib/nanoc/base/compilation/compiler.rb:82:in `run'
+  4. /Users/baberlevelup/.rvm/gems/ruby-2.1.1/gems/nanoc-3.6.7/lib/nanoc/base/source_data/site.rb:58:in `compile'
+  5. /Users/baberlevelup/.rvm/gems/ruby-2.1.1/gems/guard-nanoc-1.0.1/lib/guard/nanoc.rb:65:in `block in recompile'
+  6. /Users/baberlevelup/.rvm/gems/ruby-2.1.1/gems/guard-nanoc-1.0.1/lib/guard/nanoc.rb:63:in `chdir'
+  7. /Users/baberlevelup/.rvm/gems/ruby-2.1.1/gems/guard-nanoc-1.0.1/lib/guard/nanoc.rb:63:in `recompile'
+  8. /Users/baberlevelup/.rvm/gems/ruby-2.1.1/gems/guard-nanoc-1.0.1/lib/guard/nanoc.rb:28:in `run_on_changes'
+  9. /Users/baberlevelup/.rvm/gems/ruby-2.1.1/gems/guard-2.3.0/lib/guard/runner.rb:67:in `block in run_supervised_task'
+  10. /Users/baberlevelup/.rvm/gems/ruby-2.1.1/gems/guard-2.3.0/lib/guard/runner.rb:65:in `catch'
+  11. /Users/baberlevelup/.rvm/gems/ruby-2.1.1/gems/guard-2.3.0/lib/guard/runner.rb:65:in `run_supervised_task'
+  12. /Users/baberlevelup/.rvm/gems/ruby-2.1.1/gems/guard-2.3.0/lib/guard/runner.rb:109:in `block in _run_first_task_found'
+  13. /Users/baberlevelup/.rvm/gems/ruby-2.1.1/gems/guard-2.3.0/lib/guard/runner.rb:107:in `each'
+  14. /Users/baberlevelup/.rvm/gems/ruby-2.1.1/gems/guard-2.3.0/lib/guard/runner.rb:107:in `_run_first_task_found'
+  15. /Users/baberlevelup/.rvm/gems/ruby-2.1.1/gems/guard-2.3.0/lib/guard/runner.rb:47:in `block in run_on_changes'
+  16. /Users/baberlevelup/.rvm/gems/ruby-2.1.1/gems/guard-2.3.0/lib/guard/runner.rb:140:in `block (3 levels) in _scoped_plugins'
+  17. /Users/baberlevelup/.rvm/gems/ruby-2.1.1/gems/guard-2.3.0/lib/guard/runner.rb:138:in `each'
+  18. /Users/baberlevelup/.rvm/gems/ruby-2.1.1/gems/guard-2.3.0/lib/guard/runner.rb:138:in `block (2 levels) in _scoped_plugins'
+  19. /Users/baberlevelup/.rvm/gems/ruby-2.1.1/gems/guard-2.3.0/lib/guard/runner.rb:137:in `catch'
+  20. /Users/baberlevelup/.rvm/gems/ruby-2.1.1/gems/guard-2.3.0/lib/guard/runner.rb:137:in `block in _scoped_plugins'
+  21. /Users/baberlevelup/.rvm/gems/ruby-2.1.1/gems/guard-2.3.0/lib/guard/runner.rb:135:in `each'
+  22. /Users/baberlevelup/.rvm/gems/ruby-2.1.1/gems/guard-2.3.0/lib/guard/runner.rb:135:in `_scoped_plugins'
+  23. /Users/baberlevelup/.rvm/gems/ruby-2.1.1/gems/guard-2.3.0/lib/guard/runner.rb:40:in `run_on_changes'
+  24. /Users/baberlevelup/.rvm/gems/ruby-2.1.1/gems/guard-2.3.0/lib/guard/setuper.rb:190:in `block (2 levels) in _setup_listener'
+  25. /Users/baberlevelup/.rvm/gems/ruby-2.1.1/gems/guard-2.3.0/lib/guard/commander.rb:108:in `block in within_preserved_state'
+  26. /Users/baberlevelup/.rvm/gems/ruby-2.1.1/gems/guard-2.3.0/lib/guard/commander.rb:105:in `synchronize'
+  27. /Users/baberlevelup/.rvm/gems/ruby-2.1.1/gems/guard-2.3.0/lib/guard/commander.rb:105:in `within_preserved_state'
+  28. /Users/baberlevelup/.rvm/gems/ruby-2.1.1/gems/guard-2.3.0/lib/guard/setuper.rb:189:in `block in _setup_listener'
+  29. /Users/baberlevelup/.rvm/gems/ruby-2.1.1/gems/listen-2.4.0/lib/listen/listener.rb:150:in `call'
+  30. /Users/baberlevelup/.rvm/gems/ruby-2.1.1/gems/listen-2.4.0/lib/listen/listener.rb:150:in `block in _wait_for_changes'
+  31. /Users/baberlevelup/.rvm/gems/ruby-2.1.1/gems/listen-2.4.0/lib/listen/listener.rb:145:in `loop'
+  32. /Users/baberlevelup/.rvm/gems/ruby-2.1.1/gems/listen-2.4.0/lib/listen/listener.rb:145:in `_wait_for_changes'
+  ... 35 more lines omitted. See full crash log for details.
+
+===== VERSION INFORMATION:
+
+nanoc 3.6.7 © 2007-2013 Denis Defreyne.
+Running ruby 2.1.1 (2014-02-24) on x86_64-darwin13.0 with RubyGems 2.2.2.
+
+===== SYSTEM INFORMATION:
+
+Darwin Andrews-MacBook-Pro.local 13.1.0 Darwin Kernel Version 13.1.0: Wed Apr  2 23:52:02 PDT 2014; root:xnu-2422.92.1~2/RELEASE_X86_64 x86_64
+
+===== INSTALLED GEMS:
+
+  adsf 1.2.0
+  bundler 1.5.3
+  celluloid 0.15.2
+  coderay 1.1.0
+  coffee-script 2.2.0
+  coffee-script-source 1.6.3
+  colored 1.2
+  cri 2.4.1
+  diff-lcs 1.2.5
+  execjs 2.0.2
+  ffi 1.9.3
+  formatador 0.2.4
+  guard 2.3.0
+  guard-nanoc 1.0.1
+  haml 4.0.5
+  json 1.8.1
+  listen 2.4.0
+  lumberjack 1.0.4
+  metaclass 0.0.2
+  method_source 0.8.2
+  mini_portile 0.5.2
+  mocha 1.0.0
+  nanoc 3.6.7
+  nokogiri 1.6.1
+  posix-spawn 0.3.8
+  pry 0.9.12.4
+  pygments.rb 0.5.4
+  rack 1.5.2
+  rb-fsevent 0.9.4
+  rb-inotify 0.9.3
+  redcarpet 3.0.0
+  rspec 2.14.1
+  rspec-core 2.14.7
+  rspec-expectations 2.14.4
+  rspec-mocks 2.14.4
+  sass 3.2.14
+  slop 3.4.7
+  thor 0.18.1
+  tilt 2.0.0
+  timers 1.1.0
+  w3c_validators 1.2
+  yajl-ruby 1.1.0
+
+===== ENVIRONMENT:
+
+Apple_PubSub_Socket_Render => "/tmp/launch-mWxWLD/Render"
+BUNDLE_BIN_PATH => "/Users/baberlevelup/.rvm/gems/ruby-2.1.1@global/gems/bundler-1.5.3/bin/bundle"
+BUNDLE_GEMFILE => "/Users/baberlevelup/developer.thelevelup.com/Gemfile"
+COLUMNS => "141"
+DISPLAY => "/tmp/launch-Tee5tz/org.macosforge.xquartz:0"
+GEM_HOME => "/Users/baberlevelup/.rvm/gems/ruby-2.1.1"
+GEM_PATH => "/Users/baberlevelup/.rvm/gems/ruby-2.1.1:/Users/baberlevelup/.rvm/gems/ruby-2.1.1@global"
+GREP_COLOR => "1;32"
+GREP_OPTIONS => "--color=auto"
+GUARD_NOTIFIERS => "---\n- :name: :terminal_title\n  :options:\n    :silent: true\n"
+GUARD_NOTIFY => "true"
+HOME => "/Users/baberlevelup"
+IRBRC => "/Users/baberlevelup/.rvm/rubies/ruby-2.1.1/.irbrc"
+LANG => "en_US.UTF-8"
+LC_CTYPE => "en_US.UTF-8"
+LESS => "-R"
+LINES => "40"
+LOGNAME => "baberlevelup"
+LSCOLORS => "Gxfxcxdxbxegedabagacad"
+MENTOS_LOG => "/dev/null"
+MY_RUBY_HOME => "/Users/baberlevelup/.rvm/rubies/ruby-2.1.1"
+OLDPWD => "/Users/baberlevelup"
+PAGER => "less"
+PATH => "/Users/baberlevelup/.rvm/gems/ruby-2.1.1/bin:/Users/baberlevelup/.rvm/gems/ruby-2.1.1@global/bin:/Users/baberlevelup/.rvm/rubies/ruby-2.1.1/bin:/Users/baberlevelup/.rvm/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/Users/baberlevelup/android/sdk/platform-tools"
+PWD => "/Users/baberlevelup/developer.thelevelup.com"
+PYGMENTS_PATH => "/Users/baberlevelup/.rvm/gems/ruby-2.1.1/gems/pygments.rb-0.5.4/vendor/pygments-main"
+RUBYLIB => "/Users/baberlevelup/.rvm/gems/ruby-2.1.1@global/gems/bundler-1.5.3/lib"
+RUBYOPT => "-rbundler/setup"
+RUBY_GC_HEAP_FREE_SLOTS => "600000"
+RUBY_GC_HEAP_GROWTH_FACTOR => "1.25"
+RUBY_GC_HEAP_GROWTH_MAX_SLOTS => "300000"
+RUBY_GC_HEAP_INIT_SLOTS => "600000"
+RUBY_VERSION => "ruby-2.1.1"
+SECURITYSESSIONID => "186a5"
+SHELL => "/bin/zsh"
+SHLVL => "1"
+SSH_AUTH_SOCK => "/tmp/launch-5qMoGB/Listeners"
+TERM => "xterm-256color"
+TERM_PROGRAM => "Apple_Terminal"
+TERM_PROGRAM_VERSION => "326"
+TERM_SESSION_ID => "3FEBB0D5-26B5-4E74-8F9F-F0FF34694EF6"
+TMPDIR => "/var/folders/q3/6blr2jrx1335lpw9rtq45dwr0000gn/T/"
+USER => "baberlevelup"
+_ => "/Users/baberlevelup/.rvm/gems/ruby-2.1.1/bin/guard"
+_ORIGINAL_GEM_PATH => "/Users/baberlevelup/.rvm/gems/ruby-2.1.1:/Users/baberlevelup/.rvm/gems/ruby-2.1.1@global"
+__CF_USER_TEXT_ENCODING => "0x1F5:0:0"
+__CHECKFIX1436934 => "1"
+_system_arch => "x86_64"
+_system_name => "OSX"
+_system_type => "Darwin"
+_system_version => "10.9"
+rvm_alias_expanded => ""
+rvm_bin_flag => ""
+rvm_bin_path => "/Users/baberlevelup/.rvm/bin"
+rvm_delete_flag => "0"
+rvm_docs_type => ""
+rvm_file_name => ""
+rvm_gemstone_package_file => ""
+rvm_gemstone_url => ""
+rvm_niceness => ""
+rvm_nightly_flag => ""
+rvm_only_path_flag => ""
+rvm_path => "/Users/baberlevelup/.rvm"
+rvm_prefix => "/Users/baberlevelup"
+rvm_proxy => ""
+rvm_quiet_flag => ""
+rvm_ruby_alias => ""
+rvm_ruby_bits => ""
+rvm_ruby_file => ""
+rvm_ruby_make => ""
+rvm_ruby_make_install => ""
+rvm_ruby_mode => ""
+rvm_ruby_string => "ruby-2.1.1"
+rvm_script_name => ""
+rvm_sdk => ""
+rvm_silent_flag => ""
+rvm_sticky_flag => ""
+rvm_system_flag => ""
+rvm_use_flag => ""
+rvm_user_flag => ""
+rvm_version => "1.25.15 (master)"
+rvm_wrapper_name => ""
+
+===== GEMFILE.LOCK:
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+    adsf (1.2.0)
+      rack (>= 1.0.0)
+    celluloid (0.15.2)
+      timers (~> 1.1.0)
+    coderay (1.1.0)
+    coffee-script (2.2.0)
+      coffee-script-source
+      execjs
+    coffee-script-source (1.6.3)
+    colored (1.2)
+    cri (2.4.1)
+      colored (>= 1.2)
+    diff-lcs (1.2.5)
+    execjs (2.0.2)
+    ffi (1.9.3)
+    formatador (0.2.4)
+    guard (2.3.0)
+      formatador (>= 0.2.4)
+      listen (~> 2.1)
+      lumberjack (~> 1.0)
+      pry (>= 0.9.12)
+      thor (>= 0.18.1)
+    guard-nanoc (1.0.1)
+      guard (>= 1.8.0)
+      nanoc (>= 3.6.3)
+    haml (4.0.5)
+      tilt
+    json (1.8.1)
+    listen (2.4.0)
+      celluloid (>= 0.15.2)
+      rb-fsevent (>= 0.9.3)
+      rb-inotify (>= 0.9)
+    lumberjack (1.0.4)
+    metaclass (0.0.2)
+    method_source (0.8.2)
+    mini_portile (0.5.2)
+    mocha (1.0.0)
+      metaclass (~> 0.0.1)
+    nanoc (3.6.7)
+      cri (~> 2.3)
+    nokogiri (1.6.1)
+      mini_portile (~> 0.5.0)
+    posix-spawn (0.3.8)
+    pry (0.9.12.4)
+      coderay (~> 1.0)
+      method_source (~> 0.8)
+      slop (~> 3.4)
+    pygments.rb (0.5.4)
+      posix-spawn (~> 0.3.6)
+      yajl-ruby (~> 1.1.0)
+    rack (1.5.2)
+    rb-fsevent (0.9.4)
+    rb-inotify (0.9.3)
+      ffi (>= 0.5.0)
+    redcarpet (3.0.0)
+    rspec (2.14.1)
+      rspec-core (~> 2.14.0)
+      rspec-expectations (~> 2.14.0)
+      rspec-mocks (~> 2.14.0)
+    rspec-core (2.14.7)
+    rspec-expectations (2.14.4)
+      diff-lcs (>= 1.1.3, < 2.0)
+    rspec-mocks (2.14.4)
+    sass (3.2.14)
+    slop (3.4.7)
+    thor (0.18.1)
+    tilt (2.0.0)
+    timers (1.1.0)
+    w3c_validators (1.2)
+      json
+      nokogiri
+    yajl-ruby (1.1.0)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  adsf (= 1.2.0)
+  coffee-script (= 2.2.0)
+  guard-nanoc (= 1.0.1)
+  haml (= 4.0.5)
+  mocha (= 1.0.0)
+  nanoc (~> 3.6.7)
+  nokogiri (~> 1.6.1)
+  pygments.rb (= 0.5.4)
+  redcarpet (= 3.0.0)
+  rspec (= 2.14.1)
+  sass (= 3.2.14)
+  w3c_validators (= 1.2)
+
+===== LOAD PATHS:
+
+  0. /Users/baberlevelup/.rvm/gems/ruby-2.1.1/gems/w3c_validators-1.2/lib
+  1. /Users/baberlevelup/.rvm/gems/ruby-2.1.1/gems/sass-3.2.14/lib
+  2. /Users/baberlevelup/.rvm/gems/ruby-2.1.1/gems/rspec-2.14.1/lib
+  3. /Users/baberlevelup/.rvm/gems/ruby-2.1.1/gems/rspec-mocks-2.14.4/lib
+  4. /Users/baberlevelup/.rvm/gems/ruby-2.1.1/gems/rspec-expectations-2.14.4/lib
+  5. /Users/baberlevelup/.rvm/gems/ruby-2.1.1/gems/rspec-core-2.14.7/lib
+  6. /Users/baberlevelup/.rvm/gems/ruby-2.1.1/extensions/x86_64-darwin-13/2.1.0/redcarpet-3.0.0
+  7. /Users/baberlevelup/.rvm/gems/ruby-2.1.1/gems/redcarpet-3.0.0/lib
+  8. /Users/baberlevelup/.rvm/gems/ruby-2.1.1/gems/pygments.rb-0.5.4/lib
+  9. /Users/baberlevelup/.rvm/gems/ruby-2.1.1/extensions/x86_64-darwin-13/2.1.0/yajl-ruby-1.1.0
+  10. /Users/baberlevelup/.rvm/gems/ruby-2.1.1/gems/yajl-ruby-1.1.0/lib
+  11. /Users/baberlevelup/.rvm/gems/ruby-2.1.1/extensions/x86_64-darwin-13/2.1.0/posix-spawn-0.3.8
+  12. /Users/baberlevelup/.rvm/gems/ruby-2.1.1/gems/posix-spawn-0.3.8/lib
+  13. /Users/baberlevelup/.rvm/gems/ruby-2.1.1/extensions/x86_64-darwin-13/2.1.0/nokogiri-1.6.1
+  14. /Users/baberlevelup/.rvm/gems/ruby-2.1.1/gems/nokogiri-1.6.1/lib
+  15. /Users/baberlevelup/.rvm/gems/ruby-2.1.1/gems/mocha-1.0.0/lib
+  16. /Users/baberlevelup/.rvm/gems/ruby-2.1.1/gems/mini_portile-0.5.2/lib
+  17. /Users/baberlevelup/.rvm/gems/ruby-2.1.1/gems/metaclass-0.0.2/lib
+  18. /Users/baberlevelup/.rvm/rubies/ruby-2.1.1/lib/ruby/gems/2.1.0/gems/json-1.8.1/lib
+  19. /Users/baberlevelup/.rvm/gems/ruby-2.1.1/gems/haml-4.0.5/lib
+  20. /Users/baberlevelup/.rvm/gems/ruby-2.1.1/gems/tilt-2.0.0/lib
+  21. /Users/baberlevelup/.rvm/gems/ruby-2.1.1/gems/guard-nanoc-1.0.1/lib
+  22. /Users/baberlevelup/.rvm/gems/ruby-2.1.1/gems/nanoc-3.6.7/lib
+  23. /Users/baberlevelup/.rvm/gems/ruby-2.1.1/gems/guard-2.3.0/lib
+  24. /Users/baberlevelup/.rvm/gems/ruby-2.1.1/gems/thor-0.18.1/lib
+  25. /Users/baberlevelup/.rvm/gems/ruby-2.1.1/gems/pry-0.9.12.4/lib
+  26. /Users/baberlevelup/.rvm/gems/ruby-2.1.1/gems/slop-3.4.7/lib
+  27. /Users/baberlevelup/.rvm/gems/ruby-2.1.1/gems/method_source-0.8.2/lib
+  28. /Users/baberlevelup/.rvm/gems/ruby-2.1.1/gems/lumberjack-1.0.4/lib
+  29. /Users/baberlevelup/.rvm/gems/ruby-2.1.1/gems/listen-2.4.0/lib
+  30. /Users/baberlevelup/.rvm/gems/ruby-2.1.1/gems/rb-inotify-0.9.3/lib
+  31. /Users/baberlevelup/.rvm/gems/ruby-2.1.1/gems/rb-fsevent-0.9.4/lib
+  32. /Users/baberlevelup/.rvm/gems/ruby-2.1.1/gems/formatador-0.2.4/lib
+  33. /Users/baberlevelup/.rvm/gems/ruby-2.1.1/extensions/x86_64-darwin-13/2.1.0/ffi-1.9.3
+  34. /Users/baberlevelup/.rvm/gems/ruby-2.1.1/gems/ffi-1.9.3/lib
+  35. /Users/baberlevelup/.rvm/gems/ruby-2.1.1/gems/ffi-1.9.3/ext/ffi_c
+  36. /Users/baberlevelup/.rvm/gems/ruby-2.1.1/gems/diff-lcs-1.2.5/lib
+  37. /Users/baberlevelup/.rvm/gems/ruby-2.1.1/gems/cri-2.4.1/lib
+  38. /Users/baberlevelup/.rvm/gems/ruby-2.1.1/gems/colored-1.2/lib
+  39. /Users/baberlevelup/.rvm/gems/ruby-2.1.1/gems/coffee-script-2.2.0/lib
+  40. /Users/baberlevelup/.rvm/gems/ruby-2.1.1/gems/execjs-2.0.2/lib
+  41. /Users/baberlevelup/.rvm/gems/ruby-2.1.1/gems/coffee-script-source-1.6.3/lib
+  42. /Users/baberlevelup/.rvm/gems/ruby-2.1.1/gems/coderay-1.1.0/lib
+  43. /Users/baberlevelup/.rvm/gems/ruby-2.1.1/gems/celluloid-0.15.2/lib
+  44. /Users/baberlevelup/.rvm/gems/ruby-2.1.1/gems/timers-1.1.0/lib
+  45. /Users/baberlevelup/.rvm/gems/ruby-2.1.1/gems/adsf-1.2.0/lib
+  46. /Users/baberlevelup/.rvm/gems/ruby-2.1.1/gems/rack-1.5.2/lib
+  47. /Users/baberlevelup/.rvm/gems/ruby-2.1.1@global/gems/bundler-1.5.3/lib
+  48. /Users/baberlevelup/.rvm/rubies/ruby-2.1.1/lib/ruby/site_ruby/2.1.0
+  49. /Users/baberlevelup/.rvm/rubies/ruby-2.1.1/lib/ruby/site_ruby/2.1.0/x86_64-darwin13.0
+  50. /Users/baberlevelup/.rvm/rubies/ruby-2.1.1/lib/ruby/site_ruby
+  51. /Users/baberlevelup/.rvm/rubies/ruby-2.1.1/lib/ruby/vendor_ruby/2.1.0
+  52. /Users/baberlevelup/.rvm/rubies/ruby-2.1.1/lib/ruby/vendor_ruby/2.1.0/x86_64-darwin13.0
+  53. /Users/baberlevelup/.rvm/rubies/ruby-2.1.1/lib/ruby/vendor_ruby
+  54. /Users/baberlevelup/.rvm/rubies/ruby-2.1.1/lib/ruby/2.1.0
+  55. /Users/baberlevelup/.rvm/rubies/ruby-2.1.1/lib/ruby/2.1.0/x86_64-darwin13.0

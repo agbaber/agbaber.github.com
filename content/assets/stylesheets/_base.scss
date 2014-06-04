@@ -1,0 +1,174 @@
+  html, body {
+  background: $gray6 url('https://www.thelevelup.com/assets/background_graygrid.png');
+  color: $gray1;
+  font-family: 'Source Sans Pro';
+  font-size: 15px;
+  font-weight: 300;
+  margin: 0;
+  min-width: 1050px;
+  padding: 0;
+}
+
+a {
+  color: $blue;
+  text-decoration: none;
+
+  &:hover {
+   color: $orange;
+  }
+}
+
+code {
+  font-size: 14px;
+}
+
+fieldset {
+  border: none;
+  margin: 0;
+  padding: 0;
+}
+
+fieldset li {
+  margin: 0 0 12px 0;
+  width: 100%;
+}
+
+footer {
+  padding: 50px 0;
+}
+
+form {
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  color: $gray2;
+  font-size: 50px;
+  font-weight: 200;
+  margin: 0 0 10px 0;
+}
+
+h2 {
+  color: darken($blue, 30%);
+  font-size: 24px;
+  font-weight: 700;
+  margin: 50px 0 10px 0;
+
+  &:first-child {
+    margin-top: 0;
+  }
+}
+
+h3 {
+  color: $orange;
+  font-size: 18px;
+  font-weight: 400;
+  margin: 25px 0 0 0;
+}
+
+h4 {
+  color: $gray2;
+  font-size: 15px;
+  font-weight: 600;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+h5 {
+  color: #999;
+  font-size: 13px;
+  font-weight: 600;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+iframe[seamless] {
+  background-color: transparent;
+  border: 0px none transparent;
+  overflow: hidden;
+  padding: 0px;
+}
+
+input[type='email'],
+input[type='password'],
+input[type='tel'],
+input[type='text'],
+input[type='url'],
+textarea {
+  @include box-sizing(border-box);
+  border: 1px solid $gray5;
+  box-shadow: inset 0 3px 0 $gray6;
+  color: $gray2;
+  font-family: 'Source Sans Pro';
+  font-size: 20px;
+  font-weight: 300;
+  margin: 0;
+  outline: none;
+  padding: 10px 12px;
+  width: 100%;
+
+  &:hover {
+    border: 1px solid $gray4;
+  }
+
+  &:focus {
+    border: 1px solid $blue;
+  }
+}
+
+label {
+  color: $gray2;
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 2px;
+  text-transform: capitalize;
+}
+
+li {
+  line-height: 1.4;
+  margin: 0 0 15px 0;
+}
+
+p {
+  line-height: 1.4;
+  margin: 0 0 15px 0;
+}
+
+pre {
+  background: #fafafa;
+  border: 1px solid #e9e9e9;
+  font-size: 13px;
+  margin: 0 0 15px 0;
+  padding: 15px;
+  white-space: pre-wrap;
+}
+
+strong {
+  font-weight: 600;
+}
+
+table {
+  border: none;
+  border-collapse: collapse;
+  font-size: 14px;
+  table-layout: fixed;
+  width: 100%;
+
+  td {
+    border-bottom: 1px solid $gray5;
+    padding: 20px 10px;
+  }
+
+  th {
+    color: #fff;
+    background: $blue;
+    padding: 5px 10px;
+    text-align: left;
+  }
+
+  tr:hover td {
+    background: lighten($orange, 45%);
+  }
+}

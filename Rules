@@ -1,0 +1,98 @@
+#!/usr/bin/env ruby
+
+# A few helpful tips about the Rules file:
+#
+# * The string given to #compile and #route are matching patterns for
+#   identifiers--not for paths. Therefore, you can’t match on extension.
+#
+# * The order of rules is important: for each item, only the first matching
+#   rule is applied.
+#
+# * Item identifiers start and end with a slash (e.g. “/about/” for the file
+#   “content/about.html”). To select all children, grandchildren, … of an
+#   item, use the pattern “/about/*/”; “/about/*” will also select the parent,
+#   because “*” matches zero or more characters.
+
+compile '/assets/stylesheets/*/' do
+  # don't compile stylesheets
+end
+
+compile '/assets/styles/' do
+  filter :sass, syntax: :scss
+  filter :relativize_paths, type: :css
+end
+
+compile '/assets/scripts/' do
+  filter :coffeescript
+end
+
+compile '/CNAME' do
+  # CNAME file for Github Pages to know to serve developer.thelevelup.com - don't compile
+end
+
+compile '*' do
+  if item.binary?
+    # Don’t filter binary items
+  else
+    case item[:extension]
+      when 'md'
+        filter :redcarpet, renderer: HTMLSmartyWithSyntaxRenderer, options: {
+          fenced_code_blocks: true, tables: true }
+      when 'haml'
+        filter :haml, ugly: true
+      else
+        filter :erb
+    end
+
+    layout 'default'
+    unless item[:is_hidden]
+      filter :relativize_paths, type: :html
+    end
+  end
+end
+
+route '/assets/images/*' do
+  # Write item with identifier /assets/images/foo to /images/foo.ext
+  item.identifier.chop.gsub(/^\/assets\//, '/') + '.' + item[:extension]
+end
+
+route '/assets/stylesheets/*/' do
+  nil
+end
+
+route '/assets/styles/' do
+  '/styles.css'
+end
+
+route '/assets/scripts/' do
+  '/scripts.js'
+end
+
+['', '/api-reference', '/mobile-sdks', '/pos-integration', '/online-ordering', '/enterprise-sdk', '/enterprise-api'].each do |section|
+  route "#{section}/getting-started/overview/" do
+    "#{section}/index.html"
+  end
+end
+
+route 'CNAME' do
+  # The output/CNAME file needs to be served directly for Github
+  item.identifier.chop
+end
+
+['/404', '/api-reference/404', '/mobile-sdks/404', '/pos-integration/404', '/online-ordering/404'].each do |section|
+  route "#{section}/404/" do
+    "/404.html"
+  end
+end
+
+route '*' do
+  if item.binary?
+    # Write item with identifier /foo/ to /foo.ext
+    item.identifier.chop + '.' + item[:extension]
+  elsif !item[:is_hidden]
+    # Write item with identifier /foo/ to /foo/index.html
+    item.identifier + 'index.html'
+  end
+end
+
+layout '*', :haml, ugly: true
