@@ -1,0 +1,24 @@
+%ul.side-nav__sub
+  - sorted_children(section).each do |subsection|
+    %li
+      - if subsection[:is_hidden]
+        %h5
+          = subsection[:title]
+      - else
+        %ul
+          %li.side-nav__sub__link
+            = link_to_unless_current subsection[:title], subsection
+      %ul
+        - if api_documentation_section?(subsection)
+          %ul
+            - sorted_children_grouped_by(subsection, :category).each do |title, endpoints|
+              %li
+                = title
+                %ul
+                  - endpoints.each do |page|
+                    %li.side-nav__sub__link
+                      = link_to_unless_current page[:action], page
+        - else
+          - sorted_children(subsection).each do |page|
+            %li.side-nav__sub__link
+              = link_to_unless_current page[:title], page

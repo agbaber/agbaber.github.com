@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta content="nanoc 3.6.7" name="generator">
+<title>
+LevelUp Development .:
+Merchant Permissions
+</title>
+<link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900" media="screen" rel="stylesheet" type="text/css">
+<link href="../../../styles.css" media="screen, projection" rel="stylesheet" type="text/css">
+<link href="../../../images/icon.png" rel="shortcut icon" type="image/png">
+</head>
+<body>
+<div class="main-nav">
+<ul class="l-horizontal">
+<li>
+<a class="main-nav__button" href="https://www.thelevelup.com/">LevelUp</a>
+</li>
+<li class="l-right">
+<a class="main-nav__button main-nav__button--right" href="http://support.thelevelup.com/">Support</a>
+</li>
+<li class="l-right">
+<a class="main-nav__button main-nav__button--right" href="../../../getting-started/sign-up/">Join</a>
+</li>
+</ul>
+</div>
+<div class="l-wrap">
+<div class="content">
+<ul class="side-nav">
+<li>
+<a class="side-nav__button side-nav__button--getting-started" href="../../../">Platform Overview</a>
+<ul class="side-nav__sub">
+<li>
+<ul>
+<li class="side-nav__sub__link">
+<a href="../../../">Overview</a>
+</li>
+</ul>
+<ul></ul>
+</li>
+<li>
+<ul>
+<li class="side-nav__sub__link">
+<a href="../../../getting-started/what-to-build/">What to Build</a>
+</li>
+</ul>
+<ul></ul>
+</li>
+<li>
+<ul>
+<li class="side-nav__sub__link">
+<a href="../../../getting-started/apis-sdks-libraries/">API, SDKs &amp; Libraries</a>
+</li>
+</ul>
+<ul></ul>
+</li>
+<li>
+<ul>
+<li class="side-nav__sub__link">
+<a href="../../../getting-started/permissions-list/">Permissions List</a>
+</li>
+</ul>
+<ul></ul>
+</li>
+<li>
+<ul>
+<li class="side-nav__sub__link">
+<a href="../../../getting-started/rules-of-the-road/">Rules of the Road</a>
+</li>
+</ul>
+<ul></ul>
+</li>
+<li>
+<ul>
+<li class="side-nav__sub__link">
+<a href="../../../getting-started/sign-up/">Sign Up</a>
+</li>
+</ul>
+<ul></ul>
+</li>
+</ul>
+</li>
+<li>
+<a class="side-nav__button side-nav__button--api-reference" href="../../../api-reference/">API Reference</a>
+<ul class="side-nav__sub">
+<li>
+<h5>
+Getting Started
+</h5>
+<ul>
+<li class="side-nav__sub__link">
+<a href="../../../api-reference/">Requests &amp; Responses</a>
+</li>
+</ul>
+</li>
+<li>
+<h5>
+v15 .: BETA
+</h5>
+<ul><ul>
+<li>
+App Access Tokens
+<ul>
+<li class="side-nav__sub__link">
+<a href="../../../api-reference/v15/app-access-tokens-create/">Create</a>
+</li>
+</ul>
+</li>
+<li>
+Credit Cards
+<ul>
+<li class="side-nav__sub__link">
+<a href="../../../api-reference/v15/credit-cards-create/">Create</a>
+</li>
+</ul>
+</li>
+<li>
+Merchant-Funded Credit
+<ul>
+<li class="side-nav__sub__link">
+<a href="../../../api-reference/v15/merchant-funded-credit-give/">Give</a>
+</li>
+</ul>
+</li>
+<li>
+Orders
+<ul>
+<li class="side-nav__sub__link">
+<a href="../../../api-reference/v15/orders-create/">Create</a>
+</li>
+<li class="side-nav__sub__link">
+<a href="../../../api-reference/v15/orders-refunds/">Refund</a>
+</li>
+<li class="side-nav__sub__link">
+<a href="../../../api-reference/v15/user-orders-list/">List</a>
+</li>
+</ul>
+</li>
+<li>
+Permissions
+<ul>
+<li class="side-nav__sub__link">
+<a href="../../../api-reference/v15/permissions-create/">Create</a>
+</li>
+<li class="side-nav__sub__link">
+<a href="../../../api-reference/v15/permissions-request-show/">Show</a>
+</li>
+</ul>
+</li>
+<li>
+QR Codes
+<ul>
+<li class="side-nav__sub__link">
+<a href="../../../api-reference/v15/qr-codes-get/">Get</a>
+</li>
+</ul>
+</li>
+<li>
+User Addresses
+<ul>
+<li class="side-nav__sub__link">
+<a href="../../../api-reference/v15/user-addresses-create/">Create</a>
+</li>
+<li class="side-nav__sub__link">
+<a href="../../../api-reference/v15/user-addresses-show/">List</a>
+</li>
+</ul>
+</li>
+<li>
+Users
+<ul>
+<li class="side-nav__sub__link">
+<a href="../../../api-reference/v15/app-users-create/">Create</a>
+</li>
+<li class="side-nav__sub__link">
+<a href="../../../api-reference/v15/user-show/">Get</a>
+</li>
+</ul>
+</li>
+</ul></ul>
+</li>
+<li>
+<h5>
+v14
+</h5>
+<ul><ul>
+<li>
+Access Tokens
+<ul>
+<li class="side-nav__sub__link">
+<a href="../../../api-reference/v14/access-tokens-create/">Create</a>
+</li>
+</ul>
+</li>
+<li>
+Campaigns
+<ul>
+<li class="side-nav__sub__link">
+<a href="../../../api-reference/v14/campaigns-view-details/">Get Details</a>
+</li>
+<li class="side-nav__sub__link">
+<a href="../../../api-reference/v14/campaigns-claim/">Claim</a>
+</li>
+<li class="side-nav__sub__link">
+<a href="../../../api-reference/v14/campaigns-view-by-cohort/">Get by Cohort</a>
+</li>
+<li class="side-nav__sub__link">
+<a href="../../../api-reference/v14/campaign-claim-legacy/">Claim Legacy</a>
+</li>
+<li class="side-nav__sub__link">
+<a href="../../../api-reference/v14/campaign-get-merchant-id/">Get Merchant ID</a>
+</li>
+<li class="side-nav__sub__link">
+<a href="../../../api-reference/v14/campaign-get-image/">Get Image</a>
+</li>
+</ul>
+</li>
+<li>
+Credit Cards
+<ul>
+<li class="side-nav__sub__link">
+<a href="../../../api-reference/v14/credit-cards-create/">Create</a>
+</li>
+<li class="side-nav__sub__link">
+<a href="../../../api-reference/v14/credit-cards-list/">List</a>
+</li>
+<li class="side-nav__sub__link">
+<a href="../../../api-reference/v14/credit-cards-promote/">Promote</a>
+</li>
+<li class="side-nav__sub__link">
+<a href="../../../api-reference/v14/credit-cards-delete/">Delete</a>
+</li>
+</ul>
+</li>
+<li>
+Detached Refunds
+<ul>
+<li class="side-nav__sub__link">
+<a href="../../../api-reference/v14/detached-refunds-create/">Create</a>
+</li>
+</ul>
+</li>
+<li>
+Interstitials
+<ul>
+<li class="side-nav__sub__link">
+<a href="../../../api-reference/v14/interstitials/">Get</a>
+</li>
+</ul>
+</li>
+<li>
+Locations
+<ul>
+<li class="side-nav__sub__link">
+<a href="../../../api-reference/v14/locations-list-all/">List</a>
+</li>
+<li class="side-nav__sub__link">
+<a href="../../../api-reference/v14/locations-list-by-app/">List by App</a>
+</li>
+<li class="side-nav__sub__link">
+<a href="../../../api-reference/v14/locations-list-by-merchant/">List by Merchant</a>
+</li>
+<li class="side-nav__sub__link">
+<a href="../../../api-reference/v14/locations-show-image/">Get Image</a>
+</li>
+<li class="side-nav__sub__link">
+<a href="../../../api-reference/v14/locations-show-details/">Get Details</a>
+</li>
+</ul>
+</li>
+<li>
+Loyalty
+<ul>
+<li class="side-nav__sub__link">
+<a href="../../../api-reference/v14/loyalties/">Get</a>
+</li>
+</ul>
+</li>
+<li>
+Orders
+<ul>
+<li class="side-nav__sub__link">
+<a href="../../../api-reference/v14/orders-by-app/">List by App</a>
+</li>
+<li class="side-nav__sub__link">
+<a href="../../../api-reference/v14/orders-by-location/">List By Location</a>
+</li>
+<li class="side-nav__sub__link">
+<a href="../../../api-reference/v14/orders-create/">Create</a>
+</li>
+<li class="side-nav__sub__link">
+<a href="../../../api-reference/v14/orders-merchant-details/">Get Merchant Details</a>
+</li>
+<li class="side-nav__sub__link">
+<a href="../../../api-reference/v14/orders-refunds/">Refund</a>
+</li>
+<li class="side-nav__sub__link">
+<a href="../../../api-reference/v14/orders-user-details/">Get User Details</a>
+</li>
+</ul>
+</li>
+<li>
+Payment Tokens
+<ul>
+<li class="side-nav__sub__link">
+<a href="../../../api-reference/v14/payment-tokens/">Get</a>
+</li>
+</ul>
+</li>
+<li>
+Support Tickets
+<ul>
+<li class="side-nav__sub__link">
+<a href="../../../api-reference/v14/support-tickets/">Create</a>
+</li>
+</ul>
+</li>
+<li>
+Users
+<ul>
+<li class="side-nav__sub__link">
+<a href="../../../api-reference/v14/users-create/">Create</a>
+</li>
+<li class="side-nav__sub__link">
+<a href="../../../api-reference/v14/users-show-addresses/">List Addresses</a>
+</li>
+<li class="side-nav__sub__link">
+<a href="../../../api-reference/v14/users-show/">Get Details</a>
+</li>
+<li class="side-nav__sub__link">
+<a href="../../../api-reference/v14/users-update/">Update</a>
+</li>
+<li class="side-nav__sub__link">
+<a href="../../../api-reference/v14/users-reset-password/">Reset Password</a>
+</li>
+<li class="side-nav__sub__link">
+<a href="../../../api-reference/v14/users-custom-attributes/">Custom Attributes</a>
+</li>
+</ul>
+</li>
+</ul></ul>
+</li>
+</ul>
+</li>
+<li>
+<a class="side-nav__button side-nav__button--mobile-sdk" href="../../../mobile-sdks/">Mobile SDK</a>
+<ul class="side-nav__sub">
+<li>
+<h5>
+Getting Started
+</h5>
+<ul>
+<li class="side-nav__sub__link">
+<a href="../../../mobile-sdks/">Overview</a>
+</li>
+<li class="side-nav__sub__link">
+<a href="../../../mobile-sdks/getting-started/rules-of-the-road/">Rules of the Road</a>
+</li>
+<li class="side-nav__sub__link">
+<a href="../../../mobile-sdks/getting-started/ios/">Getting Started: iOS</a>
+</li>
+<li class="side-nav__sub__link">
+<a href="../../../mobile-sdks/getting-started/android/">Getting Started: Android</a>
+</li>
+</ul>
+</li>
+<li>
+<h5>
+Core Concepts
+</h5>
+<ul>
+<li class="side-nav__sub__link">
+<a href="../../../mobile-sdks/core-concepts/deep-link-auth/">Deep Link Auth</a>
+</li>
+<li class="side-nav__sub__link">
+<a href="../../../mobile-sdks/core-concepts/login/">Login</a>
+</li>
+<li class="side-nav__sub__link">
+<a href="../../../mobile-sdks/core-concepts/register/">Register</a>
+</li>
+<li class="side-nav__sub__link">
+<a href="../../../mobile-sdks/core-concepts/manage-cards/">Manage Cards</a>
+</li>
+<li class="side-nav__sub__link">
+<a href="../../../mobile-sdks/core-concepts/payment/">Payment</a>
+</li>
+</ul>
+</li>
+<li>
+<h5>
+Additional Concepts
+</h5>
+<ul>
+<li class="side-nav__sub__link">
+<a href="../../../mobile-sdks/additional-concepts/locations/">Locations</a>
+</li>
+<li class="side-nav__sub__link">
+<a href="../../../mobile-sdks/additional-concepts/loyalty/">Loyalty</a>
+</li>
+<li class="side-nav__sub__link">
+<a href="../../../mobile-sdks/additional-concepts/order-history/">Order History</a>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<a class="side-nav__button side-nav__button--pos-integration" href="../../../pos-integration/">POS Integration</a>
+<ul class="side-nav__sub">
+<li>
+<h5>
+Getting Started
+</h5>
+<ul>
+<li class="side-nav__sub__link">
+<a href="../../../pos-integration/">Overview</a>
+</li>
+<li class="side-nav__sub__link">
+<a href="../../../pos-integration/getting-started/developer-setup/">Developer Setup</a>
+</li>
+</ul>
+</li>
+<li>
+<h5>
+Core Concepts
+</h5>
+<ul>
+<li class="side-nav__sub__link">
+<a href="../../../pos-integration/core-concepts/configuring-merchants/">Configuring Merchants</a>
+</li>
+<li class="side-nav__sub__link">
+<a href="../../../pos-integration/core-concepts/processing-transactions/">Processing Transactions</a>
+</li>
+<li class="side-nav__sub__link">
+<a href="../../../pos-integration/core-concepts/handling-refunds/">Handling Refunds</a>
+</li>
+<li class="side-nav__sub__link">
+<a href="../../../pos-integration/core-concepts/consumer-flow/">Consumer Flow</a>
+</li>
+</ul>
+</li>
+<li>
+<h5>
+Additional Concepts
+</h5>
+<ul>
+<li class="side-nav__sub__link">
+<a href="../../../pos-integration/additional-concepts/common-questions/">Common Questions</a>
+</li>
+</ul>
+</li>
+<li>
+<h5>
+Integration SDK
+</h5>
+<ul>
+<li class="side-nav__sub__link">
+<a href="../../../pos-integration/integration-sdks/overview/">Overview</a>
+</li>
+<li class="side-nav__sub__link">
+<a href="../../../pos-integration/integration-sdks/rules-of-the-road/">Rules of the Road</a>
+</li>
+<li class="side-nav__sub__link">
+<a href="../../../pos-integration/integration-sdks/c-sharp/">Getting Started: C# &amp; .NET</a>
+</li>
+</ul>
+</li>
+<li>
+<h5>
+Certification &amp; Residuals
+</h5>
+<ul>
+<li class="side-nav__sub__link">
+<a href="../../../pos-integration/certification-residuals/overview/">Overview</a>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="is-active">
+<a class="side-nav__button side-nav__button--online-ordering" href="../../">Mobile &amp; E-Commerce</a>
+<ul class="side-nav__sub">
+<li>
+<h5>
+Getting Started
+</h5>
+<ul>
+<li class="side-nav__sub__link">
+<a href="../../">Overview</a>
+</li>
+<li class="side-nav__sub__link">
+<a href="../../getting-started/developer-setup/">Developer Setup</a>
+</li>
+</ul>
+</li>
+<li>
+<h5>
+Sample UX Flows
+</h5>
+<ul>
+<li class="side-nav__sub__link">
+<a href="../../sample-ux-flows/levelup-as-payment/">LevelUp as Payment</a>
+</li>
+<li class="side-nav__sub__link">
+<a href="../../sample-ux-flows/levelup-as-login/">LevelUp as Login</a>
+</li>
+<li class="side-nav__sub__link">
+<a href="../../sample-ux-flows/levelup-as-account-of-record/">LevelUp as Account of Record</a>
+</li>
+<li class="side-nav__sub__link">
+<a href="../../sample-ux-flows/embedded-flow/">Embedded Flow</a>
+</li>
+</ul>
+</li>
+<li>
+<h5>
+Core Concepts
+</h5>
+<ul>
+<li class="side-nav__sub__link">
+<span class="active" title="You're here.">Merchant Permissions</span>
+</li>
+<li class="side-nav__sub__link">
+<a href="../user-flow/">User Flow</a>
+</li>
+<li class="side-nav__sub__link">
+<a href="../user-permissions/">User Permissions</a>
+</li>
+<li class="side-nav__sub__link">
+<a href="../processing-transactions/">Processing Transactions</a>
+</li>
+<li class="side-nav__sub__link">
+<a href="../handling-refunds/">Handling Refunds</a>
+</li>
+<li class="side-nav__sub__link">
+<a href="../common-questions/">Common Questions</a>
+</li>
+<li class="side-nav__sub__link">
+<a href="../showcasing-savings/">Showcasing Savings</a>
+</li>
+</ul>
+</li>
+<li>
+<h5>
+Certification &amp; Residuals
+</h5>
+<ul>
+<li class="side-nav__sub__link">
+<a href="../../certification-residuals/overview/">Overview</a>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div class="documentation">
+<div class="documentation__header">
+<div class="l-horizontal">
+<h4>
+Merchant Permissions
+</h4>
+<h4 class="documentation__header--section l-right">
+Mobile &amp; E-Commerce / Core Concepts
+</h4>
+</div>
+</div>
+<div class="documentation__content">
+<p>In order to process orders on behalf of a LevelUp merchant account you’ll need an <code>access_token</code> with the correct permissions.</p>
+
+<p>To get a merchant <code>access_token</code>, simply use the <a href="../../../api-reference/v14/access-tokens-create/">LevelUp Log In</a> endpoint with the account of the user who is the admin of your merchant on LevelUp. The <code>access_token</code> returned will have permission to take actions (such as creating orders) on behalf of the merchant.</p>
+
+<p>The LevelUp permissioning architecture is flexible, meaning that you can process orders to handle a number of different scenarios:</p>
+
+<ol>
+<li>Process orders on behalf of your own merchant account</li>
+<li>Process orders on behalf of other merchant’s accounts</li>
+<li>Process orders on behalf of your merchant account or other merchants accounts</li>
+</ol>
+<p>Let’s walk through each of these scenarios below.</p>
+
+<p><u>1) Processing Orders On Behalf Of Your Own Merchant Account</u>
+If you are acting as a merchant yourself, you’ll want to <a href="https://www.thelevelup.com/what-is-levelup">set up a merchant account with LevelUp</a>. Your user will be the admin of that merchant and you’ll simply use the log in endpoint to retrieve the appropriate <code>access_token</code> with permissions to create orders on behalf of that merchant.</p>
+
+<p><u>2) Processing Orders On Behalf Of Other Merchant’s Account</u>
+Each merchant within the LevelUp ecosystem has a merchant account with LevelUp. This merchant account enables them to process payments, run campaigns and view their customer data.</p>
+
+<p>When a merchant already has an account with LevelUp, the e-commerce service can facilitate payments on behalf of a merchant account. But you need that merchants permission to do so. You should obtain that permission by exposing a simple login interface (username &amp; password) for enabling merchants to connect their LevelUp merchant account to your service. The login endpoint will return an <code>access_token</code> and merchant ID which can be used to process payments on behalf of that merchant. The merchants username and password should never be stored in your system, only the <code>access_token</code>. Access_tokens are long-lived and would only be invalidated through a manual action a merchant may take in their account dashboard.</p>
+
+<p>If your e-commerce implementation is used for ordering food (or other goods) from specific locations, you’ll also want to pair your system’s representation of a merchant’s location with LevelUp’s representation. The merchant’s ID will also enable you to hit a locations endpoint to look up the locations that belong to that merchant, along with their address and IDs. These can be automatically paired based on address or paired one by one by presenting an interface for the merchant to match up the locations.</p>
+
+<p>Once you have the merchant’s ID, locations and <code>access_token</code>, your e-commerce service has all the necessary information to be ready to process transactions on behalf of another merchant.</p>
+
+<p><u>3) Processing Orders On Behalf Of Your Merchant Account Or Other Merchant’s Accounts</u>
+Sometimes it’s necessary to mix-and-match methods 1 and 2. There’s nothing wrong with that! In fact, it’s quite common. For example, if you are an online ordering company, you’d want to have your own merchant account so that users can pay with LevelUp when ordering from any merchant on your platform, but also enable merchants with LevelUp accounts to connect those accounts so that users can accrue/redeem rewards at those merchants when ordering from your site. In this scenario, simply use the merchant’s <code>access_token</code> when available (when they have a LevelUp merchant account linked) and fall back to your merchant account when they don’t have one.</p>
+
+<p><u>What Does Order Facilitation Mean?</u>
+This idea of processing “on behalf” of a merchant is potentially something new for most e-commerce services services. You are likely used to processing payments on behalf of your own merchant account, and then paying out the merchants directly. With LevelUp, it’s slightly different if you’re facilitating orders on behalf of a merchant’s existing LevelUp account. When you process the payment on behalf of the merchant, here’s what happens:</p>
+
+<ul>
+<li>LevelUp will apply all the merchant funded discounts, incentives offers and campaign logic when the payment is processed through LevelUp on behalf of the merchant. When consumers redeem offers from merchants on LevelUp, we never charge that money to the consumer and thus never pay it to the merchant. If you were to process the payment on behalf of your own merchant account, we wouldn’t be able to apply the merchant’s campaigns and the user would miss out on savings and progress towards future savings.</li>
+<li>LevelUp will pay the merchant directly the next day for all funds, minus of course the discounts and incentives redeemed by users.</li>
+<li>Merchants will be able to see data about that transaction from that customers in their merchant CRM. By processing on behalf of the merchant, merchant’s can track their customers interactions with their business regardless of where they pay; in-store or online.</li>
+<li>Merchants will be able to continue to account for their LevelUp transactions and any campaigns they’re running on LevelUp, all in one place.</li>
+<li>The merchant will pay LevelUp’s 1.95% payment processing fee.</li>
+</ul>
+</div>
+</div>
+<div class="l-clearfix"></div>
+</div>
+</div>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script><script src="../../../scripts.js"></script><script>
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-6677962-51']);
+  _gaq.push(['_setDomainName', 'developer.thelevelup.com']);
+  _gaq.push(['_trackPageview']);
+  
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</body>
+</html>

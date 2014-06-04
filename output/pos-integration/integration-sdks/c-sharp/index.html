@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta content="nanoc 3.6.7" name="generator">
+<title>
+LevelUp Development .:
+Getting Started: C# &amp; .NET
+</title>
+<link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900" media="screen" rel="stylesheet" type="text/css">
+<link href="../../../styles.css" media="screen, projection" rel="stylesheet" type="text/css">
+<link href="../../../images/icon.png" rel="shortcut icon" type="image/png">
+</head>
+<body>
+<div class="main-nav">
+<ul class="l-horizontal">
+<li>
+<a class="main-nav__button" href="https://www.thelevelup.com/">LevelUp</a>
+</li>
+<li class="l-right">
+<a class="main-nav__button main-nav__button--right" href="http://support.thelevelup.com/">Support</a>
+</li>
+<li class="l-right">
+<a class="main-nav__button main-nav__button--right" href="../../../getting-started/sign-up/">Join</a>
+</li>
+</ul>
+</div>
+<div class="l-wrap">
+<div class="content">
+<ul class="side-nav">
+<li>
+<a class="side-nav__button side-nav__button--getting-started" href="../../../">Platform Overview</a>
+<ul class="side-nav__sub">
+<li>
+<ul>
+<li class="side-nav__sub__link">
+<a href="../../../">Overview</a>
+</li>
+</ul>
+<ul></ul>
+</li>
+<li>
+<ul>
+<li class="side-nav__sub__link">
+<a href="../../../getting-started/what-to-build/">What to Build</a>
+</li>
+</ul>
+<ul></ul>
+</li>
+<li>
+<ul>
+<li class="side-nav__sub__link">
+<a href="../../../getting-started/apis-sdks-libraries/">API, SDKs &amp; Libraries</a>
+</li>
+</ul>
+<ul></ul>
+</li>
+<li>
+<ul>
+<li class="side-nav__sub__link">
+<a href="../../../getting-started/permissions-list/">Permissions List</a>
+</li>
+</ul>
+<ul></ul>
+</li>
+<li>
+<ul>
+<li class="side-nav__sub__link">
+<a href="../../../getting-started/rules-of-the-road/">Rules of the Road</a>
+</li>
+</ul>
+<ul></ul>
+</li>
+<li>
+<ul>
+<li class="side-nav__sub__link">
+<a href="../../../getting-started/sign-up/">Sign Up</a>
+</li>
+</ul>
+<ul></ul>
+</li>
+</ul>
+</li>
+<li>
+<a class="side-nav__button side-nav__button--api-reference" href="../../../api-reference/">API Reference</a>
+<ul class="side-nav__sub">
+<li>
+<h5>
+Getting Started
+</h5>
+<ul>
+<li class="side-nav__sub__link">
+<a href="../../../api-reference/">Requests &amp; Responses</a>
+</li>
+</ul>
+</li>
+<li>
+<h5>
+v15 .: BETA
+</h5>
+<ul><ul>
+<li>
+App Access Tokens
+<ul>
+<li class="side-nav__sub__link">
+<a href="../../../api-reference/v15/app-access-tokens-create/">Create</a>
+</li>
+</ul>
+</li>
+<li>
+Credit Cards
+<ul>
+<li class="side-nav__sub__link">
+<a href="../../../api-reference/v15/credit-cards-create/">Create</a>
+</li>
+</ul>
+</li>
+<li>
+Merchant-Funded Credit
+<ul>
+<li class="side-nav__sub__link">
+<a href="../../../api-reference/v15/merchant-funded-credit-give/">Give</a>
+</li>
+</ul>
+</li>
+<li>
+Orders
+<ul>
+<li class="side-nav__sub__link">
+<a href="../../../api-reference/v15/orders-create/">Create</a>
+</li>
+<li class="side-nav__sub__link">
+<a href="../../../api-reference/v15/orders-refunds/">Refund</a>
+</li>
+<li class="side-nav__sub__link">
+<a href="../../../api-reference/v15/user-orders-list/">List</a>
+</li>
+</ul>
+</li>
+<li>
+Permissions
+<ul>
+<li class="side-nav__sub__link">
+<a href="../../../api-reference/v15/permissions-create/">Create</a>
+</li>
+<li class="side-nav__sub__link">
+<a href="../../../api-reference/v15/permissions-request-show/">Show</a>
+</li>
+</ul>
+</li>
+<li>
+QR Codes
+<ul>
+<li class="side-nav__sub__link">
+<a href="../../../api-reference/v15/qr-codes-get/">Get</a>
+</li>
+</ul>
+</li>
+<li>
+User Addresses
+<ul>
+<li class="side-nav__sub__link">
+<a href="../../../api-reference/v15/user-addresses-create/">Create</a>
+</li>
+<li class="side-nav__sub__link">
+<a href="../../../api-reference/v15/user-addresses-show/">List</a>
+</li>
+</ul>
+</li>
+<li>
+Users
+<ul>
+<li class="side-nav__sub__link">
+<a href="../../../api-reference/v15/app-users-create/">Create</a>
+</li>
+<li class="side-nav__sub__link">
+<a href="../../../api-reference/v15/user-show/">Get</a>
+</li>
+</ul>
+</li>
+</ul></ul>
+</li>
+<li>
+<h5>
+v14
+</h5>
+<ul><ul>
+<li>
+Access Tokens
+<ul>
+<li class="side-nav__sub__link">
+<a href="../../../api-reference/v14/access-tokens-create/">Create</a>
+</li>
+</ul>
+</li>
+<li>
+Campaigns
+<ul>
+<li class="side-nav__sub__link">
+<a href="../../../api-reference/v14/campaigns-view-details/">Get Details</a>
+</li>
+<li class="side-nav__sub__link">
+<a href="../../../api-reference/v14/campaigns-claim/">Claim</a>
+</li>
+<li class="side-nav__sub__link">
+<a href="../../../api-reference/v14/campaigns-view-by-cohort/">Get by Cohort</a>
+</li>
+<li class="side-nav__sub__link">
+<a href="../../../api-reference/v14/campaign-claim-legacy/">Claim Legacy</a>
+</li>
+<li class="side-nav__sub__link">
+<a href="../../../api-reference/v14/campaign-get-merchant-id/">Get Merchant ID</a>
+</li>
+<li class="side-nav__sub__link">
+<a href="../../../api-reference/v14/campaign-get-image/">Get Image</a>
+</li>
+</ul>
+</li>
+<li>
+Credit Cards
+<ul>
+<li class="side-nav__sub__link">
+<a href="../../../api-reference/v14/credit-cards-create/">Create</a>
+</li>
+<li class="side-nav__sub__link">
+<a href="../../../api-reference/v14/credit-cards-list/">List</a>
+</li>
+<li class="side-nav__sub__link">
+<a href="../../../api-reference/v14/credit-cards-promote/">Promote</a>
+</li>
+<li class="side-nav__sub__link">
+<a href="../../../api-reference/v14/credit-cards-delete/">Delete</a>
+</li>
+</ul>
+</li>
+<li>
+Detached Refunds
+<ul>
+<li class="side-nav__sub__link">
+<a href="../../../api-reference/v14/detached-refunds-create/">Create</a>
+</li>
+</ul>
+</li>
+<li>
+Interstitials
+<ul>
+<li class="side-nav__sub__link">
+<a href="../../../api-reference/v14/interstitials/">Get</a>
+</li>
+</ul>
+</li>
+<li>
+Locations
+<ul>
+<li class="side-nav__sub__link">
+<a href="../../../api-reference/v14/locations-list-all/">List</a>
+</li>
+<li class="side-nav__sub__link">
+<a href="../../../api-reference/v14/locations-list-by-app/">List by App</a>
+</li>
+<li class="side-nav__sub__link">
+<a href="../../../api-reference/v14/locations-list-by-merchant/">List by Merchant</a>
+</li>
+<li class="side-nav__sub__link">
+<a href="../../../api-reference/v14/locations-show-image/">Get Image</a>
+</li>
+<li class="side-nav__sub__link">
+<a href="../../../api-reference/v14/locations-show-details/">Get Details</a>
+</li>
+</ul>
+</li>
+<li>
+Loyalty
+<ul>
+<li class="side-nav__sub__link">
+<a href="../../../api-reference/v14/loyalties/">Get</a>
+</li>
+</ul>
+</li>
+<li>
+Orders
+<ul>
+<li class="side-nav__sub__link">
+<a href="../../../api-reference/v14/orders-by-app/">List by App</a>
+</li>
+<li class="side-nav__sub__link">
+<a href="../../../api-reference/v14/orders-by-location/">List By Location</a>
+</li>
+<li class="side-nav__sub__link">
+<a href="../../../api-reference/v14/orders-create/">Create</a>
+</li>
+<li class="side-nav__sub__link">
+<a href="../../../api-reference/v14/orders-merchant-details/">Get Merchant Details</a>
+</li>
+<li class="side-nav__sub__link">
+<a href="../../../api-reference/v14/orders-refunds/">Refund</a>
+</li>
+<li class="side-nav__sub__link">
+<a href="../../../api-reference/v14/orders-user-details/">Get User Details</a>
+</li>
+</ul>
+</li>
+<li>
+Payment Tokens
+<ul>
+<li class="side-nav__sub__link">
+<a href="../../../api-reference/v14/payment-tokens/">Get</a>
+</li>
+</ul>
+</li>
+<li>
+Support Tickets
+<ul>
+<li class="side-nav__sub__link">
+<a href="../../../api-reference/v14/support-tickets/">Create</a>
+</li>
+</ul>
+</li>
+<li>
+Users
+<ul>
+<li class="side-nav__sub__link">
+<a href="../../../api-reference/v14/users-create/">Create</a>
+</li>
+<li class="side-nav__sub__link">
+<a href="../../../api-reference/v14/users-show-addresses/">List Addresses</a>
+</li>
+<li class="side-nav__sub__link">
+<a href="../../../api-reference/v14/users-show/">Get Details</a>
+</li>
+<li class="side-nav__sub__link">
+<a href="../../../api-reference/v14/users-update/">Update</a>
+</li>
+<li class="side-nav__sub__link">
+<a href="../../../api-reference/v14/users-reset-password/">Reset Password</a>
+</li>
+<li class="side-nav__sub__link">
+<a href="../../../api-reference/v14/users-custom-attributes/">Custom Attributes</a>
+</li>
+</ul>
+</li>
+</ul></ul>
+</li>
+</ul>
+</li>
+<li>
+<a class="side-nav__button side-nav__button--mobile-sdk" href="../../../mobile-sdks/">Mobile SDK</a>
+<ul class="side-nav__sub">
+<li>
+<h5>
+Getting Started
+</h5>
+<ul>
+<li class="side-nav__sub__link">
+<a href="../../../mobile-sdks/">Overview</a>
+</li>
+<li class="side-nav__sub__link">
+<a href="../../../mobile-sdks/getting-started/rules-of-the-road/">Rules of the Road</a>
+</li>
+<li class="side-nav__sub__link">
+<a href="../../../mobile-sdks/getting-started/ios/">Getting Started: iOS</a>
+</li>
+<li class="side-nav__sub__link">
+<a href="../../../mobile-sdks/getting-started/android/">Getting Started: Android</a>
+</li>
+</ul>
+</li>
+<li>
+<h5>
+Core Concepts
+</h5>
+<ul>
+<li class="side-nav__sub__link">
+<a href="../../../mobile-sdks/core-concepts/deep-link-auth/">Deep Link Auth</a>
+</li>
+<li class="side-nav__sub__link">
+<a href="../../../mobile-sdks/core-concepts/login/">Login</a>
+</li>
+<li class="side-nav__sub__link">
+<a href="../../../mobile-sdks/core-concepts/register/">Register</a>
+</li>
+<li class="side-nav__sub__link">
+<a href="../../../mobile-sdks/core-concepts/manage-cards/">Manage Cards</a>
+</li>
+<li class="side-nav__sub__link">
+<a href="../../../mobile-sdks/core-concepts/payment/">Payment</a>
+</li>
+</ul>
+</li>
+<li>
+<h5>
+Additional Concepts
+</h5>
+<ul>
+<li class="side-nav__sub__link">
+<a href="../../../mobile-sdks/additional-concepts/locations/">Locations</a>
+</li>
+<li class="side-nav__sub__link">
+<a href="../../../mobile-sdks/additional-concepts/loyalty/">Loyalty</a>
+</li>
+<li class="side-nav__sub__link">
+<a href="../../../mobile-sdks/additional-concepts/order-history/">Order History</a>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="is-active">
+<a class="side-nav__button side-nav__button--pos-integration" href="../../">POS Integration</a>
+<ul class="side-nav__sub">
+<li>
+<h5>
+Getting Started
+</h5>
+<ul>
+<li class="side-nav__sub__link">
+<a href="../../">Overview</a>
+</li>
+<li class="side-nav__sub__link">
+<a href="../../getting-started/developer-setup/">Developer Setup</a>
+</li>
+</ul>
+</li>
+<li>
+<h5>
+Core Concepts
+</h5>
+<ul>
+<li class="side-nav__sub__link">
+<a href="../../core-concepts/configuring-merchants/">Configuring Merchants</a>
+</li>
+<li class="side-nav__sub__link">
+<a href="../../core-concepts/processing-transactions/">Processing Transactions</a>
+</li>
+<li class="side-nav__sub__link">
+<a href="../../core-concepts/handling-refunds/">Handling Refunds</a>
+</li>
+<li class="side-nav__sub__link">
+<a href="../../core-concepts/consumer-flow/">Consumer Flow</a>
+</li>
+</ul>
+</li>
+<li>
+<h5>
+Additional Concepts
+</h5>
+<ul>
+<li class="side-nav__sub__link">
+<a href="../../additional-concepts/common-questions/">Common Questions</a>
+</li>
+</ul>
+</li>
+<li>
+<h5>
+Integration SDK
+</h5>
+<ul>
+<li class="side-nav__sub__link">
+<a href="../overview/">Overview</a>
+</li>
+<li class="side-nav__sub__link">
+<a href="../rules-of-the-road/">Rules of the Road</a>
+</li>
+<li class="side-nav__sub__link">
+<span class="active" title="You're here.">Getting Started: C# &amp; .NET</span>
+</li>
+</ul>
+</li>
+<li>
+<h5>
+Certification &amp; Residuals
+</h5>
+<ul>
+<li class="side-nav__sub__link">
+<a href="../../certification-residuals/overview/">Overview</a>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<a class="side-nav__button side-nav__button--online-ordering" href="../../../online-ordering/">Mobile &amp; E-Commerce</a>
+<ul class="side-nav__sub">
+<li>
+<h5>
+Getting Started
+</h5>
+<ul>
+<li class="side-nav__sub__link">
+<a href="../../../online-ordering/">Overview</a>
+</li>
+<li class="side-nav__sub__link">
+<a href="../../../online-ordering/getting-started/developer-setup/">Developer Setup</a>
+</li>
+</ul>
+</li>
+<li>
+<h5>
+Sample UX Flows
+</h5>
+<ul>
+<li class="side-nav__sub__link">
+<a href="../../../online-ordering/sample-ux-flows/levelup-as-payment/">LevelUp as Payment</a>
+</li>
+<li class="side-nav__sub__link">
+<a href="../../../online-ordering/sample-ux-flows/levelup-as-login/">LevelUp as Login</a>
+</li>
+<li class="side-nav__sub__link">
+<a href="../../../online-ordering/sample-ux-flows/levelup-as-account-of-record/">LevelUp as Account of Record</a>
+</li>
+<li class="side-nav__sub__link">
+<a href="../../../online-ordering/sample-ux-flows/embedded-flow/">Embedded Flow</a>
+</li>
+</ul>
+</li>
+<li>
+<h5>
+Core Concepts
+</h5>
+<ul>
+<li class="side-nav__sub__link">
+<a href="../../../online-ordering/core-concepts/merchant-permissions/">Merchant Permissions</a>
+</li>
+<li class="side-nav__sub__link">
+<a href="../../../online-ordering/core-concepts/user-flow/">User Flow</a>
+</li>
+<li class="side-nav__sub__link">
+<a href="../../../online-ordering/core-concepts/user-permissions/">User Permissions</a>
+</li>
+<li class="side-nav__sub__link">
+<a href="../../../online-ordering/core-concepts/processing-transactions/">Processing Transactions</a>
+</li>
+<li class="side-nav__sub__link">
+<a href="../../../online-ordering/core-concepts/handling-refunds/">Handling Refunds</a>
+</li>
+<li class="side-nav__sub__link">
+<a href="../../../online-ordering/core-concepts/common-questions/">Common Questions</a>
+</li>
+<li class="side-nav__sub__link">
+<a href="../../../online-ordering/core-concepts/showcasing-savings/">Showcasing Savings</a>
+</li>
+</ul>
+</li>
+<li>
+<h5>
+Certification &amp; Residuals
+</h5>
+<ul>
+<li class="side-nav__sub__link">
+<a href="../../../online-ordering/certification-residuals/overview/">Overview</a>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div class="documentation">
+<div class="documentation__header">
+<div class="l-horizontal">
+<h4>
+Getting Started: C# &amp; .NET
+</h4>
+<h4 class="documentation__header--section l-right">
+POS Integration / Integration SDK
+</h4>
+</div>
+</div>
+<div class="documentation__content">
+<h2>Overview</h2>
+
+<p>The <a href="https://github.com/TheLevelUp/levelup-integration-sdk-csharp/releases" target="_blank">LevelUp Integration SDK</a> provides the basic building blocks you’ll need to integrate LevelUp into
+a point-of-sale system or other merchant-oriented app. Specifically, the SDK provides classes and
+libraries which allow you to make requests to the LevelUp web service and handle the results. The
+SDK doesn’t mandate using any UI framework in particular.</p>
+
+<p>NOTE: There are several links on this page that should take you to our GitHub repository where the
+integration SDK is published. However, the SDK is still in limited preview as of this writing and
+you will need to be granted access before being able to follow some of the links in this section. If
+any of the links in this section appear to be broken for you, please ensure that you <a href="../../../getting-started/sign-up/">request access</a>
+ to the point-of-sale integration SDK.</p>
+
+<p>While the SDK itself doesn’t contain UI components, we don’t want to leave you completely in the
+cold. The <a href="https://github.com/TheLevelUp/levelup-integration-sdk-csharp/releases" target="_blank">example app</a> provides a bare-bones implementation of a UI built in
+<a href="http://msdn.microsoft.com/en-us/library/vstudio/ms754130.aspx" target="_blank">WPF</a> on top of the LevelUp SDK.</p>
+
+<h2>Requirements</h2>
+
+<p>The LevelUp SDK is designed to work with the .NET 3.0 platform and was built using Visual Studio’s
+build system. The SDK depends on the <a href="http://restsharp.org/" target="_blank">RestSharp</a>
+and <a href="ttp://james.newtonking.com/projects/json-net.aspx" target="_blank">Json.NET</a>
+libraries, which are included in the <code>bin</code> folders as <code>.dll</code> files.</p>
+
+<p>The LevelUp SDK example app depends on the SDK library. Instructions on setting up and building
+the example app source code are provided in the installation section.</p>
+
+<h3>API key</h3>
+
+<p>To use the LevelUp SDK, you will need to first <a href="../../../getting-started/sign-up/">request a LevelUp API key</a>.</p>
+
+<h2>Installation</h2>
+
+<p>To get a good feel for how to use the SDK, first download the example app source code from the
+<a href="https://github.com/TheLevelUp/levelup-integration-sdk-csharp/releases" target="_blank">releases page</a>. This will walk you through the basics for authentication,
+merchant configuration, placing an order, and requesting a refund.</p>
+
+<p>It is recommended to get the latest SDK version by way of Git. If you’re unfamiliar with Git, please
+see the <a href="https://help.github.com/" target="_blank">GitHub Getting Started Guide</a>.</p>
+
+<h3>Getting the SDK</h3>
+
+<p>Our <a href="https://github.com/TheLevelUp/levelup-integration-sdk-csharp" target="_blank">GitHub
+repository</a> <a href="https://github.com/TheLevelUp/levelup-integration-sdk-csharp/releases" target="_blank">releases page</a> contains everything you need to get up and running. We recommend
+that you download the <a href="https://github.com/TheLevelUp/levelup-integration-sdk-csharp/releases" target="_blank">example app source code and the compiled libraries</a>
+which you would need to reference in your own app if you wanted to make use of them. We have also
+included the source code for the SDK if you would like to make your own adjustments or just see
+what is going on behind the scenes.</p>
+
+<p>Before any requests can be made, you need to set your own API key as a constant in your source code
+(or via a resources file) as described below.</p>
+
+<h3>Building the Sample with Visual Studio</h3>
+
+<p>Open Visual Studio and go to <code>File --&gt; Open --&gt; Project/Solution</code>. Then select both the example app
+<code>ConfigurationTool.csproj</code> file in the <code>ExampleApp</code> folder from the source code <code>.zip</code>
+folder. You will need to re-add the references to the LevelUpApi and Newtonsoft.Json libraries which
+can be obtained from the built SDK binaries <code>.zip</code> folders on the <a href="https://github.com/TheLevelUp/levelup-integration-sdk-csharp/releases" target="_blank">releases page</a>. Once those references are added, you should be able to build
+successfully.</p>
+
+<p>Once built, you should open the LevelUpTabItem.xaml.cs file and put your own API key here</p>
+<div class="highlight"><pre>    <span class="k">private</span> <span class="k">const</span> <span class="kt">string</span> <span class="n">CLIENT_ID</span> <span class="p">=</span> <span class="s">"LevelUp API key goes here"</span><span class="p">;</span>  <span class="c1">//TODO: Set your API key here</span>
+</pre></div>
+<p>where it says, “LevelUp API key goes here”.</p>
+
+<p>You should now be able to run the <code>ConfigurationTool</code> app successfully.</p>
+
+</div>
+</div>
+<div class="l-clearfix"></div>
+</div>
+</div>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script><script src="../../../scripts.js"></script><script>
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-6677962-51']);
+  _gaq.push(['_setDomainName', 'developer.thelevelup.com']);
+  _gaq.push(['_trackPageview']);
+  
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</body>
+</html>

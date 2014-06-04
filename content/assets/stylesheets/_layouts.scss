@@ -1,0 +1,31 @@
+.l-centered {
+  margin: 0 auto;
+  text-align: center;
+}
+
+.l-clearfix {
+  @include clearfix;
+}
+
+.l-hide {
+  display: none;
+}
+
+.l-horizontal {
+  @include clearfix;
+
+  & > * {
+    float: left;
+  }
+}
+
+.l-right {
+  float: right !important;
+}
+
+.l-wrap {
+  @include clearfix;
+  margin: 0 auto;
+  position: relative;
+  width: 1050px;
+}
